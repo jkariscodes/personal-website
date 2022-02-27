@@ -8,11 +8,18 @@ def home(request):
 
 
 class PostView(ListView):
+    """
+    Blog posts view.
+    """
     model = Post
     template_name = 'blog.html'
+    paginate_by = 5
 
 
 class ArticleView(DetailView):
+    """
+    Single post view.
+    """
     model = Post
     template_name = 'article.html'
 
