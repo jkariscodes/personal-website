@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -13,11 +14,22 @@ class Post(models.Model):
     )
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
-    slug = models.SlugField(max_length=200, unique_for_date='publish')
+    slug = models.SlugField(max_length=200, unique_for_date='published')
     body = models.TextField()
     published = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    status = models.CharField(
+        max_length=10,
+        choices=STATUS_CHOICES,
+        default='draft'
+    )
+
+    def get_absolute_url(self):
+        """
+        Return the canonical URL of the post.
+        """
+        return reverse('website:article-detail', args=[self.slug])
 
     class Meta:
         ordering = ('-published',)

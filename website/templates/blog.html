@@ -1,11 +1,14 @@
 {% extends 'base.html' %}
-<h1>Posts</h1>
+
+{% block title %}Blog{% endblock %}
+
 {% block content %}
-<ul>
-    {% for post in object_list %}
-    <li><a href="{% url 'website:article-detail' post.slug %}">{{ post.title }}</a><br/>
-        {{ post.body|truncatechars:50 }}
-    </li>
+    <h1>Blog</h1>
+    <ul>
+        {% for post in object_list %}
+        <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a><br/>
+            {{ post.body|truncatechars:50 }}
+        </li>
 {% endfor %}
 </ul>
 {% include "paginator.html" %}
