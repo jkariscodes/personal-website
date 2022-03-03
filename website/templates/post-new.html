@@ -3,6 +3,7 @@
 {% block title %}Create Blog Post{% endblock %}
 
 {% block content %}
+    {% if user.is_authenticated %}
     <h1>Add Post...</h1>
     <div class="form-group">
         <form method="POST">
@@ -11,5 +12,8 @@
             <button class="btn btn-secondary">Publish</button>
         </form>
     </div>
+    {% else %}
+        <p>Please <a href="{% url 'login' %}">log in</a>  to create blog posts.</p>
+    {% endif %}
 
 {% endblock %}

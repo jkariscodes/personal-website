@@ -80,40 +80,4 @@ class UpdatePostView(UpdateView):
     model = Post
     template_name = 'edit-post.html'
     fields = ['title', 'body', 'status']
-    
-
-class DeletePostView(DeleteView):
-    """
-    Delete blog post.
-    """
-    model = Post
-    template_name = 'delete-post.html'
-    success_url = reverse_lazy('website:blog')
-
-
-def contact_view(request):
-    """
-    Contact form view.
-    """
-    if request.method == 'GET':
-        form = ContactForm()
-    else:
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            subject = form.cleaned_data['subject']
-            from_email = form.cleaned_data['from_email']
-            message = form.cleaned_data['message']
-            try:
-                send_mail(subject, message, from_email, ['admin@example.com'])
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-            return redirect('website:success')
-    return render(request, "contact.html", {'form': form})
-
-
-def success_view(request):
-    """
-    Success message.
-    """
-    return render(request, "success.html")
 

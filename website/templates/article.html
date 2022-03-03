@@ -9,8 +9,12 @@
         {{ post.body }}
     </p>
     <hr>
-    <small>Post by: {{ post.author }}</small>
+    <small>Post by: {{ post.author }} on {{ post.published.date }}</small>
     <br><br>
     <a href="{{ '/blog'}}" class="btn btn-secondary">Back</a>
-    <a href="{% url 'website:update_post' post.pk %}" class="btn btn-secondary">Edit Post</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'website:update_post' post.slug %}" class="btn btn-secondary">Edit Post</a>
+        <a href="{% url 'website:delete_post' post.slug %}" class="btn btn-secondary">Delete Post</a>
+    {% endif %}
+    <a href="{% url 'website:post_share' post.slug %}" class="btn btn-secondary">Share Post</a>
 {% endblock %}

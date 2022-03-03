@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post, PostComment
+from .models import Post
 
 
 class PostForm(forms.ModelForm):
@@ -17,31 +17,3 @@ class PostForm(forms.ModelForm):
                                           }),
             'status': forms.Select(attrs={'class': 'form-control'}),
         }
-        
-class EmailPostForm(forms.Form):
-    """
-    Share blog post form.
-    """
-    name = forms.CharField(max_length=30)
-    email = forms.EmailField()
-    to = forms.EmailField()
-    comments = forms.CharField(required=False, widget=forms.Textarea)
-
-
-class CommentForm(forms.ModelForm):
-    """
-    Post comment form.
-    """
-    class Meta:
-        model = PostComment
-        fields = ('name', 'email', 'body')
-
-
-class ContactForm(forms.Form):
-    """
-    Contact form.
-    """
-    from_email = forms.EmailField(required=True)
-    subject = forms.CharField(required=True)
-    message = forms.CharField(widget=forms.Textarea, required=True)
-

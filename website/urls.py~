@@ -26,4 +26,3 @@ urlpatterns = [
     path('blog/article/<slug:slug>/delete/', DeletePostView.as_view(), name='delete_post'),
     path('blog/article/<slug:post_slug>/share/', post_share, name='post_share'),
 ]
-

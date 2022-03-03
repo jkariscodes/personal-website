@@ -4,12 +4,16 @@
 
 {% block content %}
     <h1>Blog</h1>
-    <ul>
         {% for post in object_list %}
-        <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a><br/>
-            {{ post.body|truncatechars:50 }}
-        </li>
-{% endfor %}
-</ul>
-{% include "paginator.html" %}
+            <ul>
+                <li>
+                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a><br/>{{ post.body|truncatechars:50 }}
+                </li>
+            </ul>
+            {% include "paginator.html" %}
+        {% empty %}
+            <p>
+                Sorry, no blog posts to display.
+            </p>
+        {% endfor %}
 {% endblock %}
