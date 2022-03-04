@@ -1,9 +1,9 @@
 from django.contrib import admin
 
-from .models import Post, PostComment
+from .models import Post, PostComment, Category
 
 
-admin.register(Post)
+
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     """
@@ -16,6 +16,14 @@ class PostAdmin(admin.ModelAdmin):
     # raw_id_fields = ('author',)
     date_hierarchy = 'published'
     ordering = ('status', 'published')
+
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    """
+    Customizing category Model display.
+    """
+    ordering = ('name',)
 
     
 @admin.register(PostComment)

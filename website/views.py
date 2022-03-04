@@ -5,7 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post, PostComment
-from .forms import PostForm, EmailPostForm, CommentForm, ContactForm
+from .forms import PostForm, EmailPostForm, CommentForm, ContactForm, Category
 
 
 def home(request):
@@ -71,6 +71,14 @@ class AddPostView(CreateView):
     model = Post
     form_class = PostForm
     template_name = 'post-new.html'
+
+class AddCategory(CreateView):
+    """
+    Create blog post view.
+    """
+    model = Category
+    template_name = 'article-category.html'
+    fields = '__all__'
 
 
 class UpdatePostView(UpdateView):

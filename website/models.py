@@ -7,6 +7,21 @@ from autoslug.fields import AutoSlugField
 
 User = get_user_model()
 
+class Category(models.Model):
+    """
+    Post categories.
+    """
+    name = models.CharField(max_length=30, default='uncategorized')
+
+    def __str__(self):
+        return self.name
+
+    def get_absolute_url(self):
+        """
+        Canonical URL for the category
+        """
+        return reverse('website:article-category', args=self.name)
+
 
 class Post(models.Model):
     """Post model"""
@@ -21,6 +36,7 @@ class Post(models.Model):
     published = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_DEFAULT, default='uncategorized')
     status = models.CharField(
         max_length=10,
         choices=STATUS_CHOICES,
