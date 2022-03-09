@@ -12,6 +12,10 @@
             <button class="btn btn-secondary">Publish</button>
         </form>
     </div>
+    <script>
+        const name = "{{ user.id }}";
+        document.getElementById('hemp').placeholder = name;
+    </script>
     {% else %}
         <p>Please <a href="{% url 'login' %}">log in</a>  to create blog posts.</p>
     {% endif %}

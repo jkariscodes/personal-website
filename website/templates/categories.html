@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{%  block content %}
+    {% if category_posts %}
+        <h1>{{ cats|title }}</h1>
+        {% for post in category_posts %}
+            <ul>
+                <li>
+                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a><br/>{{ post.body|truncatechars:50 }}
+                </li>
+            </ul>
+            {% include "paginator.html" %}
+            {% empty %}
+            <p>
+                Sorry, no blog posts to display under this category.
+            </p>
+        {% endfor %}
+    {% else %}
+        Sorry, this page does not exist.
+    {% endif %}
+{% endblock %}

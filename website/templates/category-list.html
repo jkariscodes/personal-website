@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Post Categories{% endblock %}
+
+{% block content %}
+    <ol type="i">
+        {% for cat in category_list %}
+            <li><a href="{% url 'website:category' cat.name|slugify %}">{{ cat.name|title }}</a></li>
+        {% endfor %}
+    </ol>
+{% endblock %}

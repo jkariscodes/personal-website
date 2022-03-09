@@ -56,6 +56,15 @@ class PostView(ListView):
     paginate_by = 5
 
 
+class CategoriesView(ListView):
+    """
+    List all categories.
+    """
+    model = Category
+    template_name = 'category-list.html'
+    ordering = ['-name']
+
+
 class ArticleView(DetailView):
     """
     Single post view.
@@ -124,4 +133,14 @@ def success_view(request):
     Success message.
     """
     return render(request, "success.html")
+
+
+
+def category_view(request, cats):
+    """
+    Category view
+    """
+    category_posts = Post.objects.filter(category=cats.replace('-', ' '))
+    return render(request, 'categories.html', {'cats': cats.title().replace('-', ' '),
+                                               'category_posts': category_posts})
 

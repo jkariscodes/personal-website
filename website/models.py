@@ -20,7 +20,7 @@ class Category(models.Model):
         """
         Canonical URL for the category
         """
-        return reverse('website:article-category', args=self.name)
+        return reverse('website:home', args=self.name)
 
 
 class Post(models.Model):

@@ -5,14 +5,16 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-    <h1>Add Post...</h1>
-    <div class="form-group">
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn btn-secondary">Update</button>
-        </form>
-    </div>
+    {% if user.id == post.author.id %}
+        <h1>Add Post...</h1>
+        <div class="form-group">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button class="btn btn-secondary">Update</button>
+            </form>
+        </div>
+    {% endif %}
 {% else %}
     <p>Please <a href="{% url 'login' %}">log in</a> to edit this blog post.</p>
 {% endif %}
