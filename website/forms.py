@@ -19,7 +19,7 @@ class PostForm(forms.ModelForm):
                        }),
             'slug': forms.TextInput(attrs={'class': 'form-control'}),
             'author': forms.TextInput(
-                attrs={'class': 'form-control', 'id': 'hemp', 'type': 'hidden'
+                attrs={'class': 'form-control', 'value': '', 'id': 'hemp', 'type': 'hidden'
                        }),
             'category': forms.Select(choices=cats_list, attrs={'class': 'form-control'}),
             'body': forms.Textarea(attrs={'class': 'form-control',
