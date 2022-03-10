@@ -14,6 +14,7 @@ from .views import (
     category_view,
     CategoriesView,
 )
+from .feeds import LatestPostsFeed
 
 app_name = 'website'
 
@@ -31,5 +32,6 @@ urlpatterns = [
     path('blog/article/<slug:slug>/edit/', UpdatePostView.as_view(), name='update_post'),
     path('blog/article/<slug:slug>/delete/', DeletePostView.as_view(), name='delete_post'),
     path('blog/article/<slug:post_slug>/share/', post_share, name='post_share'),
+    path('feed/', LatestPostsFeed(), name='post_feed'),
 ]
 
