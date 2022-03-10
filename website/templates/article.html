@@ -6,7 +6,7 @@
     <h1>{{ post.title }}</h1>
     <hr>
     <p>
-        {{ post.body }}
+        {{ post.body|safe }}
     </p>
     <hr>
     <small>Post by: {{ post.author }} on {{ post.published.date }}</small>

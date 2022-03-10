@@ -7,7 +7,7 @@
         {% for post in object_list %}
             <ul>
                 <li>
-                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a><br/>{{ post.body|truncatechars:50 }}
+                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a><br/>{{ post.body|safe|truncatechars:50 }}
                 </li>
             </ul>
             {% include "paginator.html" %}
