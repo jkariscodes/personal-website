@@ -12,7 +12,7 @@ for item in cats:
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'slug', 'author', 'category', 'body', 'status')
+        fields = ('title', 'slug', 'author', 'category', 'body', 'snippet', 'status')
         widgets = {
             'title': forms.TextInput(
                 attrs={'class': 'form-control', 'placeholder': 'Add a title'
@@ -25,6 +25,8 @@ class PostForm(forms.ModelForm):
             'body': forms.Textarea(attrs={'class': 'form-control',
                                           'placeholder': 'Add body content'
                                           }),
+            'snippet': forms.Textarea(attrs={'class': 'form-control',
+                                             'placeholder': 'Add a snippet for the blog post...'}),
             'status': forms.Select(attrs={'class': 'form-control'}),
         }
         

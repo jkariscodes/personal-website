@@ -39,6 +39,7 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     category = models.ForeignKey(Category, on_delete=models.SET_DEFAULT, default='uncategorized')
+    snippet = models.CharField(max_length=255)
     status = models.CharField(
         max_length=10,
         choices=STATUS_CHOICES,
