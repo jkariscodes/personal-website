@@ -3,13 +3,14 @@ from django.views import generic
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
+from .forms import AccountRegistrationForm
 
 
 class UserRegistrationView(generic.CreateView):
     """
     User creation view.
     """
-    form_class = UserCreationForm
+    form_class = AccountRegistrationForm
     template_name = 'registration/register.html'
     success_url = reverse_lazy('account:register')
 
