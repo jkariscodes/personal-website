@@ -7,7 +7,7 @@
         <p>
             "{{ post.title }}" was successfully sent to {{ form.cleaned_data.to }}.
         </p>
-        <a href="{{ '/blog'}}" class="btn btn-secondary">Back</a>
+        <a href="{% url 'website:blog %}" class="btn btn-secondary">Back</a>
     {% else %}
         <h1>Share "{{ post.title }}" by e-mail</h1>
         <form method="post">

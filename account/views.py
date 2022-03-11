@@ -15,6 +15,19 @@ class UserRegistrationView(generic.CreateView):
     success_url = reverse_lazy('account:register-success')
 
 
+class UserEditView(generic.UpdateView):
+    """
+    Edit user profile.
+    """
+    form_class = UserEditForm
+    template_name = 'registration/edit.html'
+    success_url = reverse_lazy('account:dashboard')
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+
+
 def register_success(request):
     """
     Registration success.

@@ -18,7 +18,7 @@
         document.getElementById('hemp').value = name;
     </script>
     {% else %}
-        <p>Please <a href="{% url 'login' %}">log in</a>  to create blog posts.</p>
+        <p>Please <a href="{% url 'account:login' %}">log in</a>  to create blog posts.</p>
     {% endif %}
 
 {% endblock %}

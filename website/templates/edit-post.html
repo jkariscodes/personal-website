@@ -17,7 +17,7 @@
         </div>
     {% endif %}
 {% else %}
-    <p>Please <a href="{% url 'login' %}">log in</a> to edit this blog post.</p>
+    <p>Please <a href="{% url 'account:login' %}">log in</a> to edit this blog post.</p>
 {% endif %}
 
 {% endblock %}
