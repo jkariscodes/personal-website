@@ -12,7 +12,7 @@ class Category(models.Model):
     """
     Post categories.
     """
-    name = models.CharField(max_length=30, default='uncategorized')
+    name = models.CharField(max_length=30, default='Uncategorized')
 
     def __str__(self):
         return self.name

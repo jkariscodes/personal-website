@@ -4,9 +4,7 @@ from .models import Post, PostComment, Category
 # Post Categories
 cats = Category.objects.all().values_list('name', 'name')
 # List of choices to select from
-cats_list = []
-for item in cats:
-    cats_list.append(item)
+cats_list = [cat for cat in cats]
 
 
 class PostForm(forms.ModelForm):
@@ -15,7 +13,7 @@ class PostForm(forms.ModelForm):
         fields = ('title', 'slug', 'author', 'category', 'body', 'snippet', 'status')
         widgets = {
             'title': forms.TextInput(
-                attrs={'class': 'form-control', 'placeholder': 'Add a title'
+                attrs={'class': 'form-control', 'placeholder': 'Add a post title'
                        }),
             'slug': forms.TextInput(attrs={'class': 'form-control'}),
             'author': forms.TextInput(
@@ -57,3 +55,8 @@ class ContactForm(forms.Form):
     subject = forms.CharField(required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
     message = forms.CharField(required=True, widget=forms.Textarea(attrs={'class': 'form-control'}))
 
+# class SearchForm(forms.Form):
+#     """
+#     Search form for blog posts.
+#     """
+#     query = forms.CharField()
