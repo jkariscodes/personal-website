@@ -5,7 +5,7 @@
 {% block content %}
     {% if user.is_authenticated %}
     <h1>Add Post...</h1>
-    <div class="form-group">
+    <div class="form-group" enctype="multipart/form-data">
         <form method="POST">
             {% csrf_token %}
             {{ form.media }}

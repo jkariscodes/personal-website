@@ -33,7 +33,7 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     slug = AutoSlugField(populate_from='title', unique=True, editable=True)
-    # body = models.TextField()
+    header_image = models.ImageField(null=True, blank=False, upload_to="images")
     body = RichTextField(blank=True, null=True)
     published = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)

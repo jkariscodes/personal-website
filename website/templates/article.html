@@ -6,6 +6,7 @@
     <h1>{{ post.title }}</h1>
     <hr>
     <p>
+        <img src="{{ post.header_image.url }}"/>
         {{ post.body|safe }}
     </p>
     <hr>
