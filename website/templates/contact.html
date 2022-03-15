@@ -1,16 +1,20 @@
 {% extends 'base.html' %}
 
-{% block title %}Contact Us{% endblock %}
+{% block title %}Contact Us - {{ block.super }}{% endblock %}
 
 {% block content %}
-
-    <h1>Contact Form</h1>
+    <div class="container">
+    <h1 align="center">Contact Form</h1>
+    <p>
+        Please feel free to reach out through e-mail using the contact form below.
+    </p>
     <div class="form-group">
         <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
             <button class="btn btn-secondary">Submit</button>
         </form>
+    </div>
     </div>
 
 {% endblock %}
