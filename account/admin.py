@@ -4,4 +4,9 @@ from .models import Profile
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ['user', 'date_of_birth'] # TODO add profile photo
+    list_display = [
+        'user',
+        'bio',
+        'date_of_birth',
+        'profile_pic',
+    ]

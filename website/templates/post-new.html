@@ -1,24 +1,26 @@
 {% extends 'base.html' %}
 
-{% block title %}Create Blog Post{% endblock %}
+{% block title %}Create Blog Post - {{ block.super }}{% endblock %}
 
 {% block content %}
+    <div class="container">
     {% if user.is_authenticated %}
-    <h1>Add Post...</h1>
-    <div class="form-group" enctype="multipart/form-data">
-        <form method="POST">
-            {% csrf_token %}
-            {{ form.media }}
-            {{ form.as_p }}
-            <button class="btn btn-secondary">Publish</button>
-        </form>
-    </div>
-    <script>
-        const name = "{{ user.id }}";
-        document.getElementById('hemp').value = name;
-    </script>
+        <h1>Add Post...</h1>
+        <div class="form-group">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.media }}
+                {{ form.as_p }}
+                <button class="btn btn-secondary">Publish</button>
+            </form>
+        </div>
+        <script>
+            const name = "{{ user.id }}";
+            document.getElementById('hemp').value = name;
+        </script>
     {% else %}
         <p>Please <a href="{% url 'account:login' %}">log in</a>  to create blog posts.</p>
     {% endif %}
+    </div>
 
 {% endblock %}

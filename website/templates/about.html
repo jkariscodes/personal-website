@@ -1,7 +1,37 @@
 {% extends 'base.html' %}
-
-{% block title %}About{% endblock %}
+{% load static %}
+{% block title %}About - {{ block.super }} {% endblock %}
 
 {% block content %}
+    <div class="about" id="about">
+	<div class="container">
+	  <h1 class="text-center">About Me</h1>
+		<div class="row">
+			<div class="col-md-4">
+				<img src="{% static 'website/img/about.jpg' %}" class="img-thumbnail">
+				<span class="text-justify">Software Developer</span>
+			</div>
+			<div class="col-lg-8 col-md-8 col-sm-12 desc">
 
+				<h3>J. Kariuki</h3>
+				<p>
+				    Joseph Kariuki is a software developer and geospatial engineer hailing from Nairobi City, Joseph has
+                    taken on the tech journey and content creation by force, garnering experience and contributing to
+                    several projects. <br>
+                    Joseph has worked for various organizations and helped clients alike in delivering cutting-edge
+                    solutions <br>
+                    Catch him on his alternate website and watch his content on his YouTube channel .
+				</p>
+                <p class="card-text">
+                    <a href="https://jkariukidev.github.io"><i class="bi-globe" role="img" aria-label="Globe"></i></a> |
+                    <a href="#"><i class="bi-facebook" role="img" aria-label="Facebook"></i></a> |
+                    <a href="https://twitter.com/jkariukidev"><i class="bi-twitter" role="img" aria-label="Twitter"></i></a> |
+                    <a href="https://instagram.com/jkariukidev"><i class="bi-instagram" role="img" aria-label="Instagram"></i></a> |
+                    <a href="https://github.com/jkariukidev"><i class="bi-github" role="img" aria-label="GitHub"></i></a> |
+                    <a href="https://www.youtube.com/c/JosephKariukiiAsj12"><i class="bi-youtube" role="img" aria-label="YouTube"></i></a>
+                </p>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock %}

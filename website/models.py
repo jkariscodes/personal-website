@@ -8,21 +8,6 @@ from autoslug.fields import AutoSlugField
 
 User = get_user_model()
 
-class Category(models.Model):
-    """
-    Post categories.
-    """
-    name = models.CharField(max_length=30, default='Uncategorized')
-
-    def __str__(self):
-        return self.name
-
-    def get_absolute_url(self):
-        """
-        Canonical URL for the category
-        """
-        return reverse('website:home', args=self.name)
-
 
 class Post(models.Model):
     """Post model"""
@@ -33,12 +18,14 @@ class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     slug = AutoSlugField(populate_from='title', unique=True, editable=True)
+    # body = models.TextField()
     header_image = models.ImageField(null=True, blank=False, upload_to="images")
+    # TODO allow only images if specific site
     body = RichTextField(blank=True, null=True)
     published = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    category = models.ForeignKey(Category, on_delete=models.SET_DEFAULT, default='uncategorized')
+    category = models.CharField(max_length=50)
     snippet = models.CharField(max_length=255)
     status = models.CharField(
         max_length=10,
@@ -57,6 +44,22 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title + ' | ' + str(self.author)
+
+
+# class Category(models.Model):
+#     """
+#     Blogpost category.
+#     """
+#     name = models.ForeignKey(Post, on_delete=models.CASCADE)
+#
+#     def get_absolute_url(self):
+#         """
+#         Canonical URL.
+#         """
+#         return reverse('website:home', args=[self.name])
+#
+#     def __str__(self):
+#         return self.name
 
 
 class PostComment(models.Model):
@@ -78,3 +81,5 @@ class PostComment(models.Model):
 
     def __str__(self):
         return f'Comment by {self.name} on {self.post}'
+
+

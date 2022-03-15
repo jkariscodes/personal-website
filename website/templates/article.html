@@ -1,19 +1,65 @@
 {% extends 'base.html' %}
-
-{% block title %}{{ post.title }}{% endblock %}
+{% load static %}
+{% block title %}{{ post.title }} - {{ block.super }}{% endblock %}
 
 {% block content %}
+    <div class="container">
     <h1>{{ post.title }}</h1>
     <hr>
     <p>
-        <img src="{{ post.header_image.url }}"/>
+        <img src="{{ post.header_image.url }}" class="img-thumbnail"/>
         {{ post.body|safe }}
     </p>
     <hr>
-    <small>Post by: {{ post.author }} on {{ post.published.date }}</small>
-    <small>Category: <a href="{% url 'website:category' post.category|slugify %}">{{ post.category }}</a></small>
-    <br><br>
-    <a href="{% url 'website:blog' %}" class="btn btn-secondary">Back</a>
+    <small>Post by: {{ post.author }} on {{ post.published.date }}</small><br/>
+{#    <small>Category: <a href="{% url 'website:category' post.category|slugify %}">{{ post.category }}</a></small>#}
+    <br>
+    <br>
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                {% if post.author.profile.profile_pic %}
+                    <img src="{{ post.author.profile.profile_pic.url }}" class="card-img">
+                {% else %}
+                    <img src="{% static 'website/img/default_user_avatar.png' %}" class="card-img">
+                {% endif %}
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.author.first_name }} {{ post.author.last_name }}</h5>
+                    <p class="card-text">
+                        {% if post.author.profile.id %}
+                            <a href="{% url 'account:user_profile' post.author.profile.id %}"><i class="bi-person-fill" role="img" aria-label="Globe"></i></a> |
+                        {% else %}
+                            <a href="#"><i class="bi-person-fill" role="img" aria-label="Globe"></i></a> |
+                        {% endif %}
+                        {% if post.author.profile.website_url %}
+                        <a href="{{ post.author.profile.website_url }}"><i class="bi-globe" role="img" aria-label="Globe"></i></a> |
+                        {% endif %}
+
+                        {% if post.author.profile.facebook_url %}
+                        <a href="{{ post.author.profile.facebook_url }}"><i class="bi-facebook" role="img" aria-label="Facebook"></i></a> |
+                        {% endif %}
+
+                        {% if post.author.profile.twitter_url %}
+                        <a href="{{ post.author.profile.twitter_url }}"><i class="bi-twitter" role="img" aria-label="Twitter"></i></a> |
+                        {% endif %}
+
+                        {% if post.author.profile.instagram_url %}
+                        <a href="{{ post.author.profile.instagram_url }}"><i class="bi-instagram" role="img" aria-label="Instagram"></i></a> |
+                        {% endif %}
+
+                        {% if post.author.profile.github_url %}
+                        <a href="{{ post.author.profile.github_url }}"><i class="bi-github" role="img" aria-label="GitHub"></i></a>
+                        {% endif %}
+                    </p>
+                    <p class="card-text">{{ post.author.profile.bio }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+     <a href="{% url 'website:blog' %}" class="btn btn-secondary">Back</a>
     {% if user.is_authenticated %}
         {% if user.id == post.author.id %}
             <a href="{% url 'website:update_post' post.slug %}" class="btn btn-secondary">Edit Post</a>
@@ -21,4 +67,17 @@
         {% endif %}
     {% endif %}
     <a href="{% url 'website:post_share' post.slug %}" class="btn btn-secondary">Share Post</a>
+    <a href="{% url 'website:comment_post' post.id post.slug %}" class="btn btn-secondary">Add a comment</a>
+    <br>
+    <br>
+    {% for comment in post.comments.all %}
+            <p>
+                <small><em>Comment {{ forloop.counter }} by {{ comment.name }} {{ comment.created }}</em></small>
+            </p>
+            {{ comment.body|linebreaks }}
+    {% empty %}
+        <p>There are no comments yet.</p>
+    {% endfor %}
+    <br>
+    </div>
 {% endblock %}

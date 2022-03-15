@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %}Blog categories- {{ block.super }}{% endblock %}
+
 {%  block content %}
     {% if category_posts %}
         <h1>{{ cats|title }}</h1>

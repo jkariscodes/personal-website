@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Edit Blog Post{% endblock %}
+{% block title %}Edit Blog Post - {{ block.super }}{% endblock %}
 
 {% block content %}
 
@@ -8,12 +8,12 @@
     {% if user.id == post.author.id %}
         <h1>Add Post...</h1>
         <div class="form-group">
-            <form method="POST">
-                {% csrf_token %}
-                {{ form.media }}
-                {{ form.as_p }}
-                <button class="btn btn-secondary">Update</button>
-            </form>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.media }}
+            {{ form.as_p }}
+            <button class="btn btn-secondary">Update</button>
+        </form>
         </div>
     {% endif %}
 {% else %}

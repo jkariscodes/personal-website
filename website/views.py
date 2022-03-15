@@ -5,7 +5,19 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post, PostComment
-from .forms import PostForm, EmailPostForm, CommentForm, ContactForm, Category
+from .forms import PostForm, EmailPostForm, CommentForm, ContactForm
+
+
+class AddCommentView(CreateView):
+    model = PostComment
+    form_class = CommentForm
+    template_name = 'article-comment.html'
+
+    def form_valid(self, form):
+        form.instance.post_id = self.kwargs['pk']
+        return super().form_valid(form)
+
+    success_url = reverse_lazy('website:home')
 
 
 def home(request):
@@ -14,13 +26,20 @@ def home(request):
     """
     return render(request, 'home.html', {})
 
-    
+
 def about(request):
     """
     About page.
     """
     return render(request, 'about.html', {})
-    
+
+
+def portfolio(request):
+    """
+    Portfolio page.
+    """
+    return render(request, 'portfolio.html', {})
+
 
 def post_share(request, post_slug):
     """
@@ -56,15 +75,6 @@ class PostView(ListView):
     paginate_by = 5
 
 
-class CategoriesView(ListView):
-    """
-    List all categories.
-    """
-    model = Category
-    template_name = 'category-list.html'
-    ordering = ['-name']
-
-
 class ArticleView(DetailView):
     """
     Single post view.
@@ -81,14 +91,6 @@ class AddPostView(CreateView):
     form_class = PostForm
     template_name = 'post-new.html'
 
-class AddCategory(CreateView):
-    """
-    Create blog post view.
-    """
-    model = Category
-    template_name = 'article-category.html'
-    fields = '__all__'
-
 
 class UpdatePostView(UpdateView):
     """
@@ -97,7 +99,7 @@ class UpdatePostView(UpdateView):
     model = Post
     template_name = 'edit-post.html'
     fields = ['title', 'body', 'status']
-    
+
 
 class DeletePostView(DeleteView):
     """
@@ -135,7 +137,6 @@ def success_view(request):
     return render(request, "success.html")
 
 
-
 def category_view(request, cats):
     """
     Category view
@@ -143,4 +144,6 @@ def category_view(request, cats):
     category_posts = Post.objects.filter(category=cats.replace('-', ' '))
     return render(request, 'categories.html', {'cats': cats.title().replace('-', ' '),
                                                'category_posts': category_posts})
+
+
 

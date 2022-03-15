@@ -1,3 +1,24 @@
 {% extends 'base.html' %}
+
+{% block title %}Welcome - {{ block.super }} {% endblock %}
+
 {%  block content %}
+    <!-- header -->
+<header class="header ">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="description ">
+            <h1>
+                Hello and welcome...
+                <p>
+                    Nairobi-based developer, geospatial engineer and content creator, Joseph Kariuki operates at the
+                    intersection of software engineering and geomatics. Revolving around this unique topic, his website
+                    features both his own personal work and the multidisciplinary career work that he’s contributed to.
+                </p>
+                <a href="{% url 'website:about' %}" class="btn btn-secondary btn-lg">See more</a>
+            </h1>
+        </div>
+    </div>
+
+</header>
 {% endblock %}

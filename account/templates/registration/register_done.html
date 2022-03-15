@@ -1,7 +1,10 @@
 {% extends "base.html" %}
-{% block title %}Welcome{% endblock %}
+
+{% block title %}Welcome - {{ block.super }}{% endblock %}
 
 {% block content %}
-    <h1>Registration Successful!</h1>
-    <p>Your account has been successfully created. Now you can <a href="{% url "account:login" %}">log in</a>.</p>
+    <div class="container">
+        <h1>Registration Successful!</h1>
+        <p>Your account has been successfully created. Now you can <a href="{% url "account:login" %}">log in</a>.</p>
+    </div>
 {% endblock %}

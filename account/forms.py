@@ -2,6 +2,7 @@ from datetime import datetime, timedelta
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, AuthenticationForm, PasswordResetForm
 from django.contrib.auth.models import User
+from .models import Profile
 
 today = datetime.now()
 since = timedelta(days=6574)
@@ -25,16 +26,6 @@ class PasswordResettingForm(PasswordResetForm):
         fields = ('email',)
 
 
-class PasswordChangingForm(PasswordChangeForm):
-    old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))
-    new_password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))
-    new_password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))
-
-    class Meta:
-        model = User
-        fields = ('old_password', 'new_password1', 'new_password2')
-
-
 class AccountRegistrationForm(UserCreationForm):
     """
     New user registration form.
@@ -49,12 +40,12 @@ class AccountRegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = (
-            'username', 
-            'first_name', 
-            'last_name', 
-            'email', 
+            'username',
+            'first_name',
+            'last_name',
+            'email',
             'date_of_birth',
-            'password1', 
+            'password1',
             'password2'
         )
 
@@ -87,8 +78,57 @@ class UserEditForm(forms.ModelForm):
         return self.request.user
 
 
-# class ProfileEditForm(forms.ModelForm):
-#     class Meta:
-#         model = Profile
-#         fields = ('date_of_birth',)  # TODO add profile photo
+class ProfileEditForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = (
+            'bio',
+            'date_of_birth',
+            'profile_pic',
+            'website_url',
+            'facebook_url',
+            'twitter_url',
+            'instagram_url',
+            'github_url',
+        )
+
+    def __init__(self, *args, **kwargs):
+        super(ProfileEditForm, self).__init__(*args, **kwargs)
+        self.fields['bio'].widget.attrs['class'] = 'form-control'
+        self.fields['date_of_birth'].widget.attrs['class'] = 'form-control'
+        self.fields['date_of_birth'].widget.attrs['type'] = 'date'
+        self.fields['profile_pic'].widget.attrs['class'] = 'form-control'
+        self.fields['website_url'].widget.attrs['class'] = 'form-control'
+        self.fields['facebook_url'].widget.attrs['class'] = 'form-control'
+        self.fields['twitter_url'].widget.attrs['class'] = 'form-control'
+        self.fields['instagram_url'].widget.attrs['class'] = 'form-control'
+        self.fields['github_url'].widget.attrs['class'] = 'form-control'
+
+    def get_object(self):
+        return self.request.user
+
+
+class PasswordChangingForm(PasswordChangeForm):
+    old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))
+    new_password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))
+    new_password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))
+
+    class Meta:
+        model = User
+        fields = ('old_password', 'new_password1', 'new_password2')
+
+
+class ProfilePageForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('bio', 'profile_pic', 'website_url', 'facebook_url', 'twitter_url', 'instagram_url', 'github_url',)
+        widgets = {
+            'bio': forms.Textarea(attrs={'class': 'form-control'}),
+            # 'profile_pic': forms.TextInput(attrs={}),
+            'website_url': forms.TextInput(attrs={'class': 'form-control'}),
+            'facebook_url': forms.TextInput(attrs={'class': 'form-control'}),
+            'twitter_url': forms.TextInput(attrs={'class': 'form-control'}),
+            'instagram_url': forms.TextInput(attrs={'class': 'form-control'}),
+            'github_url': forms.TextInput(attrs={'class': 'form-control'}),
+        }
 

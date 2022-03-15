@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
-{% block title %}Welcome{% endblock %}
+{% block title %}Welcome {{ user.username }} - {{ block.super }}{% endblock %}
 
 {% block content %}
+    <div class="container">
     <h1>Welcome {{ user.first_name }} {{ user.last_name }}</h1>
     <p>Welcome to my website and blog. You have logged-in successfully in your profile. In this website, you can:
         <ol>
@@ -12,5 +13,5 @@
             <li><a href="#">Share blog posts</a>.</li>
         </ol>
     </p>
-
+    </div>
 {% endblock %}

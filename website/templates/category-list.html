@@ -1,11 +1,17 @@
 {% extends 'base.html' %}
 
-{% block title %}Post Categories{% endblock %}
+{% block title %}Post Categories - {{ block.super }}{% endblock %}
 
 {% block content %}
-    <ol type="i">
+    <div class="container">
+    <h1>Post Categories</h1>
+    <p>
+        Below is a list of blog post categories created by the authors in this blog.
+    </p>
+    <ol type="i" class="list-group">
         {% for cat in category_list %}
             <li><a href="{% url 'website:category' cat.name|slugify %}">{{ cat.name|title }}</a></li>
         {% endfor %}
     </ol>
+    </div>
 {% endblock %}

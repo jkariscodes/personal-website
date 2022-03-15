@@ -1,19 +1,30 @@
 {% extends 'base.html' %}
 
-{% block title %}Blog{% endblock %}
+{% block title %}Blog - {{ block.super }}{% endblock %}
 
 {% block content %}
+    <div class="container">
     <h1>Blog</h1>
         {% for post in object_list %}
-            <ul>
-                <li>
-                    <a href="{{ post.get_absolute_url }}">{{ post.title }}</a><br/>{{ post.body|safe|truncatechars:50 }}
-                </li>
-            </ul>
-            {% include "paginator.html" %}
+            <div class="card">
+                <div class="card-header">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p class="card-text">{{ post.body|safe|truncatechars:50 }}</p>
+                    <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read post</a>
+                </div>
+                <div class="card-footer text-muted">
+                    {{ post.published.date }}
+                </div>
+            </div>
         {% empty %}
             <p>
                 Sorry, no blog posts to display.
             </p>
         {% endfor %}
+    {% include "paginator.html" %}
+    </div>
+
 {% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Portfolio - {{ block.super }} {% endblock %}
+
+{% block content %}
+<div class="portfolio" id="portfolio">
+    <h1 class="text-center">Portfolio</h1>
+    <div class="container">
+        <div class="row" id="gallery" data-toggle="modal" data-target="#exampleModal">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <a href="{% url 'website:home' %}">
+                    <img src="{% static 'website/img/interactive_website.jpg' %}" class="img-fluid"alt="My Website">
+                </a><
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <a href="https://jkariukidev.github.io/polygon_spike_remover/" target="_blank">
+                    <img src="{% static 'website/img/spike_remover.png' %}" class="img-fluid" alt="Spike remover plugin">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <a href="https://github.com/jkariukidev/simple_to-do_list" target="_blank">
+                    <img src="{% static 'website/img/to_do_app.png' %}" class="img-fluid" alt="To Do App">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <a href="https://jkariukidev.github.io/my-travel-map/" target="_blank">
+                    <img src="{% static 'website/img/travel_map.png' %}" class="img-fluid" alt="Travel Map">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <a href="https://github.com/jkariukidev/onyeshamap" target="_blank">
+                    <img src="{% static 'website/img/django_leaflet.png' %}" class="img-fluid" alt="OnyeshaMap">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <a href="https://github.com/jkariukidev/desktop_calculator" target="_blank">
+                    <img src="{% static 'website/img/calculator_gui.png' %}" class="img-fluid" alt="Calculator App">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <a href="https://landpages.co.ke" target="_blank">
+                    <img src="{% static 'website/img/land_pages.jpg' %}" class="img-fluid" alt="Land Pages">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <a href="https://josephkariuki.com" target="_blank">
+                    <img src="{% static 'website/img/jk_website.jpg' %}" class="img-fluid" alt="Joseph Kariuki">
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <a href="https://phoenixmultiscope.com" target="_blank">
+                    <img src="{% static 'website/img/phoenix_multi.jpg' %}" class="img-fluid" alt="Phoenix Multiscope">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

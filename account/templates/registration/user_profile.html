@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <h1>Profile Settings</h1>
+            <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                    <img src="{{ page_user.profile_pic.url }}" class="card-img">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">{{ page_user.user.first_name }} {{ page_user.user.last_name }}</h5>
+                    <p class="card-text">
+                        <a href="{% url 'account:user_profile' page_user.id %}"><i class="bi-person-fill" role="img" aria-label="Globe"></i></a> |
+                        {% if page_user.website_url %}
+                        <a href="{{ page_user.website_url }}"><i class="bi-globe" role="img" aria-label="Globe"></i></a> |
+                        {% endif %}
+
+                        {% if page_user.facebook_url %}
+                        <a href="{{ page_user.facebook_url }}"><i class="bi-facebook" role="img" aria-label="Facebook"></i></a> |
+                        {% endif %}
+
+                        {% if page_user.twitter_url %}
+                        <a href="{{ page_user.twitter_url }}"><i class="bi-twitter" role="img" aria-label="Twitter"></i></a> |
+                        {% endif %}
+
+                        {% if page_user.instagram_url %}
+                        <a href="{{ page_user.instagram_url }}"><i class="bi-instagram" role="img" aria-label="Instagram"></i></a> |
+                        {% endif %}
+
+                        {% if page_user.github_url %}
+                        <a href="{{ page_user.github_url }}"><i class="bi-github" role="img" aria-label="GitHub"></i></a>
+                        {% endif %}
+                    </p>
+                    <p class="card-text">{{ page_user.bio }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+{%  endblock %}
