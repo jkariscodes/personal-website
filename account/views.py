@@ -55,7 +55,7 @@ class UserEditView(generic.UpdateView):
     """
     Edit user profile.
     """
-    form_class = forms.ProfileEdirForm
+    form_class = forms.ProfileEditForm
     template_name = 'registration/edit.html'
     success_url = reverse_lazy('account:dashboard')
 
