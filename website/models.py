@@ -25,8 +25,8 @@ class Post(models.Model):
     published = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    category = models.CharField(max_length=50)
-    snippet = models.CharField(max_length=255)
+    category = models.CharField(max_length=50, default='Uncategorized')
+    snippet = models.CharField(max_length=255, default='')
     status = models.CharField(
         max_length=10,
         choices=STATUS_CHOICES,
