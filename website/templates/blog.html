@@ -4,27 +4,53 @@
 
 {% block content %}
     <div class="container">
-    <h1>Blog</h1>
+    <h1>Blog</h1><hr>
         {% for post in object_list %}
-            <div class="card">
-                <div class="card-header">
-                    Featured
+            {% if post.status == 'published' %}
+                <br>
+                <div class="card">
+                    <div class="card-header">
+                        Featured
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">{{ post.body|safe|truncatechars:50 }}</p>
+                        <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read post</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        {{ post.published.date }}
+                    </div>
                 </div>
-                <div class="card-body">
-                    <h5 class="card-title">{{ post.title }}</h5>
-                    <p class="card-text">{{ post.body|safe|truncatechars:50 }}</p>
-                    <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read post</a>
-                </div>
-                <div class="card-footer text-muted">
-                    {{ post.published.date }}
-                </div>
-            </div>
+                <br>
+            {% else %}
+                {% if user.is_authenticated %}
+                    {% if user.id == post.author.id %}
+                        <br>
+                        <div class="card">
+                            <div class="card-header">
+                                Featured
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ post.title }}</h5>
+                                <p class="card-text">{{ post.body|safe|truncatechars:50 }}</p>
+                                <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read post</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                                {{ post.published.date }}
+                            </div>
+                        </div>
+                        <br>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
         {% empty %}
-            <p>
+            <p style="height: 50vh;">
                 Sorry, no blog posts to display.
             </p>
         {% endfor %}
-    {% include "paginator.html" %}
+    {% if post_list.count > 6 %}
+        {% include "paginator.html" %}
+    {% endif %}
     </div>
 
 {% endblock %}

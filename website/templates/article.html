@@ -7,12 +7,11 @@
     <h1>{{ post.title }}</h1>
     <hr>
     <p>
-        <img src="{{ post.header_image.url }}" class="img-thumbnail"/>
+        <img src="{{ post.header_image.url }}" class="img-thumbnail">
         {{ post.body|safe }}
     </p>
     <hr>
     <small>Post by: {{ post.author }} on {{ post.published.date }}</small><br/>
-{#    <small>Category: <a href="{% url 'website:category' post.category|slugify %}">{{ post.category }}</a></small>#}
     <br>
     <br>
     <div class="card mb-3">
@@ -66,7 +65,7 @@
             <a href="{% url 'website:delete_post' post.slug %}" class="btn btn-secondary">Delete Post</a>
         {% endif %}
     {% endif %}
-    <a href="{% url 'website:post_share' post.slug %}" class="btn btn-secondary">Share Post</a>
+        <a href="{% url 'website:post_share' post.slug %}" class="btn btn-secondary">Share Post</a>
     <a href="{% url 'website:comment_post' post.id post.slug %}" class="btn btn-secondary">Add a comment</a>
     <br>
     <br>
