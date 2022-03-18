@@ -20,7 +20,6 @@ class Post(models.Model):
     slug = AutoSlugField(populate_from='title', unique=True, editable=True)
     # body = models.TextField()
     header_image = models.ImageField(null=True, blank=False, upload_to="images")
-    # TODO allow only images if specific site
     body = RichTextField(blank=True, null=True)
     published = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)

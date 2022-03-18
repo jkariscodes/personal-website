@@ -1,7 +1,6 @@
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post, PostComment
@@ -98,7 +97,7 @@ class UpdatePostView(UpdateView):
     """
     model = Post
     template_name = 'edit-post.html'
-    fields = ['title', 'body', 'status']
+    fields = ['title', 'header_image', 'body', 'status']
 
 
 class DeletePostView(DeleteView):
