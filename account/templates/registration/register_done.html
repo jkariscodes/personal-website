@@ -3,7 +3,7 @@
 {% block title %}Welcome - {{ block.super }}{% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="container" style="padding-top: 50px; height: 50vh;">
         <h1>Registration Successful!</h1>
         <p>Your account has been successfully created. Now you can <a href="{% url "account:login" %}">log in</a>.</p>
     </div>
