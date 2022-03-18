@@ -4,6 +4,7 @@ body{
 	background:#f4f4f4;
 
 }
+
 /*html,h1,h2,h3,h4,h5,h6,a{*/
 /*	font-family: "Raleway";*/
 /*}*/
@@ -80,24 +81,25 @@ body{
 	border:1px;
 }
 .about{
+	height: 100vh;
 	margin: 4em 0;
 	padding: 1em;
 	position: relative;
 }
 .about h1{
-	margin: 2em;
+	margin: 1em;
 }
 .about img{
 	height: 100%;
     width: 100%;
     border-radius: 50%
 }
-/*.about span{*/
-/*	display: block;*/
-/*	color: #888;*/
-/*	position: absolute;*/
-/*	left: 115px;*/
-/*}*/
+.about span{
+	display: block;
+	color: #888;
+	position: absolute;
+	left: 115px;
+}
 .about .desc{
 	padding: 2em;
 	border-left:4px solid #10828C;
@@ -145,17 +147,25 @@ body{
 	width: 100%;
 	height: 12em;
 }
+
+/*.container p {*/
+/*	height: 50vh;*/
+/*}*/
 @media only screen and (max-width: 768px){
 	.team .item img{
 		width: 100%;
 	}
 
+	.description h1{
+	color: #ffffff;
+	}
+
 	.description p{
-	font-size: 20px;
+	font-size: 18px;
 	text-align: justify;
 	width: 80%;
 	line-height: 1.5;
-	color: #594317;
+	color: #f1cb84;
 }
 
 .overlay {
