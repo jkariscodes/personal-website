@@ -1,11 +1,11 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "44914042aa85097f0ffd8d7b8c64c0096af0e56a63183c4217efc38b59520680"
+            "sha256": "3a2d0d66f7d62322a8471f0a1c80507b52a16331c0cb97edd5f5a42467f8f0b0"
         },
         "pipfile-spec": 6,
         "requires": {
-            "python_version": "3.10"
+            "python_version": "3.8"
         },
         "sources": [
             {
@@ -61,6 +61,13 @@
             ],
             "index": "pypi",
             "version": "==1.9.8"
+        },
+        "django-bootstrap-modal-forms": {
+            "hashes": [
+                "sha256:be180b30892aa7b8012718dfca7586de7d0c143585bc44ed507d50569cdd41cd"
+            ],
+            "index": "pypi",
+            "version": "==2.2.0"
         },
         "django-ckeditor": {
             "hashes": [
@@ -191,11 +198,11 @@
         },
         "tzdata": {
             "hashes": [
-                "sha256:3eee491e22ebfe1e5cfcc97a4137cd70f092ce59144d81f8924a844de05ba8f5",
-                "sha256:68dbe41afd01b867894bbdfd54fa03f468cfa4f0086bfb4adcd8de8f24f3ee21"
+                "sha256:238e70234214138ed7b4e8a0fab0e5e13872edab3be586ab8198c407620e2ab9",
+                "sha256:8b536a8ec63dc0751342b3984193a3118f8fca2afe25752bb9b7fffd398552d3"
             ],
             "index": "pypi",
-            "version": "==2021.5"
+            "version": "==2022.1"
         }
     },
     "develop": {}

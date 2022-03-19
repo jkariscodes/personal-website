@@ -15,6 +15,7 @@ class UserRegistrationView(generic.CreateView):
     template_name = 'registration/register.html'
     success_url = reverse_lazy('account:register-done')
 
+
 class CreateProfilePageView(generic.CreateView):
     """
     Profile creation view.
