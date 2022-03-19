@@ -155,27 +155,31 @@ body{
 	.team .item img{
 		width: 100%;
 	}
-
 	.description h1{
-	color: #ffffff;
+		color: #ffffff;
 	}
-
 	.description p{
-	font-size: 18px;
-	text-align: justify;
-	width: 80%;
-	line-height: 1.5;
-	color: #f1cb84;
-}
-
-.overlay {
-	position: absolute;
-	min-height: 100%;
-	min-width: 100%;
-	left: 0;
-	top: 0;
-	background: rgba(103, 103, 103, 0.79);
-}
+		font-size: 18px;
+		text-align: justify;
+		width: 80%;
+		line-height: 1.5;
+		color: #f1cb84;
+	}
+	.overlay {
+		position: absolute;
+		min-height: 100%;
+		min-width: 100%;
+		left: 0;
+		top: 0;
+		background: rgba(103, 103, 103, 0.79);
+	}
+	.about{
+		position: relative;
+		height: 130vh;
+	}
+	footer {
+		position: relative;
+	}
 }
 
 .blog .card-title{
