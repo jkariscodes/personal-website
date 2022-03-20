@@ -15,6 +15,7 @@ sqlparse = "==0.4.2"
 Pillow = "==9.0.1"
 tzdata = "*"
 django-bootstrap-modal-forms = "*"
+django-heroku = "*"
 
 [dev-packages]
 

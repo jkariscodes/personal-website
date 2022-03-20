@@ -76,11 +76,11 @@ WSGI_APPLICATION = 'PersonalWebsite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-       'NAME': 'website',
-       'USER': 'website_user',
-       'PASSWORD': '#7F@jQ!9Y$xO',
-       'HOST': '127.0.0.1',
-       'PORT': '5801',
+        'NAME': 'website',
+        'USER': 'website_user',
+        'PASSWORD': '#7F@jQ!9Y$xO',
+        'HOST': '127.0.0.1',
+        'PORT': '5801',
     }
 }
 
@@ -147,3 +147,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_HOST_PASSWORD = ''
 # EMAIL_PORT = ''
 # EMAIL_USE_TLS = True
+
+import django_heroku
+django_heroku.settings(locals())
