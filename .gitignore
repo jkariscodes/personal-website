@@ -142,6 +142,9 @@ dmypy.json
 # Generated files
 .idea/**/contentModel.xml
 
+# AWS User-specific
+.idea/**/aws.xml
+
 # Sensitive or high-churn files
 .idea/**/dataSources/
 .idea/**/dataSources.ids
@@ -150,6 +153,12 @@ dmypy.json
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
+
+# Mongo Explorer plugin
+.idea/**/mongoSettings.xml
+
+# JIRA plugin
+atlassian-ide-plugin.xml
 
 # Visual Studio Code # 
 .vscode/* 
