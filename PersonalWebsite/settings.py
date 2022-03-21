@@ -9,9 +9,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# PLEASE CHANGE
+SECRET_KEY = os.getenv('SECRET_KEY', '0')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -33,8 +35,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.sitemaps',
     'ckeditor',
-    'bootstrap_modal_forms'
-    # 'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -74,12 +74,8 @@ WSGI_APPLICATION = 'PersonalWebsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'website',
-        'USER': 'website_user',
-        'PASSWORD': '#7F@jQ!9Y$xO',
-        'HOST': '127.0.0.1',
-        'PORT': '5801',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -139,13 +135,10 @@ LOGIN_REDIRECT_URL = 'account:dashboard'
 LOGOUT_REDIRECT_URL = 'website:home'
 
 # Email config
-DEFAULT_FROM_EMAIL = 'contact@josephkariuki.com'
+DEFAULT_FROM_EMAIL = 'user@example.com'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_HOST = ''
 # EMAIL_HOST_USER = ''
 # EMAIL_HOST_PASSWORD = ''
 # EMAIL_PORT = ''
 # EMAIL_USE_TLS = True
-
-import django_heroku
-django_heroku.settings(locals())
