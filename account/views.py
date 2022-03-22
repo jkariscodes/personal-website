@@ -76,7 +76,7 @@ class PasswordsChangeView(auth_views.PasswordChangeView):
 
 class PasswordsResetView(auth_views.PasswordResetView):
     form_class = forms.PasswordResettingForm
-    success_url = reverse_lazy('website:home')
+    success_url = reverse_lazy('account:password_reset_done')
 
 
 def change_password_success(request):
