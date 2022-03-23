@@ -11,7 +11,7 @@ sitemaps = {
 
 urlpatterns = [
     path('', include('django.contrib.auth.urls', namespace=None)),
-    path('admin/', admin.site.urls),
+    path('mkubwa/', admin.site.urls),
     path('account/', include('account.urls', namespace='account')),
     path('', include('website.urls', namespace='website')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
@@ -19,4 +19,5 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
