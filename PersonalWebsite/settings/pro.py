@@ -1,3 +1,5 @@
+import django_heroku
+import dj_database_url
 from .base import *
 
 DEBUG = False
@@ -7,6 +9,9 @@ ADMINS = (
 )
 
 ALLOWED_HOSTS = ['127.0.0.1']
+
+MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # DATABASES = {
 #     'default': {
@@ -19,7 +24,8 @@ ALLOWED_HOSTS = ['127.0.0.1']
 #     }
 # }
 
-DATABASES['default'] = dj_database_url.config()
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 SECURE_SSL_REDIRECT = True
 CSRF_COOKIE_SECURE = True
