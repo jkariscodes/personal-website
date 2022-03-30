@@ -8,10 +8,7 @@ ADMINS = (
     ('Joseph K', 'contact@josephkariuki.com'),
 )
 
-ALLOWED_HOSTS = ['jkariukidev.herokuapp.com', '127.0.0.1']
-
-MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
