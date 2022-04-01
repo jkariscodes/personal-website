@@ -12,6 +12,7 @@ python-dotenv = "*"
 django-heroku = "*"
 pip = "==22.0.4"
 gunicorn = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
