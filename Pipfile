@@ -13,6 +13,8 @@ django-heroku = "*"
 pip = "==22.0.4"
 gunicorn = "*"
 psycopg2-binary = "*"
+boto3 = "*"
+django-storages = "*"
 
 [dev-packages]
 
