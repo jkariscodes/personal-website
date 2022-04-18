@@ -135,13 +135,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = 'account:login'
-LOGOUT_URL = 'account:logout'
 LOGIN_REDIRECT_URL = 'account:dashboard'
 LOGOUT_REDIRECT_URL = 'website:home'
 
 # Email config
-DEFAULT_FROM_EMAIL = 'user@example.com'
+# DEFAULT_FROM_EMAIL = 'user@example.com'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # EMAIL_HOST = ''
 # EMAIL_HOST_USER = ''

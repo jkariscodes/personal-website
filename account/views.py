@@ -69,11 +69,6 @@ class UserLoginView(auth_views.LoginView):
     success_url = reverse_lazy('account:dashboard')
 
 
-class PasswordsResetView(auth_views.PasswordResetView):
-    form_class = forms.PasswordResettingForm
-    success_url = reverse_lazy('account:password_reset_done')
-
-
 def user_register_success(request):
     return render(request, 'registration/register_done.html', {})
 

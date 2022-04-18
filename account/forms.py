@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordResetForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from .models import Profile
 
@@ -16,14 +16,6 @@ class UserLoginForm(AuthenticationForm):
     class Meta:
         model = User
         fields = ('username', 'password')
-
-
-class PasswordResettingForm(PasswordResetForm):
-    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
-
-    class Meta:
-        model = User
-        fields = ('email',)
 
 
 class AccountRegistrationForm(UserCreationForm):
