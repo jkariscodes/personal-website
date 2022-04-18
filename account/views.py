@@ -73,10 +73,6 @@ def user_register_success(request):
     return render(request, 'registration/register_done.html', {})
 
 
-def password_reset_success(request):
-    return render(request, 'registration/password_reset_done.html', {})
-
-
 def register_success(request):
     """
     Registration success.
@@ -87,7 +83,3 @@ def register_success(request):
 @login_required
 def dashboard(request):
     return render(request, 'registration/dashboard.html')
-
-
-def logged_out(request):
-    return render(request, 'registration/logged_out.html')
