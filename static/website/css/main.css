@@ -49,6 +49,7 @@ body{
 .header{
 	position: relative;
 	background-image: url('../img/headerback.jpg');
+
 	background-size: cover;
 	background-position: center;
 }
