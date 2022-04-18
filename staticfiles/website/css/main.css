@@ -54,7 +54,7 @@ body{
 	background-position: center;
 }
 .overlay{
-	position: absolute;
+	position: relative;
 	min-height: 100%;
 	min-width: 100%;
 	left: 0;
