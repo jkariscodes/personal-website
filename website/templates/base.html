@@ -34,10 +34,6 @@
                   <li><a class="dropdown-item" href="{% url 'website:post-new' %}">Create Post</a></li>
               {% endif %}
             <li><a class="dropdown-item" href="{% url 'website:blog' %}">Posts</a></li>
-{#          {% if user.is_authenticated %}#}
-{#              <li><a class="dropdown-item" href="{% url 'website:category-new' %}">Add Category</a></li>#}
-{#          {%  endif %}#}
-{#            <li><a class="dropdown-item" href="{% url 'website:categories' %}">Categories</a></li>#}
           </ul>
         </li>
         <li class="nav-item">
@@ -56,16 +52,15 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               {% if user.is_authenticated %}
                   <li><a class="dropdown-item" href="{% url 'account:logout' %}">Logout</a></li>
-                  <li><a class="dropdown-item" href="{% url 'account:password_change' %}">Change Password</a></li>
+                  <li><a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a></li>
                   {% if user.profile.id %}
                       <li><a class="dropdown-item" href="{% url 'account:user_profile' user.profile.id %}">Your Profile</a></li>
                       <li><a class="dropdown-item" href="{% url 'account:edit_user_profile' user.profile.id %}">Edit Your Profile</a></li>
                   {% else %}
                       <li><a class="dropdown-item" href="{% url 'account:create_user_profile' %}">Create Profile</a></li>
                   {% endif %}
-{#                  <li><a class="dropdown-item" href="{% url 'account:edit_profile' %}">Profile Settings</a></li>#}
               {% else %}
-                  <li><a class="dropdown-item" href="{% url 'account:login' %}">Login</a></li>
+                  <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
                   <li><a class="dropdown-item" href="{% url 'account:register' %}">Register</a></li>
               {% endif %}
           </ul>

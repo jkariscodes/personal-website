@@ -5,12 +5,6 @@ from . import views
 app_name = 'account'
 
 urlpatterns = [
-    # Password change URLs
-    path('password_change/', views.PasswordsChangeView.as_view(
-        template_name='registration/password_change.html'), name='password_change'),
-    path('password_success/', auth_views.PasswordChangeDoneView.as_view(), name='password_success'),
-    path('', include('django.contrib.auth.urls', )),
-    # Password reset URLs
     path('password_reset/', views.PasswordsResetView.as_view(
         template_name='registration/password_reset_form.html'), name='password_reset'),
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),

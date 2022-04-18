@@ -13,7 +13,7 @@ class UserRegistrationView(generic.CreateView):
     """
     form_class = forms.AccountRegistrationForm
     template_name = 'registration/register.html'
-    success_url = reverse_lazy('account:register-done')
+    success_url = reverse_lazy('login')
 
 
 class CreateProfilePageView(generic.CreateView):
@@ -69,18 +69,9 @@ class UserLoginView(auth_views.LoginView):
     success_url = reverse_lazy('account:dashboard')
 
 
-class PasswordsChangeView(auth_views.PasswordChangeView):
-    form_class = forms.PasswordChangingForm
-    success_url = reverse_lazy('account:password_success')
-
-
 class PasswordsResetView(auth_views.PasswordResetView):
     form_class = forms.PasswordResettingForm
     success_url = reverse_lazy('account:password_reset_done')
-
-
-def change_password_success(request):
-    return render(request, 'registration/password_change_done.html', {})
 
 
 def user_register_success(request):

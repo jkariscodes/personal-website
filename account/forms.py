@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, AuthenticationForm, PasswordResetForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordResetForm
 from django.contrib.auth.models import User
 from .models import Profile
 
@@ -106,16 +106,6 @@ class ProfileEditForm(forms.ModelForm):
 
     def get_object(self):
         return self.request.user
-
-
-class PasswordChangingForm(PasswordChangeForm):
-    old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))
-    new_password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))
-    new_password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))
-
-    class Meta:
-        model = User
-        fields = ('old_password', 'new_password1', 'new_password2')
 
 
 class ProfilePageForm(forms.ModelForm):

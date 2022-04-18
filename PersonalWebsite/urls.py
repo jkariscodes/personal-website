@@ -13,6 +13,7 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls', namespace=None)),
     path('mkubwa/', admin.site.urls),
     path('account/', include('account.urls', namespace='account')),
+    path('account/', include('django.contrib.auth.urls')),
     path('', include('website.urls', namespace='website')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
 ]
