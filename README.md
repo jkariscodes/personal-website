@@ -103,10 +103,11 @@ Step by step methods to guide the reader how to setup local dev environment for 
 1. Clone this repo `git clone https://github.com/jkariukidev/personal-website.git`
 2. Install all the dependencies either using pipenv or pip. My preference is pipenv. Read more in
 [this pipenv guide](https://docs.pipenv.org/).
-```commandline
-cd personal project
-pipenv install -r requirements.txt
-```
+   ```commandline
+   cd personal-website
+   pipenv shell
+   pipenv install -r requirements.txt
+   ```
 3. Important! Generate Django secret key required for your project to run using:
     - [django-secret-key-generator](https://django-secret-key-generator.netlify.app/) and copy it to the clipboard. 
    The key generator appears as shown below.
@@ -128,22 +129,30 @@ pipenv install -r requirements.txt
    - Windows Command Prompt (CMD): `set SECRET_KEY="XXXXXXXXX"` <br> 
    - Windows Powershell: `Set-Item -Path Env:\SECRET_KEY -Value "XXXXXXXXX"`
 5. Modify the text and images (Front-end) as you wish. Knowledge in HTML, CSS, JavaScript, Bootstrap and Django is required.
-6. Create/update the database schema (we are using default SQLite database).
-```python
-python manage.py migrate
-```
-7. Create a superuser to administer this website.
-```python
-python manage.py createsuperuser
-```
+6. For development testing locally, assign DJANGO_SETTINGS variable to the local configuration using the following 
+   command in your terminal.
+   ```shell
+   export DJANGO_SETTINGS_MODULE=PersonalWebsite.settings.local
+   ```
+   OR to use the production configuration,
+   ```shell
+   export DJANGO_SETTINGS_MODULE=PersonalWebsite.settings.pro
+   ```
+7. Create/update the database schema (we are using default SQLite database).
+   ```python
+   python manage.py migrate
+   ```
+8. Create a superuser to administer this website.
+   ```python
+   python manage.py createsuperuser
+   ```
 
-8. Run the local development server. Note the additional settings variable pointing to the local settings configuration.
-```python
-python manage.py runserver --settings=PersonalWebsite.settings.local
-```
-9. Open the website in the URL https://localhost:8000 and it should appear as shown below.
+9. Run the local development server. Note the additional settings variable pointing to the local settings configuration.
+   ```python
+   python manage.py runserver
+   ```
+10. Open the website in the URL https://localhost:8000 and it should appear as shown below.
 ![image](https://user-images.githubusercontent.com/23359514/164234454-cfdaab7c-2135-4cdb-8c22-58495efb7bf0.png)
-
 
 10. To end the local server, type Ctrl+C on your keyboard. 
 
@@ -161,39 +170,44 @@ configured for deployment on heroku.
 2. Download and install [Heroku Command Line Interface](https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli) (CLI). 
 3. Navigate in the project directory and ensure python virtual environment is active and log into Heroku using the CLI 
 with the command below. It should ask you for your login credentials.
-```shell
-heroku login
-```
+   ```shell
+    heroku login
+   ```
 4. Create a new app on Heroku via the CLI. You can optionally name your app using a unique name that hasn't been used on Heroku. If left empty
 heroku will assign it a name. For more on app creation refer [here](https://devcenter.heroku.com/articles/creating-apps).
-```shell
-heroku create
-```
+   ```shell
+    heroku create
+   ```
 5. Disable the collection of static files by heroku by setting the below variable. We may not want Heroku running collectstatic for you. Details 
 [here](https://devcenter.heroku.com/articles/django-assets#disabling-collectstatic).
-```shell
-heroku config:set DEBUG_COLLECTSTATIC=1
-```
+   ```shell
+    heroku config:set DEBUG_COLLECTSTATIC=1
+   ```
 6. Export the SECRET_KEY environment variable. Refer [here](https://devcenter.heroku.com/articles/config-vars#managing-config-vars) for more detail on Heroku system variables. The XXX
 represents the Django SECRET_KEY explained in previous steps.
-```shell
-heroku config:set SECRET_KEY='XXXX'
-```
-7. Push any pending commits to GitHub.
-```shell
-git add -A 
-git commit -m '<message>'
-git push 
-```
-8. Push the code to heroku.
-```shell
-git push heroku main
-```
-9. Set Heroku to use the free tier processes for our web app.
-```shell
-heroku ps:scale web=1
-```
-10. Visit the URL shown in the command line log after deployment process. In my case, it is https://jkariukidev.herokuapp.com
+   ```shell
+    heroku config:set SECRET_KEY='XXXX'
+   ```
+7. Export the Django setting variable to point to the production configuration which has been set to be applied in a 
+   production environment.
+   ```shell
+    heroku config:set DJANGO_SETTINGS_MODULE=PersonalWebsite.settings.pro
+   ```
+8. Push any pending commits to GitHub.
+   ```shell
+   git add -A 
+   git commit -m '<message>'
+   git push 
+   ```
+9. Push the code to heroku.
+   ```shell
+   git push heroku main
+   ```
+10. Set Heroku to use the free tier processes for our web app.
+    ```shell
+    heroku ps:scale web=1
+    ```
+11. Visit the URL shown in the command line log after deployment process. In my case, it is https://jkariukidev.herokuapp.com
 
 ### PythonAnywhere
 
