@@ -14,7 +14,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">{{ post.title }}</h5>
-                        <p class="card-text">{{ post.body|safe|truncatechars:50 }}</p>
+{#                        <p class="card-text">{{ post.body|safe|truncatechars_html:50 }}</p>#}
                         <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read post</a>
                     </div>
                     <div class="card-footer text-muted">
