@@ -92,7 +92,7 @@ class AddPostView(LoginRequiredMixin, CreateView):
     template_name = 'post-new.html'
 
 
-class UpdatePostView(UpdateView):
+class UpdatePostView(LoginRequiredMixin, UpdateView):
     """
     Update blog post view.
     """

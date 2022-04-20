@@ -45,22 +45,6 @@ class Post(models.Model):
         return self.title + ' | ' + str(self.author)
 
 
-# class Category(models.Model):
-#     """
-#     Blogpost category.
-#     """
-#     name = models.ForeignKey(Post, on_delete=models.CASCADE)
-#
-#     def get_absolute_url(self):
-#         """
-#         Canonical URL.
-#         """
-#         return reverse('website:home', args=[self.name])
-#
-#     def __str__(self):
-#         return self.name
-
-
 class PostComment(models.Model):
     """
     Comment for blog posts.
