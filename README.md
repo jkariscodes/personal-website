@@ -110,15 +110,19 @@ pipenv install -r requirements.txt
 3. Important! Generate Django secret key required for your project to run using:
     - [django-secret-key-generator](https://django-secret-key-generator.netlify.app/) and copy it to the clipboard. 
    The key generator appears as shown below.
+   ![image](https://user-images.githubusercontent.com/23359514/164235413-dc49b194-35bf-4c8f-b628-26569da94e90.png)
     - [Django cryptographic signing](https://docs.djangoproject.com/en/4.0/topics/signing/). In your terminal/CommandPrompt enter the following:
    ```python
    python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
    ```
+   ![image](https://user-images.githubusercontent.com/23359514/164235052-102c5b8e-367d-487e-b1b3-9fafed1e26cc.png)
    - [Python secrets](https://docs.python.org/3/library/secrets.html#module-secrets). An alternative to the two above. 
    This assumes you have Python already installed as it exists in the Python Standard Library. In your CMD/terminal enter:
    ```python
    python3 -c "import secrets; print(secrets.token_urlsafe(50))"
    ```
+   ![image](https://user-images.githubusercontent.com/23359514/164235182-a0261f3f-312a-47a1-b5b4-92215bfec343.png)
+
 4. Set the copied secret_key as shown below, where `XXXXXXXXX` represents the key.: <br>
    - Linux: `export SECRET_KEY="XXXXXXXXX"` <br> 
    - Windows Command Prompt (CMD): `set SECRET_KEY="XXXXXXXXX"` <br> 
@@ -138,6 +142,8 @@ python manage.py createsuperuser
 python manage.py runserver --settings=PersonalWebsite.settings.local
 ```
 9. Open the website in the URL https://localhost:8000 and it should appear as shown below.
+![image](https://user-images.githubusercontent.com/23359514/164234454-cfdaab7c-2135-4cdb-8c22-58495efb7bf0.png)
+
 
 10. To end the local server, type Ctrl+C on your keyboard. 
 
@@ -175,7 +181,9 @@ heroku config:set SECRET_KEY='XXXX'
 ```
 7. Push any pending commits to GitHub.
 ```shell
-git add -A && git commit -m '<message>' && git push 
+git add -A 
+git commit -m '<message>'
+git push 
 ```
 8. Push the code to heroku.
 ```shell
@@ -187,18 +195,6 @@ heroku ps:scale web=1
 ```
 10. Visit the URL shown in the command line log after deployment process. In my case, it is https://jkariukidev.herokuapp.com
 
-[//]: # (1. To test production configuration, run the following)
-
-[//]: # (2. Push your code to it)
-
-[//]: # (3. Create New Project on your [Vercel Dashboard]&#40;https://vercel.com/dashboard&#41;)
-
-[//]: # (4. Import your Git Repository)
-
-[//]: # (5. After successful import, changes made to the Production Branch &#40;commonly "main/master"&#41; will be a Production Deployment and rest all branches will generate Preview Deployments.)
-
-[//]: # (6. Once deployed, you will get a URL for your live app, such as: `https://xyz.vercel.app`)
-
 ### PythonAnywhere
 
 PythonAnywhere supports deployment of Python applications including Django. For more detail on deploying this or any
@@ -209,28 +205,14 @@ other Django project on PythonAnywhere, refer to their [documentation](https://h
 This [Digital Ocean tutorial](https://docs.digitalocean.com/tutorials/app-deploy-django-app/) illustrates on the steps
 for deploying Django-based applications on their platform.
 
-[//]: # (1. To test production configuration, run the following)
-
-[//]: # (2. Push your code to it)
-
-[//]: # (3. Create New Project on your [Vercel Dashboard]&#40;https://vercel.com/dashboard&#41;)
-
-[//]: # (4. Import your Git Repository)
-
-[//]: # (5. After successful import, changes made to the Production Branch &#40;commonly "main/master"&#41; will be a Production Deployment and rest all branches will generate Preview Deployments.)
-
-[//]: # (6. Once deployed, you will get a URL for your live app, such as: `https://xyz.vercel.app`)
-
 ## TBD
 
 List of enhancements to be effected on this project. For more, add recommendation on the issues section and label them as enhancements. 
 
-- Email configuration
-- User email and social authentication
+- Social authentication
 - Post tagging functionality
 - Full-text search functionality
 - Post likes (Redis incorporation)
-- Unit tests
 - CI/CD
 
 ## Future Plans
