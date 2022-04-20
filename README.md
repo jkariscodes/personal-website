@@ -55,14 +55,12 @@
 <hr />
 
 <p align="center">Personal portfolio website is a simple and interactive website and blog that has been developed using 
-Django and Bootstrap. It took me a
-few weeks to complete and deploy it.</p>
+Django and Bootstrap. It took me a few weeks to 'complete' and deploy it.</p>
 
 ## About
 
 Personal portfolio website is aimed at demonstrating the capabilities of Django, a Python web framework which has been 
-used for the backend and Bootstrap 
-which has been used to design the front-end and JQuery.
+used for the backend and Bootstrap which has been used to design the front-end and JQuery.
 
 ## Features
 
@@ -109,41 +107,85 @@ Step by step methods to guide the reader how to setup local dev environment for 
 cd personal project
 pipenv install -r requirements.txt
 ```
-3. Modify the text and images as you wish. Knowledge in HTML, CSS, JavaScript and some Django template may be required.
-4. Create/update the database schema (we are using default SQLite database).
-
+3. Important! Generate Django secret key required for your project to run using:
+    - [django-secret-key-generator](https://django-secret-key-generator.netlify.app/) and copy it to the clipboard. 
+   The key generator appears as shown below.
+    - [Django cryptographic signing](https://docs.djangoproject.com/en/4.0/topics/signing/). In your terminal/CommandPrompt enter the following:
+   ```python
+   python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+   ```
+   - [Python secrets](https://docs.python.org/3/library/secrets.html#module-secrets). An alternative to the two above. 
+   This assumes you have Python already installed as it exists in the Python Standard Library. In your CMD/terminal enter:
+   ```python
+   python3 -c "import secrets; print(secrets.token_urlsafe(50))"
+   ```
+4. Set the copied secret_key as shown below, where `XXXXXXXXX` represents the key.: <br>
+   - Linux: `export SECRET_KEY="XXXXXXXXX"` <br> 
+   - Windows Command Prompt (CMD): `set SECRET_KEY="XXXXXXXXX"` <br> 
+   - Windows Powershell: `Set-Item -Path Env:\SECRET_KEY -Value "XXXXXXXXX"`
+5. Modify the text and images (Front-end) as you wish. Knowledge in HTML, CSS, JavaScript, Bootstrap and Django is required.
+6. Create/update the database schema (we are using default SQLite database).
 ```python
 python manage.py migrate
 ```
-5. Create a superuser to administer this website.
+7. Create a superuser to administer this website.
 ```python
 python manage.py createsuperuser
 ```
-6. Important! Generate Django secret key required for your project to run using 
-[this site](https://django-secret-key-generator.netlify.app/) 
-and copy it to the clipboard. The key generator appears as shown below.
-7. Set the copied secret_key as shown below, where `XXXXXXXXX` represents the key.: <br>
-Linux: `export SECRET_KEY="XXXXXXXXX"` <br> 
-Windows Command Prompt (CMD): `set SECRET_KEY="XXXXXXXXX"` <br>
-Windows Powershell: `Set-Item -Path Env:\SECRET_KEY -Value "XXXXXXXXX"`
 
-8. Run the local development server. Note the additional settings variable pointing to the local settings configuration 
-9. file.
+8. Run the local development server. Note the additional settings variable pointing to the local settings configuration.
 ```python
 python manage.py runserver --settings=PersonalWebsite.settings.local
 ```
-7. Open the website in the URL _https://localhost:8000_ and it should appear as shown below. 
-8. To end the local server, typie Ctrl+C on your keyboard. 
+9. Open the website in the URL https://localhost:8000 and it should appear as shown below.
+
+10. To end the local server, type Ctrl+C on your keyboard. 
 
 ## Deployment
 
-This project is deployment-ready with few enhancements to be done. According to 
+This project is productionready with few enhancements to be done. According to 
 [Django deployment referecne](https://docs.djangoproject.com/en/4.0/howto/deployment/), this project can be deployed via
 the [Web Server Gateway Interface](https://wsgi.readthedocs.io/en/latest/) (WSGI) or [Asynchronous Server Gateway
 Interface](https://asgi.readthedocs.io/en/latest/) (ASGI). The WGSI is being employed in this project. 
 
 ### Heroku
-TBD
+Below are summarized steps in deploying the project to [Heroku](https://www.heroku.com/). The project has already been
+configured for deployment on heroku.
+1. Create an account on Heroku. [Here is the guide](https://signup.heroku.com/).
+2. Download and install [Heroku Command Line Interface](https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli) (CLI). 
+3. Navigate in the project directory and ensure python virtual environment is active and log into Heroku using the CLI 
+with the command below. It should ask you for your login credentials.
+```shell
+heroku login
+```
+4. Create a new app on Heroku via the CLI. You can optionally name your app using a unique name that hasn't been used on Heroku. If left empty
+heroku will assign it a name. For more on app creation refer [here](https://devcenter.heroku.com/articles/creating-apps).
+```shell
+heroku create
+```
+5. Disable the collection of static files by heroku by setting the below variable. We may not want Heroku running collectstatic for you. Details 
+[here](https://devcenter.heroku.com/articles/django-assets#disabling-collectstatic).
+```shell
+heroku config:set DEBUG_COLLECTSTATIC=1
+```
+6. Export the SECRET_KEY environment variable. Refer [here](https://devcenter.heroku.com/articles/config-vars#managing-config-vars) for more detail on Heroku system variables. The XXX
+represents the Django SECRET_KEY explained in previous steps.
+```shell
+heroku config:set SECRET_KEY='XXXX'
+```
+7. Push any pending commits to GitHub.
+```shell
+git add -A && git commit -m '<message>' && git push 
+```
+8. Push the code to heroku.
+```shell
+git push heroku main
+```
+9. Set Heroku to use the free tier processes for our web app.
+```shell
+heroku ps:scale web=1
+```
+10. Visit the URL shown in the command line log after deployment process. In my case, it is https://jkariukidev.herokuapp.com
 
 [//]: # (1. To test production configuration, run the following)
 
@@ -158,23 +200,14 @@ TBD
 [//]: # (6. Once deployed, you will get a URL for your live app, such as: `https://xyz.vercel.app`)
 
 ### PythonAnywhere
-TBD
 
-[//]: # (1. To test production configuration, run the following)
-
-[//]: # (2. Push your code to it)
-
-[//]: # (3. Create New Project on your [Vercel Dashboard]&#40;https://vercel.com/dashboard&#41;)
-
-[//]: # (4. Import your Git Repository)
-
-[//]: # (5. After successful import, changes made to the Production Branch &#40;commonly "main/master"&#41; will be a Production Deployment and rest all branches will generate Preview Deployments.)
-
-[//]: # (6. Once deployed, you will get a URL for your live app, such as: `https://xyz.vercel.app`)
+PythonAnywhere supports deployment of Python applications including Django. For more detail on deploying this or any
+other Django project on PythonAnywhere, refer to their [documentation](https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/).
 
 ### DigitalOcean
 
-TBD
+This [Digital Ocean tutorial](https://docs.digitalocean.com/tutorials/app-deploy-django-app/) illustrates on the steps
+for deploying Django-based applications on their platform.
 
 [//]: # (1. To test production configuration, run the following)
 
@@ -223,13 +256,7 @@ One can take the advantage of this project to create their own portfolio website
 - [@Joseph Kariuki](https://www.github.com/jkariukidev) - Idea & Initial Work
 - [@DeeshanSharma](https://www.github.com/DeeshanSharma) - Markdown documentation
 
-## 📖Contributing
-
-**_"In real open source, you have the right to control your own destiny."_** _- Linus Torvalds_
-
 ## 📢Contributors
-
-It is good to give credit to your contributors as they have given their precious time working on your project so list their name with contact details for eg:
 
 <!-- Add links to all the contributors profile here -->
 
