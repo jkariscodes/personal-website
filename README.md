@@ -163,6 +163,8 @@ This project is productionready with few enhancements to be done. According to
 the [Web Server Gateway Interface](https://wsgi.readthedocs.io/en/latest/) (WSGI) or [Asynchronous Server Gateway
 Interface](https://asgi.readthedocs.io/en/latest/) (ASGI). The WGSI is being employed in this project. 
 
+### Docker
+TBD
 ### Heroku
 Below are summarized steps in deploying the project to [Heroku](https://www.heroku.com/). The project has already been
 configured for deployment on heroku.
