@@ -1,9 +1,6 @@
 from django import forms
 from .models import Post, PostComment
 
-# cats = Category.objects.all().values_list('name', 'name')
-# cat_list = [cat for cat in cats]
-
 
 class PostForm(forms.ModelForm):
     class Meta:
@@ -64,11 +61,4 @@ class ContactForm(forms.Form):
     message = forms.CharField(required=True, widget=forms.Textarea(
         attrs={'class': 'form-control', 'placeholder': 'E-mail body...'}
     ))
-
-
-# class SearchForm(forms.Form):
-#     """
-#     Search form for blog posts.
-#     """
-#     query = forms.CharField()
 

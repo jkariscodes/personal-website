@@ -3,7 +3,14 @@ from django.urls import reverse_lazy
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render, redirect
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import (
+    TemplateView,
+    ListView,
+    DetailView,
+    CreateView,
+    UpdateView,
+    DeleteView
+)
 from .models import Post, PostComment
 from .forms import PostForm, EmailPostForm, CommentForm, ContactForm
 
@@ -20,25 +27,16 @@ class AddCommentView(CreateView):
     success_url = reverse_lazy('website:home')
 
 
-def home(request):
-    """
-    Home page view.
-    """
-    return render(request, 'home.html', {})
+class HomePageView(TemplateView):
+    template_name = 'home.html'
 
 
-def about(request):
-    """
-    About page.
-    """
-    return render(request, 'about.html', {})
+class AboutPageView(TemplateView):
+    template_name = 'about.html'
 
 
-def portfolio(request):
-    """
-    Portfolio page.
-    """
-    return render(request, 'portfolio.html', {})
+class PortfolioPageView(TemplateView):
+    template_name = 'portfolio.html'
 
 
 def post_share(request, post_slug):
@@ -72,7 +70,7 @@ class PostView(ListView):
     model = Post
     template_name = 'blog.html'
     ordering = ['-published']
-    paginate_by = 5
+    # paginate_by = 5
 
 
 class ArticleView(DetailView):
