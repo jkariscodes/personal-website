@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
     <div class="container">
@@ -6,7 +7,11 @@
             <div class="card mb-3">
         <div class="row no-gutters">
             <div class="col-md-4">
+                {% if page_user.profile_pic %}
                     <img src="{{ page_user.profile_pic.url }}" class="card-img">
+                {% else %}
+                    <img src="{% static 'website/img/profile_pic.jpg' %}" class="card-img">
+                {% endif %}
             </div>
             <div class="col-md-8">
                 <div class="card-body">

@@ -65,3 +65,9 @@ class PostComment(models.Model):
         return f'Comment by {self.name} on {self.post}'
 
 
+class EmailMessage(models.Model):
+    email = models.EmailField(max_length=254)
+    subject = models.CharField(max_length=50)
+    message = models.TextField(max_length=300)
+
+

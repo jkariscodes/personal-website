@@ -245,6 +245,11 @@ body{
 	font-size: 16px;
 }
 
+.django-ckeditor-widget{
+  width: 100%;
+}
+
+
 
 
 

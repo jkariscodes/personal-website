@@ -1,8 +1,9 @@
 from django.test import TestCase
 from django.test import SimpleTestCase
-from django.urls import reverse
+from django.urls import reverse, resolve
 from django.contrib.auth import get_user_model
 from .models import Post
+from .views import HomePageView, PortfolioPageView
 
 from autoslug.fields import AutoSlugField
 
@@ -38,6 +39,13 @@ class WebsitePagesTests(SimpleTestCase):
         """
         response = self.client.get('/portfolio/')
         self.assertNotEqual(response.status_code, 500)
+
+    def test_portfolio_url_resolves_homepageview(self):
+        view = resolve('/portfolio/')
+        self.assertEqual(
+            view.func.__name__,
+            PortfolioPageView.as_view().__name__
+        )
 
 
 class SignUpPageTests(TestCase):

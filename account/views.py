@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.views import generic
 from django.contrib.auth import views as auth_views
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from . import forms
 from .models import Profile
@@ -16,7 +16,7 @@ class UserRegistrationView(generic.CreateView):
     success_url = reverse_lazy('login')
 
 
-class CreateProfilePageView(generic.CreateView):
+class CreateProfilePageView(LoginRequiredMixin, generic.CreateView):
     """
     Profile creation view.
     """
@@ -30,7 +30,7 @@ class CreateProfilePageView(generic.CreateView):
         return super().form_valid(form)
 
 
-class ShowProfileView(generic.DetailView):
+class ShowProfileView(LoginRequiredMixin, generic.DetailView):
     """
     Profile details of registered user.
     """
@@ -45,14 +45,14 @@ class ShowProfileView(generic.DetailView):
         return context
 
     
-class EditProfilePageView(generic.UpdateView):
+class EditProfilePageView(LoginRequiredMixin, generic.UpdateView):
     model = Profile
     form_class = forms.ProfilePageForm
     template_name = 'registration/edit_profile_page.html'
-    success_url = reverse_lazy('website:success')
+    success_url = reverse_lazy('account:edit_profile_success')
 
 
-class UserEditView(generic.UpdateView):
+class UserEditView(LoginRequiredMixin, generic.UpdateView):
     """
     Edit user profile.
     """
@@ -66,20 +66,13 @@ class UserEditView(generic.UpdateView):
 
 class UserLoginView(auth_views.LoginView):
     form_class = forms.UserLoginForm
-    success_url = reverse_lazy('account:dashboard')
+    success_url = reverse_lazy('dashboard')
 
 
-def user_register_success(request):
-    return render(request, 'registration/register_done.html', {})
+class UserRegisterSuccessView(generic.TemplateView):
+    template_name = 'registration/register_done.html'
 
 
-def register_success(request):
-    """
-    Registration success.
-    """
-    return render(request, 'registration/register_done.html', {})
+class DashboardView(LoginRequiredMixin, generic.TemplateView):
+    template_name = 'registration/dashboard.html'
 
-
-@login_required
-def dashboard(request):
-    return render(request, 'registration/dashboard.html')

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block title %}Edit Blog Post - {{ block.super }}{% endblock %}
 
@@ -7,14 +8,12 @@
 {% if user.is_authenticated %}
     {% if user.id == post.author.id %}
         <h1>Edit Post...</h1>
-        <div class="form-group">
         <form method="POST">
             {% csrf_token %}
             {{ form.media }}
-            {{ form.as_p }}
+            {{ form|crispy }}
             <button class="btn btn-secondary">Update</button>
         </form>
-        </div>
     {% endif %}
 {% else %}
     <p>Please <a href="{% url 'account:login' %}">log in</a> to edit this blog post.</p>

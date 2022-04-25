@@ -1,15 +1,14 @@
 from django.urls import path, include
-from django.contrib.auth import views as auth_views
 from . import views
 
 app_name = 'account'
 
 urlpatterns = [
     path('register/', views.UserRegistrationView.as_view(), name='register'),
-    path('register_done/', views.user_register_success, name='register-done'),
-    path('dashboard/', views.dashboard, name='dashboard'),
-    # path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('register_done/', views.UserRegisterSuccessView.as_view(), name='register-done'),
+    path('dashboard/', views.DashboardView.as_view(), name='dashboard'),
     path('edit_profile/', views.UserEditView.as_view(), name='edit_profile'),
+    path('edit_profile/success/', views.UserEditView.as_view(), name='edit_profile_success'),
     path('profile/<int:pk>/', views.ShowProfileView.as_view(), name='user_profile'),
     path('edit_profile/<int:pk>/', views.EditProfilePageView.as_view(), name='edit_user_profile'),
     path('create_profile/', views.CreateProfilePageView.as_view(), name='create_user_profile'),

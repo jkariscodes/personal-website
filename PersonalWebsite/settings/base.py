@@ -28,7 +28,6 @@ SITE_ID = 1
 # Application definition
 
 INSTALLED_APPS = [
-    'account.apps.AccountConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,11 +35,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    'website.apps.WebsiteConfig',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+
+    # 3rd Party
     'ckeditor',
     'storages',
+    "crispy_forms",
+    "crispy_bootstrap5",
+
+    # Local
+    'account.apps.AccountConfig',
+    'website.apps.WebsiteConfig',
 ]
 
 MIDDLEWARE = [
@@ -139,10 +145,9 @@ LOGIN_REDIRECT_URL = 'account:dashboard'
 LOGOUT_REDIRECT_URL = 'website:home'
 
 # Email config
-# DEFAULT_FROM_EMAIL = 'user@example.com'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_HOST = ''
-# EMAIL_HOST_USER = ''
-# EMAIL_HOST_PASSWORD = ''
-# EMAIL_PORT = ''
-# EMAIL_USE_TLS = True
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+# AUTH_USER_MODEL = 'account.CustomUser'

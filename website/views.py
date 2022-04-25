@@ -11,7 +11,8 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-from .models import Post, PostComment
+from django.views.generic import FormView
+from .models import Post, PostComment, EmailMessage
 from .forms import PostForm, EmailPostForm, CommentForm, ContactForm
 
 
@@ -108,31 +109,29 @@ class DeletePostView(DeleteView):
     success_url = reverse_lazy('website:blog')
 
 
-def contact_view(request):
-    """
-    Contact form view.
-    """
-    if request.method == 'GET':
-        form = ContactForm()
-    else:
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            subject = form.cleaned_data['subject']
-            from_email = form.cleaned_data['from_email']
-            message = form.cleaned_data['message']
-            try:
-                send_mail(subject, message, from_email, ['admin@example.com'])
-            except BadHeaderError:
-                return HttpResponse('Invalid header found.')
-            return redirect('website:success')
-    return render(request, "contact.html", {'form': form})
+class ContactFormView(FormView):
+    template_name = 'contact.html'
+    form_class = ContactForm
+    success_url = reverse_lazy('website:success')
+
+    def form_valid(self, form):
+        email = form.cleaned_data['from_email']
+        subject = form.cleaned_data['subject']
+        message = form.cleaned_data['message']
+
+        message = EmailMessage(email=email, subject=subject, message=message)
+        message.save()
+        return super().form_valid(form)
 
 
-def success_view(request):
-    """
-    Success message.
-    """
-    return render(request, "success.html")
+class EmailSuccess(TemplateView):
+    template_name = 'success.html'
+#
+# def success_view(request):
+#     """
+#     Success message.
+#     """
+#     return render(request, "success.html")
 
 
 def category_view(request, cats):
