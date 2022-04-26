@@ -1,8 +1,8 @@
 from datetime import datetime, timedelta
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth.models import User
-from .models import Profile
+# from django.contrib.auth.models import User
+from .models import Profile, CustomUser
 
 today = datetime.now()
 since = timedelta(days=6574)
@@ -14,8 +14,8 @@ class UserLoginForm(AuthenticationForm):
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))
 
     class Meta:
-        model = User
-        fields = ('username', 'password')
+        model = CustomUser
+        fields = UserCreationForm.Meta.fields + ('username', 'password')
 
 
 class AccountRegistrationForm(UserCreationForm):
@@ -30,7 +30,7 @@ class AccountRegistrationForm(UserCreationForm):
     ))
 
     class Meta:
-        model = User
+        model = CustomUser
         fields = (
             'username',
             'first_name',
@@ -50,7 +50,7 @@ class AccountRegistrationForm(UserCreationForm):
 
 class UserEditForm(forms.ModelForm):
     class Meta:
-        model = User
+        model = CustomUser
         fields = ('username', 'first_name', 'last_name', 'email')
 
     def __init__(self, *args, **kwargs):
