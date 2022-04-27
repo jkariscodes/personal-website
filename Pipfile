@@ -30,6 +30,7 @@ urllib3 = "==1.26.9"
 whitenoise = "==6.0.0"
 django-crispy-forms = "*"
 crispy-bootstrap5 = "*"
+environs = {version = "==9.5.0", extras = ["django"]}
 
 [dev-packages]
 
