@@ -53,7 +53,7 @@ class CustomUserTests(TestCase):
 
 class SignupPageTests(TestCase):
     def setUp(self):
-        url = reverse('account:register')
+        url = reverse('accounts:register')
         self.response = self.client.get(url)
 
     def test_signup_template(self):

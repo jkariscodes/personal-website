@@ -28,7 +28,7 @@
                     <h5 class="card-title">{{ post.author.first_name }} {{ post.author.last_name }}</h5>
                     <p class="card-text">
                         {% if post.author.profile.id %}
-                            <a href="{% url 'account:user_profile' post.author.profile.id %}"><i class="bi-person-fill" role="img" aria-label="Globe"></i></a> |
+                            <a href="{% url 'accounts:user_profile' post.author.profile.id %}"><i class="bi-person-fill" role="img" aria-label="Globe"></i></a> |
                         {% else %}
                             <a href="#"><i class="bi-person-fill" role="img" aria-label="Globe"></i></a> |
                         {% endif %}

@@ -16,28 +16,44 @@ from .models import Post, PostComment, EmailMessage
 from .forms import PostForm, EmailPostForm, CommentForm, ContactForm
 
 
+class HomePageView(TemplateView):
+    """
+    Website landing page.
+    """
+    template_name = 'website/home.html'
+
+
+class PostsListView(ListView):
+    """
+    Blog posts page.
+    """
+    model = Post
+    template_name = 'website/blog.html'
+    ordering = ['-published']
+    # paginate_by = 5
+
+
+class PostArticleView(DetailView):
+    """
+    Post article page.
+    """
+    model = Post
+    template_name = '../templates/website/article.html'
+
+
 class AddCommentView(CreateView):
+    """
+    Add comment to post article.
+    """
     model = PostComment
     form_class = CommentForm
-    template_name = 'article-comment.html'
+    template_name = '../templates/website/article-comment.html'
 
     def form_valid(self, form):
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
 
     success_url = reverse_lazy('website:home')
-
-
-class HomePageView(TemplateView):
-    template_name = 'home.html'
-
-
-class AboutPageView(TemplateView):
-    template_name = 'about.html'
-
-
-class PortfolioPageView(TemplateView):
-    template_name = 'portfolio.html'
 
 
 def post_share(request, post_slug):
@@ -60,57 +76,47 @@ def post_share(request, post_slug):
             sent = True
     else:
         form = EmailPostForm()
-    return render(request, 'share.html',
+    return render(request, 'website/share.html',
                   {'post': post, 'form': form, 'sent': sent})
-
-
-class PostView(ListView):
-    """
-    Blog posts view.
-    """
-    model = Post
-    template_name = 'blog.html'
-    ordering = ['-published']
-    # paginate_by = 5
-
-
-class ArticleView(DetailView):
-    """
-    Single post view.
-    """
-    model = Post
-    template_name = 'article.html'
 
 
 class AddPostView(LoginRequiredMixin, CreateView):
     """
-    Create blog post view.
+    Create new post article.
     """
     model = Post
     form_class = PostForm
-    template_name = 'post-new.html'
+    template_name = 'website/post-new.html'
 
 
 class UpdatePostView(LoginRequiredMixin, UpdateView):
     """
-    Update blog post view.
+    Update a given post article.
     """
     model = Post
-    template_name = 'edit-post.html'
+    template_name = 'website/edit-post.html'
     fields = ['title', 'header_image', 'body', 'status']
 
 
 class DeletePostView(DeleteView):
     """
-    Delete blog post.
+    Delete a given post article.
     """
     model = Post
-    template_name = 'delete-post.html'
+    template_name = 'website/delete-post.html'
     success_url = reverse_lazy('website:blog')
 
 
+class AboutPageView(TemplateView):
+    template_name = 'website/about.html'
+
+
+class PortfolioPageView(TemplateView):
+    template_name = 'website/portfolio.html'
+
+
 class ContactFormView(FormView):
-    template_name = 'contact.html'
+    template_name = 'website/contact.html'
     form_class = ContactForm
     success_url = reverse_lazy('website:success')
 
@@ -125,13 +131,7 @@ class ContactFormView(FormView):
 
 
 class EmailSuccess(TemplateView):
-    template_name = 'success.html'
-#
-# def success_view(request):
-#     """
-#     Success message.
-#     """
-#     return render(request, "success.html")
+    template_name = 'website/success.html'
 
 
 def category_view(request, cats):
@@ -139,8 +139,12 @@ def category_view(request, cats):
     Category view
     """
     category_posts = Post.objects.filter(category=cats.replace('-', ' '))
-    return render(request, 'categories.html', {'cats': cats.title().replace('-', ' '),
-                                               'category_posts': category_posts})
+    return render(
+        request,
+        'website/categories.html',
+        {'cats': cats.title().replace('-', ' '),
+         'category_posts': category_posts}
+    )
 
 
 

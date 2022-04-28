@@ -1,7 +1,6 @@
 from datetime import datetime, timedelta
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-# from django.contrib.auth.models import User
 from .models import Profile, CustomUser
 
 today = datetime.now()
@@ -10,8 +9,14 @@ prev_date = (today - since).date()
 
 
 class UserLoginForm(AuthenticationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'type': 'password'}))
+    username = forms.CharField(
+        widget=forms.TextInput(attrs={'class': 'form-control'})
+    )
+    password = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={'class': 'form-control', 'type': 'password'}
+        )
+    )
 
     class Meta:
         model = CustomUser
@@ -85,14 +90,13 @@ class ProfileEditForm(forms.ModelForm):
 class ProfilePageForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ('bio', 'profile_pic', 'website_url', 'facebook_url', 'twitter_url', 'instagram_url', 'github_url',)
-        # widgets = {
-        #     'bio': forms.Textarea(attrs={'class': 'form-control'}),
-        #     # 'profile_pic': forms.TextInput(attrs={}),
-        #     'website_url': forms.TextInput(attrs={'class': 'form-control'}),
-        #     'facebook_url': forms.TextInput(attrs={'class': 'form-control'}),
-        #     'twitter_url': forms.TextInput(attrs={'class': 'form-control'}),
-        #     'instagram_url': forms.TextInput(attrs={'class': 'form-control'}),
-        #     'github_url': forms.TextInput(attrs={'class': 'form-control'}),
-        # }
+        fields = (
+            'bio',
+            'profile_pic',
+            'website_url',
+            'facebook_url',
+            'twitter_url',
+            'instagram_url',
+            'github_url',
+        )
 

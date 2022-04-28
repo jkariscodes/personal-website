@@ -16,6 +16,11 @@ class UserRegistrationView(generic.CreateView):
     success_url = reverse_lazy('login')
 
 
+class UserLoginView(auth_views.LoginView):
+    form_class = forms.UserLoginForm
+    success_url = reverse_lazy('dashboard')
+
+
 class CreateProfilePageView(LoginRequiredMixin, generic.CreateView):
     """
     Profile creation view.
@@ -23,11 +28,15 @@ class CreateProfilePageView(LoginRequiredMixin, generic.CreateView):
     model = Profile
     form_class = forms.ProfilePageForm
     template_name = 'registration/create_user_profile.html'
-    success_url = reverse_lazy('account:dashboard')
+    success_url = reverse_lazy('accounts:dashboard')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+
+
+class DashboardView(LoginRequiredMixin, generic.TemplateView):
+    template_name = 'registration/dashboard.html'
 
 
 class ShowProfileView(LoginRequiredMixin, generic.DetailView):
@@ -38,18 +47,17 @@ class ShowProfileView(LoginRequiredMixin, generic.DetailView):
     template_name = 'registration/user_profile.html'
 
     def get_context_data(self, *args, **kwargs):
-        # user_profiles = Profile.objects.all()
         context = super(ShowProfileView, self).get_context_data(*args, **kwargs)
         page_user = get_object_or_404(Profile, id=self.kwargs['pk'])
         context["page_user"] = page_user
         return context
 
-    
+
 class EditProfilePageView(LoginRequiredMixin, generic.UpdateView):
     model = Profile
     form_class = forms.ProfilePageForm
     template_name = 'registration/edit_profile_page.html'
-    success_url = reverse_lazy('account:edit_profile_success')
+    success_url = reverse_lazy('accounts:edit_profile_success')
 
 
 class UserEditView(LoginRequiredMixin, generic.UpdateView):
@@ -57,22 +65,16 @@ class UserEditView(LoginRequiredMixin, generic.UpdateView):
     Edit user profile.
     """
     form_class = forms.ProfileEditForm
-    template_name = 'registration/edit.html'
-    success_url = reverse_lazy('account:dashboard')
+    template_name = 'edit_user_profile.html'
+    success_url = reverse_lazy('accounts:dashboard')
 
     def get_object(self, queryset=None):
         return self.request.user
 
 
-class UserLoginView(auth_views.LoginView):
-    form_class = forms.UserLoginForm
-    success_url = reverse_lazy('dashboard')
+class UserEditSuccessView(generic.TemplateView):
+    template_name = 'registration/edit_profile_success.html'
 
 
 class UserRegisterSuccessView(generic.TemplateView):
     template_name = 'registration/register_done.html'
-
-
-class DashboardView(LoginRequiredMixin, generic.TemplateView):
-    template_name = 'registration/dashboard.html'
-

@@ -23,7 +23,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link active" aria-current="page" href="{% url 'website:home' %}">Home</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="{% url 'website:blog' %}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -54,14 +54,14 @@
                   <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
                   <li><a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a></li>
                   {% if user.profile.id %}
-                      <li><a class="dropdown-item" href="{% url 'account:user_profile' user.profile.id %}">Your Profile</a></li>
-                      <li><a class="dropdown-item" href="{% url 'account:edit_user_profile' user.profile.id %}">Edit Your Profile</a></li>
+                      <li><a class="dropdown-item" href="{% url 'accounts:user_profile' user.profile.id %}">Your Profile</a></li>
+                      <li><a class="dropdown-item" href="{% url 'accounts:edit_user_profile' user.profile.id %}">Edit Your Profile</a></li>
                   {% else %}
-                      <li><a class="dropdown-item" href="{% url 'account:create_user_profile' %}">Create Profile</a></li>
+                      <li><a class="dropdown-item" href="{% url 'accounts:create_user_profile' %}">Create Profile</a></li>
                   {% endif %}
               {% else %}
                   <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
-                  <li><a class="dropdown-item" href="{% url 'account:register' %}">Register</a></li>
+                  <li><a class="dropdown-item" href="{% url 'accounts:register' %}">Register</a></li>
               {% endif %}
           </ul>
       </li>
@@ -185,7 +185,7 @@
 {% endblock %}
 <!-- Footer -->
 <script src="{% static 'website/js/bootstrap.bundle.min.js' %}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="{% static 'website/js/jquery.min.js' %}"></script>
 <script src="{% static 'website/js/bootstrap.modal.forms.min.js' %}"></script>
 <script src="{% static 'website/js/main.js' %}"></script>
 </body>
