@@ -221,6 +221,9 @@ other Django project on PythonAnywhere, refer to their [documentation](https://h
 This [Digital Ocean tutorial](https://docs.digitalocean.com/tutorials/app-deploy-django-app/) illustrates on the steps
 for deploying Django-based applications on their platform.
 
+## Testing
+TBD 
+
 ## TBD
 
 List of enhancements to be effected on this project. For more, add recommendation on the issues section and label them as enhancements. 
