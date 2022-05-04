@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c3ef1dfba4acb826f6fa2c74fb76b58d9404889da582d09eb18f26785459416d"
+            "sha256": "5a192c8fed69dd1f3214fb71afb48c3e3c81e345a63a5ffe8c2cc5ef743cd5f4"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -83,6 +83,7 @@
                 "sha256:64257c4f9d8139a4af8e5267229d32260e433fbf257b0cf8fc855bb0cc39ca7d",
                 "sha256:ef36f8a324ec57cf3be5c7a7ef44ed6900ca0208624a918ab33adc1cf6427b39"
             ],
+            "index": "pypi",
             "version": "==1.0.5"
         },
         "django": {
@@ -106,6 +107,7 @@
                 "sha256:4559398a946ff24c4ee96e32c55e3b760bd69f7c2ba48844cdf8fcb4f76d10bd",
                 "sha256:9061f8e7ffbb29eb92ba93fa9058003ec92393e85c537d1969570652ff8721fa"
             ],
+            "index": "pypi",
             "version": "==3.4.0"
         },
         "django-ckeditor": {
@@ -149,9 +151,6 @@
             "version": "==1.12.3"
         },
         "environs": {
-            "extras": [
-                "django"
-            ],
             "hashes": [
                 "sha256:1e549569a3de49c05f856f40bce86979e7d5ffbbc4398e7f338574c220189124",
                 "sha256:a76307b36fbe856bdca7ee9161e6c466fd7fcffc297109a118c59b54e27e30c9"
@@ -180,7 +179,7 @@
                 "sha256:2aaaab4f01ef4f5a011a21319af9fce17ab13bf28a026d1252adab0e035648d5",
                 "sha256:ff79885ed43b579782f48c251d262e062bce49c65c52412458769a4fb57ac30f"
             ],
-            "markers": "python_version >= '3.7'",
+            "index": "pypi",
             "version": "==3.15.0"
         },
         "packaging": {
@@ -327,7 +326,7 @@
                 "sha256:7bf433498c016c4314268d95df76c81b842a4cb2b276fa3312cfb1e1d85f6954",
                 "sha256:ef7b523f6356f763771559412c0d7134753f037822dad1b16945b7b846f7ad06"
             ],
-            "markers": "python_full_version >= '3.6.8'",
+            "index": "pypi",
             "version": "==3.0.8"
         },
         "python-dateutil": {

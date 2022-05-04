@@ -4,10 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "==4.0.4"
 django-autoslug = "==1.9.8"
 django-ckeditor = "==6.3.2"
-pillow = "==9.1.0"
 python-dotenv = "==0.20.0"
 django-heroku = "==0.3.1"
 pip = "==22.0.4"
@@ -28,9 +26,15 @@ six = "==1.16.0"
 sqlparse = "==0.4.2"
 urllib3 = "==1.26.9"
 whitenoise = "==6.0.0"
-django-crispy-forms = "*"
-crispy-bootstrap5 = "*"
-environs = {version = "==9.5.0", extras = ["django"]}
+django-crispy-forms = "==1.14.0"
+crispy-bootstrap5 = "==0.6"
+environs = "==9.5.0"
+dj-email-url = "==1.0.5"
+django-cache-url = "==3.4.0"
+marshmallow = "==3.15.0"
+pyparsing = "==3.0.8"
+Django = "==4.0.4"
+Pillow = "==9.1.0"
 
 [dev-packages]
 
