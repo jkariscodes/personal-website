@@ -1,8 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, render, redirect
+from django.core.mail import send_mail
+from django.shortcuts import get_object_or_404, render
 from django.views.generic import (
     TemplateView,
     ListView,
@@ -53,7 +52,10 @@ class AddCommentView(CreateView):
         form.instance.post_id = self.kwargs['pk']
         return super().form_valid(form)
 
-    success_url = reverse_lazy('website:home')
+    def get_success_url(self):
+        return reverse_lazy(
+            'website:article-detail', kwargs={'slug': self.kwargs['slug']}
+        )
 
 
 def post_share(request, post_slug):
@@ -118,7 +120,6 @@ class PortfolioPageView(TemplateView):
 class ContactFormView(FormView):
     template_name = 'website/contact.html'
     form_class = ContactForm
-    success_url = reverse_lazy('website:success')
 
     def form_valid(self, form):
         email = form.cleaned_data['from_email']
@@ -128,6 +129,8 @@ class ContactFormView(FormView):
         message = EmailMessage(email=email, subject=subject, message=message)
         message.save()
         return super().form_valid(form)
+
+    success_url = reverse_lazy('website:success')
 
 
 class EmailSuccess(TemplateView):

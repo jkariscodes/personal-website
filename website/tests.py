@@ -3,9 +3,7 @@ from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 from django.contrib.auth import get_user_model
 from .models import Post
-from .views import HomePageView, PortfolioPageView
-
-from autoslug.fields import AutoSlugField
+from .views import PortfolioPageView
 
 
 class WebsitePagesTests(SimpleTestCase):

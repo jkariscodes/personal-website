@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block title %}Login - {{ block.super }}{% endblock %}
 
@@ -15,8 +16,8 @@
     {% endif %}
     <div class="form-group">
         <form method="POST">
-            {{ form.as_p }}
             {% csrf_token %}
+            {{ form|crispy }}
             <input type="hidden" name="next" value="{{ next }}">
             <button class="btn btn-secondary">Login</button>
         </form>

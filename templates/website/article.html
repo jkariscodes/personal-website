@@ -58,7 +58,7 @@
         </div>
     </div>
     <br>
-     <a href="{% url 'website:blog' %}" class="btn btn-secondary">Back</a>
+     <a href="{% url 'website:blog' %}" class="btn btn-secondary">Blog</a>
     {% if user.is_authenticated %}
         {% if user.id == post.author.id %}
             <a href="{% url 'website:update_post' post.slug %}" class="btn btn-secondary">Edit Post</a>
