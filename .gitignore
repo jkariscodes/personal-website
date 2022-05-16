@@ -167,3 +167,6 @@ atlassian-ide-plugin.xml
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
+
+
+db-data/
