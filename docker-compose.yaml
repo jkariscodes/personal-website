@@ -1,6 +1,15 @@
 version: '3.8'
 
 services:
+        db:
+                image: 'postgres:12'
+                ports:
+                        - 5801:5432
+                env_file:
+                        - .env
+
+                volumes:
+                        - ./db-data/:/var/lib/postgresql/data
         web:
                 build: .
                 command: python /code/manage.py runserver 0.0.0.0:8000
@@ -12,14 +21,3 @@ services:
                         - 8000:8000
                 depends_on:
                         - db
-        database:
-                image: 'postgres:latest'
-                ports:
-                        - 5801:5432
-                env_file:
-                        - .env
-
-                volumes:
-                        - ./db-data/:/var/lib/postgresql/data/
-volumes:
-        postgres_data:
