@@ -32,7 +32,7 @@ dj-email-url = "==1.0.5"
 django-cache-url = "==3.4.0"
 marshmallow = "==3.15.0"
 pyparsing = "==3.0.8"
-Django = "==4.0.4"
+Django = "==4.0.6"
 Pillow = "==9.1.1"
 django-allauth = "==0.50.0"
 
