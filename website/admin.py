@@ -1,13 +1,15 @@
 from django.contrib import admin
+from django_summernote.admin import SummernoteModelAdmin
 
 from .models import Post, PostComment
 
 
 @admin.register(Post)
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(SummernoteModelAdmin):
     """
     Customizing display of the Post Model
     """
+    summernote_fields = ('body',)
     list_display = ('title', 'slug', 'author', 'published', 'status')
     list_filter = ('status', 'created', 'published', 'author')
     search_fields = ('title', 'body')

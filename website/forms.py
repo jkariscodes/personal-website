@@ -1,4 +1,5 @@
 from django import forms
+from django_summernote.widgets import SummernoteInplaceWidget
 from .models import Post, PostComment
 
 
@@ -22,6 +23,7 @@ class PostForm(forms.ModelForm):
                     'type': 'hidden'
                 }
             ),
+            'body': SummernoteInplaceWidget(),
         }
 
 
