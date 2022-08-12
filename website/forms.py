@@ -9,7 +9,6 @@ class PostForm(forms.ModelForm):
             'title',
             'author',
             'category',
-            'header_image',
             'body',
             'snippet',
             'status'
