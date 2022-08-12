@@ -103,7 +103,8 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+.env_dev
+.env_prod
 .venv
 env/
 venv/
@@ -160,12 +161,12 @@ dmypy.json
 # JIRA plugin
 atlassian-ide-plugin.xml
 
-# Visual Studio Code # 
-.vscode/* 
-!.vscode/settings.json 
-!.vscode/tasks.json 
-!.vscode/launch.json 
-!.vscode/extensions.json 
+# Visual Studio Code #
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 .history
 
 

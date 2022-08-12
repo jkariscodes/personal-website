@@ -97,7 +97,7 @@ class UpdatePostView(LoginRequiredMixin, UpdateView):
     """
     model = Post
     template_name = 'website/edit-post.html'
-    fields = ['title', 'header_image', 'body', 'status']
+    fields = ['title', 'body', 'status']
 
 
 class DeletePostView(DeleteView):
