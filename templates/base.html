@@ -15,7 +15,7 @@
 </head>
 <body style="min-height: 100%;">
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
+  <div class="container">
     <a class="navbar-brand" href="{% url 'website:home' %}">J.K</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -46,9 +46,9 @@
           <a class="nav-link" href="{% url 'website:contact' %}">Contact</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Account
-          </a>
+{#          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">#}
+{#            Account#}
+{#          </a>#}
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               {% if user.is_authenticated %}
                   <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
@@ -70,8 +70,8 @@
 {#        </li>#}
       </ul>
       <form class="d-flex" method="get">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-2 disabled" type="search" placeholder="Search" aria-label="Search" disabled>
+        <button class="btn btn-outline-success" type="submit" disabled>Search</button>
       </form>
     </div>
   </div>

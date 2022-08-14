@@ -115,7 +115,7 @@ body{
 
 /*Portfolio*/
 .portfolio{
-	margin: 4em 0;
+	/*margin: 4em;*/
     position: relative;
 }
 .portfolio h1{
@@ -125,9 +125,6 @@ body{
 	 height: 15rem;
 	 width: 100%;
 	 margin: 1em;
-
-
-
 }
 
 /*blog style*/
