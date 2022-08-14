@@ -10,8 +10,7 @@
         <h1>Edit Post...</h1>
         <form method="POST">
             {% csrf_token %}
-            {{ form.media }}
-            {{ form|crispy }}
+            {{ form|crispy|safe }}
             <button class="btn btn-secondary">Update</button>
         </form>
     {% endif %}
