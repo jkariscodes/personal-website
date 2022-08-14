@@ -89,6 +89,10 @@ class AddPostView(LoginRequiredMixin, CreateView):
     model = Post
     form_class = PostForm
     template_name = 'website/post-new.html'
+    
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super(AddPostView, self).form_valid(form)
 
 
 class UpdatePostView(LoginRequiredMixin, UpdateView):
@@ -96,8 +100,9 @@ class UpdatePostView(LoginRequiredMixin, UpdateView):
     Update a given post article.
     """
     model = Post
+    form_class = PostForm
     template_name = 'website/edit-post.html'
-    fields = ['title', 'body', 'status']
+    # fields = ['title', 'body', 'status']
 
 
 class DeletePostView(DeleteView):
