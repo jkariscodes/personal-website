@@ -34,7 +34,8 @@
 <br />
 <div style="text-align: center">
 
-   ![Project Demo Gif](https://jkariukidev.herokuapp.com/static/website/img/interactive_website.797b82f28d73.jpg)
+   ![image](https://user-images.githubusercontent.com/23359514/184578198-b766699f-636c-4ed8-bad8-649231882848.png)
+
 
 </div>
 <hr />
