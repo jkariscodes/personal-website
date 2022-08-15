@@ -18,6 +18,7 @@ Django = "==4.0.7"
 Pillow = "==9.1.1"
 django-allauth = "==0.50.0"
 django-summernote = "==0.8.20.0"
+bleach = "==4.1.0"
 
 [dev-packages]
 
