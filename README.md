@@ -130,9 +130,8 @@ variable name and value assignment.
    ```shell
    docker compose -f docker-compose-dev.yml exec web python manage.py createsuperuser
    ```
-8. Navigate to http://localhost:8000 in your favorite browser. The homepage will load and appears as shown below.
+8. Navigate to http://localhost:8000 in your favorite browser. The homepage will load.
 
-![image](https://user-images.githubusercontent.com/23359514/164234454-cfdaab7c-2135-4cdb-8c22-58495efb7bf0.png)
 
 #### Production environment
 TBD
