@@ -195,7 +195,6 @@ This [Digital Ocean tutorial](https://docs.digitalocean.com/tutorials/app-deploy
 for deploying Django-based applications on their platform.
 
 ## Testing
-TBD 
 
 ## TBD
 
