@@ -1,25 +1,43 @@
 version: '3.9'
 
 services:
+
   database:
-    image: postgres:14.5
+    image: postgres:13.10-alpine
+    container_name: db4${COMPOSE_PROJECT_NAME}
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - APP_DB_NAME=personalwebsite
+      - APP_DB_USER=websiteuser
+      - APP_DB_PASSWORD=websitePassword123
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "$POSTGRES_USER" ]
+      timeout: 40s
+      interval: 10s
+      retries: 10
+    volumes:
+      - ./initdb:/docker-entrypoint-initdb.d/
+      - postgres_data:/var/lib/postgresql/data/
     ports:
       - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
-    env_file:
-      - .env_prod
+    restart: always
+
   web:
-    build: .
-    command: python /website/manage.py runserver 0.0.0.0:8000
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: web4${COMPOSE_PROJECT_NAME}
+    command: python /home/appuser/personalwebsite/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/home/appuser/personalwebsite
     ports:
       - "80:8000"
-    volumes:
-      - .:/website
     env_file:
-      - .env_prod
+      - .env
     depends_on:
-      - database
+      database:
+        condition: service_healthy
+    restart: always
 
 volumes:
   postgres_data:

@@ -1,16 +1,33 @@
-FROM python:3.10.6-slim-buster
-
-RUN apt-get update -y && apt-get upgrade -y
-RUN apt-get install -y libpq-dev
+FROM python:3.10.10-slim-buster
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /website
+# create directory for the app user
+RUN mkdir -p /home/appuser
 
-COPY Pipfile Pipfile.lock /website/
+# don't run as root therefore create non-root user
+RUN groupadd --gid 1001 appuser && \
+    useradd --uid 1001 --gid appuser --home /home/appuser appuser
 
-RUN pip install pipenv && pipenv install --system
+# install pipenv
+RUN pip install pipenv
+
+# create the appropriate directories
+ENV HOME=/home/appuser
+ENV APP_HOME=/home/appuser/personalwebsite
+RUN mkdir $APP_HOME
+WORKDIR $APP_HOME
+
+COPY Pipfile Pipfile.lock $APP_HOME
+
+RUN pipenv install --system
 
 # Copy project
-COPY . /website/
+COPY . $APP_HOME
+
+# chown all the files to the app user
+RUN chown -R appuser:appuser $APP_HOME
+
+# change to the app user
+USER appuser
