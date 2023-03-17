@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 
-from .models import Post, PostComment
+from .models import Post, PostComment, PostCategory
 
 
 @admin.register(Post)
@@ -17,6 +17,18 @@ class PostAdmin(SummernoteModelAdmin):
     # raw_id_fields = ('author',)
     date_hierarchy = 'published'
     ordering = ('status', 'published')
+
+
+@admin.register(PostCategory)
+class PostCategoryAdmin(admin.ModelAdmin):
+    """
+    Customizing display of the Post Category Model
+    """
+    list_display = ('created', 'updated', 'title',)
+    list_filter = ('title',)
+    search_fields = ('title',)
+    date_hierarchy = 'created'
+    ordering = ('created',)
 
     
 @admin.register(PostComment)
