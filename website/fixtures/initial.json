@@ -1,0 +1,248 @@
+[
+  {
+    "model": "accounts.customuser",
+    "pk": 1,
+    "fields": {
+      "username": "test",
+      "password": "pbkdf2_sha256$390000$9QwZsak7tf3MKeVP2wXL6w$9h9/eER0AYWksZrTBmOiD/qcZHNfUCoyC4Ok+SG7ouc=",
+      "email": "siteadmin@email.com",
+      "is_active": "True",
+      "is_superuser": "True"
+    }
+  },
+  {
+    "model": "website.postcategory",
+    "pk": 1,
+    "fields": {
+      "created": "2023-01-31 14:00:09.676229+00:00",
+      "updated": "2023-01-31 14:00:09.676229+00:00",
+      "title": "Other"
+    }
+  },
+  {
+    "model": "website.post",
+    "pk": 1,
+    "fields": {
+      "author": 1,
+      "title": "Lorem Ipsum",
+      "slug": "lorem-ipsum",
+      "body": "<div class=\"page-generator__output js-generator-output\" id=\"output\"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi sit amet mauris ncommodo quis imperdiet massa tincidunt nunc. Ullamcorper a lacus nvestibulum sed. Nulla at volutpat diam ut. Feugiat nibh sed pulvinar proin gravida hendrerit. Cursus in hac habitasse platea. Fringilla urna porttitor rhoncus dolor. Facilisis leo vel fringilla est. Habitasse platea dictumst quisque sagittis purus sit amet. Egestas egestas fringilla phasellus faucibus scelerisque eleifend. Sed blandit libero volutpat sed cras ornare arcu dui vivamus. Eget egestas purus viverra accumsan. </p><p><img style=\"width: 100%;\" src=\"https://images.pexels.com/photos/3780104/pexels-photo-3780104.png\"><br></p><p>Arcu dui vivamus arcu felis bibendum ut tristique et. Libero volutpat sed cras ornare arcu dui vivamus arcu felis. Urna nec tincidunt praesent semper feugiat nibh sed pulvinar proin. Leo a diam sollicitudin tempor.</p><h3 class=\"\">Magna Fermentum</h3><p>Magna fermentum iaculis eu non diam. Pellentesque dignissim enim sit amet venenatis urna cursus eget. Pretium vulputate sapien nec sagittis. Sem et tortor consequat id porta. Consectetur lorem donec massa sapien faucibus et. Ac feugiat sed lectus vestibulum mattis ullamcorper velit sed. <i>Vitae purus faucibus ornare suspendisse sed. Est placerat in egestas erat imperdiet sed. Nibh mauris cursus mattis molestie a iaculis. Sem integer vitae justo eget magna. Tristique et egestas quis ipsum suspendisse. Amet nisl purus in mollis nunc sed id semper. Amet risus nullam eget felis. Enim praesent elementum facilisis leo vel fringilla est ullamcorper.</i></p><h3 class=\"\">Consectetur Lorem</h3><p>Consectetur lorem donec massa sapien faucibus. Vitae tempus quam pellentesque nec nam aliquam sem et. Nulla facilisi nullam vehicula ipsum a arcu cursus vitae. Nisl suscipit adipiscing bibendum est ultricies integer quis auctor. Imperdiet dui accumsan sit amet nulla facilisi morbi tempus iaculis. Sed velit dignissim sodales ut. Rutrum tellus pellentesque eu tincidunt tortor aliquam. Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis. Fermentum et sollicitudin ac orci phasellus egestas. <b>Tempor orci eu lobortis elementum. Amet volutpat consequat mauris nunc congue nisi vitae suscipit tellus. </b>Pellentesque adipiscing commodo elit at imperdiet dui. Nibh cras pulvinar mattis nunc sed blandit libero. Tellus orci ac auctor augue. Id aliquet lectus proin nibh. Suspendisse sed nisi lacus sed viverra. Tellus in metus vulputate eu scelerisque felis imperdiet proin fermentum.</p><p>Dui sapien eget mi proin sed libero enim sed faucibus. Sodales ut eu sem integer vitae justo eget magna fermentum. Vestibulum lorem sed risus ultricies tristique. Nec dui nunc mattis enim ut. Viverra aliquet eget sit amet tellus cras. Dignissim convallis aenean et tortor at risus. Mauris vitae ultricies leo integer malesuada. Facilisi cras fermentum odio eu. Sem integer vitae justo eget. Faucibus pulvinar elementum integer enim neque volutpat ac tincidunt vitae. Ullamcorper malesuada proin libero nunc consequat interdum varius. Ut lectus arcu bibendum at varius. Feugiat scelerisque varius morbi enim nunc. Egestas sed tempus urna et pharetra pharetra.</p><h3 class=\"\">Adipiscing Diam</h3><p>Adipiscing diam donec adipiscing tristique risus nec feugiat in. In hac habitasse platea dictumst quisque sagittis purus. Sem viverra aliquet eget sit amet tellus. Tellus integer feugiat scelerisque varius morbi enim nunc. Nunc vel risus commodo viverra maecenas accumsan lacus vel. Elementum nisi quis eleifend quam adipiscing vitae. Amet tellus cras adipiscing enim eu turpis egestas pretium aenean. Adipiscing elit pellentesque habitant morbi. Quisque non tellus orci ac. Fermentum iaculis eu non diam phasellus vestibulum. Quisque egestas diam in arcu cursus euismod quis viverra. At auctor urna nunc id cursus metus aliquam eleifend mi.</p><h3 class=\"\">Luctus Accumsan</h3><p>Luctus accumsan tortor posuere ac ut consequat semper. Volutpat odio facilisis mauris sit amet massa vitae tortor condimentum. Id semper risus in hendrerit gravida rutrum quisque non. Odio facilisis mauris sit amet massa vitae. Vestibulum lorem sed risus ultricies tristique nulla aliquet enim. Cras fermentum odio eu feugiat pretium nibh ipsum. Dolor sit amet consectetur adipiscing elit pellentesque habitant. <u>Sed viverra ipsum nunc aliquet bibendum enim facilisis gravida. In ornare quam viverra orci sagittis eu. Vitae congue eu consequat ac felis. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum. Sit amet nulla facilisi morbi tempus iaculis urna id. Nunc mi ipsum faucibus vitae aliquet nec. Suspendisse interdum consectetur libero id faucibus. Et netus et malesuada fames ac. In fermentum et sollicitudin ac orci phasellus egestas. Ultrices neque ornare aenean euismod elementum nisi quis eleifend. Rutrum quisque non tellus orci. Cursus risus at ultrices mi.</u></p><h3 class=\"\">Nunc Sed </h3><p>Nunc sed velit dignissim sodales ut eu. Ut venenatis tellus in metus vulputate. Sit amet porttitor eget dolor morbi non arcu risus quis. Tellus orci ac auctor augue mauris augue neque gravida. Tincidunt dui ut ornare lectus sit amet est. At volutpat diam ut venenatis tellus. Et molestie ac feugiat sed lectus. Arcu dictum varius duis at. Tincidunt augue interdum velit euismod in pellentesque. Senectus et netus et malesuada fames ac turpis egestas integer. Id volutpat lacus laoreet non. Faucibus interdum posuere lorem ipsum dolor sit amet consectetur. Nec sagittis aliquam malesuada bibendum arcu vitae elementum. In nisl nisi scelerisque eu ultrices vitae auctor. Aliquet nibh praesent tristique magna sit amet purus gravida quis. Est ullamcorper eget nulla facilisi etiam dignissim diam. Ornare lectus sit amet est. Nulla facilisi etiam dignissim diam quis.</p><p><br></p><p>Donec et odio pellentesque diam. Id interdum velit laoreet id donec ultrices. Lacus sed turpis tincidunt id aliquet risus. Consectetur a erat nam at lectus urna duis convallis. Sed lectus vestibulum mattisullamcorper velit sed ullamcorper morbi. Arcu dui vivamus arcu felis bibendum. Quisque id diam vel quam elementum pulvinar etiam. Nulla aliquet porttitor lacus luctus. Nulla at volutpat diam ut venenatis tellus in metus vulputate. A diam maecenas sed enim ut sem viverra aliquet eget. Ultrices neque ornare aenean euismod elementum nisi. Est sit amet facilisis magna etiam tempor. Odio ut enim blandit volutpat maecenas volutpat blandit aliquam. Consequat ac felis donec et odio. Facilisis gravida neque convallis a. Phasellus egestas tellus rutrumntellus pellentesque eu tincidunt tortor. Quisque non tellus orci acauctor augue mauris augue. Posuere ac ut consequat semper viverra. Duis tristique sollicitudin nibh sit.</p></div><p></p><table class=\"table table-bordered\"><tbody><tr><td>Donec et odio pellentesque diam. <br></td><td>Id interdum velit laoreet id donec ultrices. </td></tr><tr><td>Lacus sed turpis tincidunt id aliquet risus.</td><td>Consectetur a erat nam at lectus urna duis convallis.</td></tr></tbody></table>",
+      "published": "2023-02-19 14:01:09.673077+00:00",
+      "created": "2023-02-19 14:00:09.676229+00:00",
+      "updated": "2023-02-19 14:02:09.676241+00:00",
+      "category": 1,
+      "snippet": "lorem ipsum",
+      "status": "published"
+    }
+  },
+  {
+    "model": "website.post",
+    "pk": 2,
+    "fields": {
+      "author": 1,
+      "title": "Python Virtual Environment",
+      "slug": "python-virtual-environment",
+      "body": "<p>A virtual environment in Python is an isolated context for installing packages. It can also be referred to as a self-contained and light-weight Python installation. Virtual environments allow different projects to control or decide which versions of Python packages to use without interfering with other Python projects present in the installation host.</p><p><img style=\"width: 601px;\" src=\"https://www.python.org/static/community_logos/python-logo-master-v3-TM.png\"><br></p><p>It is considered a best practice to always work inside a virtual environment as it avoids package version conflict with those that are installed globally, some of which could be dependencies of the operating system . With virtual environments, one does not have to install packages globally and this also has the advantage of not cluttering the default installation.</p><p><img style=\"width: 269px;\" src=\"https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/community/logos/python-logo-only.png\"><br></p><p>Users in the host machine can also create virtual environments without requiring administrative rights therefore making it easy to install packages. Also, different virtual environments can be based of different versions of Python as long as the version is already installed in the system e.g. system has Python3.6, 3.8 and 3.10 can have virtual environments created in those specific versions.</p><p></p>",
+      "published": "2023-02-20 15:16:09.673077+00:00",
+      "created": "2023-02-20 15:15:09.676229+00:00",
+      "updated": "2023-02-20 15:17:09.676241+00:00",
+      "category": 1,
+      "snippet": "python virtual environment",
+      "status": "published"
+    }
+  },
+  {
+    "model": "website.post",
+    "pk": 3,
+    "fields": {
+      "author": 1,
+      "title": "Python Virtualenvwarapper",
+      "slug": "python-virtualenvwarapper",
+      "body": "<p>Virtualenvwrapper is a library containing extensions that support management of Python virtual environments and the workflow of development using these environments. Virtualenvwrapper enables Python developers manage multiple virtual environments, create, copy and delete these environments among other functionalities.</p><p><img style=\"width: 100%;\" src=\"https://images.pexels.com/photos/8066778/pexels-photo-8066778.png\"><br></p><h3 class=\"\">Python Virtual Environments</h3><p>There are many third-party Python libraries that are used by developers to achieve tasks and improve functionality of their software. Third-party libraries are simply code written by someone else rather than you and has probably been published to address a given problem and while developing you may require to leverage the functionality of that library.</p><p><img style=\"width: 100%;\" src=\"https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg\"><br></p><h3 class=\"\">Common virtualenvwrapper commands</h3><ul><li><strong>workon</strong> - Activate/deactivate and switch between multiple virtual environments.</li><li><strong>mkvirtualenv</strong> - Create a new virtual environment.</li><li><strong>mktmpenv</strong> - Create a temporary virtual environment.</li><li><strong>rmvirtualenv</strong> - Remove an existing virtual environment</li><li><strong>mkproject</strong> - Project directory management command for creating a new virtual environment in the preset (PROJECT_HOME) directory.</li><li><strong>rmproject</strong> - Remove existing project.</li><li><strong>lsvirtualenv</strong> -  List all the environments.</li><li><strong>deactivate</strong> - Deactivate an active virtual environment and switch back to global/system-based Python.</li></ul><p></p><p></p>",
+      "published": "2023-02-21 13:15:09.673077+00:00",
+      "created": "2023-02-21 12:16:09.676229+00:00",
+      "updated": "2023-02-21 14:17:09.676241+00:00",
+      "category": 1,
+      "snippet": "python virtualenvwrapper",
+      "status": "published"
+    }
+  },
+  {
+    "model": "website.post",
+    "pk": 4,
+    "fields": {
+      "author": 1,
+      "title": "Firing That Coding Journey",
+      "slug": "firing-that-coding-journey",
+      "body": "<p>Have you found yourself interested in programming or are you in another field or career and have been considering to switch into coding?<br>Well, I had a similar experience some years ago (2016) and while at it made a decision to embrace coding which wasn\\'t a big part of my job then.<br>I used to write some short code snippets in Python and JavaScript and play around with HTML and CSS (they are not programming languages but equally important in my view). Browsing through the internet and checking out the projects that other people were doing inspired me to start the coding journey.</p><p><img style=\"width: 698px;\" src=\"https://images.pexels.com/photos/45718/pexels-photo-45718.jpeg\"><br></p><p>For beginners and newbies, I would highly recommend the platforms and you are not limited to them since currently there are many others including YouTube channels.<br>Well, happy coding and keep sharing your progresses and project paths.</p>",
+      "published": "2023-02-22 19:15:09.673077+00:00",
+      "created": "2023-02-22 18:16:09.676229+00:00",
+      "updated": "2023-02-22 20:17:09.676241+00:00",
+      "category": 1,
+      "snippet": "code journey",
+      "status": "published"
+    }
+  },
+  {
+    "model": "website.post",
+    "pk": 5,
+    "fields": {
+      "author": 1,
+      "title": "Werther",
+      "slug": "werther",
+      "body": "<ol><li>A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart.</li><li>I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine.</li><li>I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.</li></ol><p>I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now.<br><br>When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary, I throw myself down among the tall grass by the trickling stream; and, as I lie close to the earth, a thousand unknown plants are noticed by me: when I hear the buzz of the little world among the stalks, and grow familiar with the countless indescribable forms of the insects and flies, then I feel the presence of the Almighty, who formed us in his own image, and the breath<br></p>",
+      "published": "2023-02-22 20:22:09.673077+00:00",
+      "created": "2023-02-22 18:59:09.676229+00:00",
+      "updated": "2023-02-22 22:17:09.676241+00:00",
+      "category": 1,
+      "snippet": "werther random text",
+      "status": "published"
+    }
+  },
+  {
+    "model": "website.post",
+    "pk": 6,
+    "fields": {
+      "author": 1,
+      "title": "Far far Away",
+      "slug": "far-far-away",
+      "body": "<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.<br><br>Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.<br><br><span style=\"font-family: &quot;Comic Sans MS&quot;;\">A small river named Duden flows by their place and supplies it with the necessary regelialia.</span><br><br><span style=\"font-family: &quot;Comic Sans MS&quot;;\">It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</span><br><br><u><i>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</i></u><br><br>The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.<br><br><strike>She packed her seven versalia, put her initial into the belt and made herself on the way.<br><br>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane.</strike><br><br>Pityful a rethoric question ran over her cheek, then<br></p>",
+      "published": "2023-02-23 11:22:09.673077+00:00",
+      "created": "2023-02-23 10:59:09.676229+00:00",
+      "updated": "2023-02-23 13:17:09.676241+00:00",
+      "category": 1,
+      "snippet": "far far away random text",
+      "status": "published"
+    }
+  },
+  {
+    "model": "website.postcomment",
+    "pk": 1,
+    "fields": {
+      "post": 6,
+      "name": "John Doe",
+      "email": "johndoe@email.com",
+      "body": "This is a great post. Awesome content.",
+      "created": "2023-03-01 10:59:09.676229+00:00",
+      "updated": "2023-03-01 10:59:09.676229+00:00",
+      "active": "True"
+    }
+  },
+  {
+    "model": "website.postcomment",
+    "pk": 2,
+    "fields": {
+      "post": 6,
+      "name": "Jane Doe",
+      "email": "janedoe@email.com",
+      "body": "This is a very interesting post. Thanks.",
+      "created": "2023-03-02 11:32:09.676229+00:00",
+      "updated": "2023-03-02 11:32:09.676229+00:00",
+      "active": "True"
+    }
+  },
+  {
+    "model": "website.postcomment",
+    "pk": 3,
+    "fields": {
+      "post": 5,
+      "name": "Joseph Kariuki",
+      "email": "jkariuki@email.com",
+      "body": "Thanks for this post. It is good.",
+      "created": "2023-03-02 12:11:09.676229+00:00",
+      "updated": "2023-03-02 12:11:09.676229+00:00",
+      "active": "True"
+    }
+  },
+  {
+    "model": "website.postcomment",
+    "pk": 4,
+    "fields": {
+      "post": 5,
+      "name": "Jean Doe",
+      "email": "jeandoe@email.com",
+      "body": "Well explained and concise. Keep up.",
+      "created": "2023-03-03 12:12:09.676229+00:00",
+      "updated": "2023-03-03 12:12:09.676229+00:00",
+      "active": "True"
+    }
+  },
+  {
+    "model": "website.postcomment",
+    "pk": 5,
+    "fields": {
+      "post": 4,
+      "name": "Himuselefu One",
+      "email": "humuselefu@email.com",
+      "body": "I would like to collaborate with you in article writing. Please let me know of your interest.",
+      "created": "2023-03-04 15:22:09.676229+00:00",
+      "updated": "2023-03-04 15:22:09.676229+00:00",
+      "active": "True"
+    }
+  },
+  {
+    "model": "website.postcomment",
+    "pk": 6,
+    "fields": {
+      "post": 4,
+      "name": "Msee Flani",
+      "email": "mseeflani@mtaani.com",
+      "body": "Nimefurahia kusoma waraka huu. Naomba kukushukuru kwa juhudi zako. Inshalla.",
+      "created": "2023-03-05 22:21:09.676229+00:00",
+      "updated": "2023-03-05 22:21:09.676229+00:00",
+      "active": "True"
+    }
+  },
+  {
+    "model": "website.postcomment",
+    "pk": 7,
+    "fields": {
+      "post": 3,
+      "name": "Camille Chloé",
+      "email": "camillechloe@frenchfries.org",
+      "body": "Bonjour, je voudrais vous remercier pour vous. C'est intéressant.",
+      "created": "2023-03-05 15:33:09.676229+00:00",
+      "updated": "2023-03-05 15:33:09.676229+00:00",
+      "active": "True"
+    }
+  },
+  {
+    "model": "website.postcomment",
+    "pk": 8,
+    "fields": {
+      "post": 3,
+      "name": "Gabriel Theo",
+      "email": "gtheo@estudies.co",
+      "body": "Excellent article. Vous invitant à collaborer à la rédaction technique.",
+      "created": "2023-03-06 18:10:09.676229+00:00",
+      "updated": "2023-03-06 18:10:09.676229+00:00",
+      "active": "True"
+    }
+  },
+  {
+    "model": "website.postcomment",
+    "pk": 9,
+    "fields": {
+      "post": 1,
+      "name": "Adrijana",
+      "email": "adrijana@adrijanavlogs.com",
+      "body": "Ovo je veoma informativan иlanak. Dobro je sročeno i worg je sažet.",
+      "created": "2023-03-07 19:10:09.676229+00:00",
+      "updated": "2023-03-07 19:10:09.676229+00:00",
+      "active": "True"
+    }
+  },
+  {
+    "model": "website.postcomment",
+    "pk": 10,
+    "fields": {
+      "post": 1,
+      "name": "Ivana Ivy",
+      "email": "ivivy@ivanaivy.me",
+      "body": "Dui sapien eget mi proin sed libero enim sed faucibus. Sodales ut eu sem integer vitae justo eget magna fermentum. Vestibulum lorem sed risus ultricies tristique. Nec dui nunc mattis enim ut. Viverra aliquet eget sit amet tellus cras. Dignissim convallis aenean et tortor at risus. Mauris vitae ultricies leo integer malesuada.",
+      "created": "2023-03-08 11:38:09.676229+00:00",
+      "updated": "2023-03-08 11:38:09.676229+00:00",
+      "active": "True"
+    }
+  }
+]

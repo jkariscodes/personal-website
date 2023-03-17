@@ -1,12 +1,23 @@
 {% extends 'base.html' %}
 
-{% block title %}Email Sent - {{ block.super }}{% endblock %}
+{% load static %}
+
+<title>{% block title %}Email Success | {{ block.super }}{% endblock %}</title>
 
 {% block content %}
-    <div class="container" style="padding-top: 50px; height: 75vh;">
-        <h1>Email sent successfully!</h1>
-        <p>Email has been sent successfully. Thank you for your message. If your message requires a response, a reply
-            shall be sent to the shared email address.
-        </p>
+    <div class="modal fade emailSentModal" id="staticBackdrop" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Contact Form</h5>
+                </div>
+                <div class="modal-body">
+                    Message submitted successfully.
+                </div>
+                <div class="modal-footer">
+                    <a type="button" class="btn btn-secondary" href="{% url 'website:contact' %}">Close</a>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

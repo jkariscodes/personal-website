@@ -10,26 +10,32 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import environ
 import os
 import dj_database_url
 from pathlib import Path
 
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-ENVIRONMENT = os.environ.get('ENVIRONMENT', default='production')
-
+ENVIRONMENT = env('ENVIRONMENT')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = int(os.environ.get('DEBUG', default=0))
+DEBUG = env('DEBUG')
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.herokuapp.com']
+ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -98,12 +104,12 @@ WSGI_APPLICATION = 'PersonalWebsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_DB'),
-        'USER': os.environ.get('POSTGRES_USER'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-        'HOST': os.environ.get('POSTGRES_HOST'),
-        'PORT': os.environ.get('POSTGRES_PORT'),
+        'ENGINE': env("ENGINE"),
+        'NAME': env("APP_DB_NAME"),
+        'USER': env('APP_DB_USER'),
+        'PASSWORD': env('APP_DB_PASSWORD'),
+        'HOST': env('POSTGRES_HOST'),
+        'PORT': env('POSTGRES_PORT'),
     }
 }
 
@@ -203,12 +209,14 @@ if ENVIRONMENT == 'production':
     CSRF_COOKIE_SECURE = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     # Email
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_HOST = os.environ.get('EMAIL_HOST')
-    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-    EMAIL_PORT = os.environ.get('EMAIL_PORT')
-    EMAIL_USE_TLS = True
+    EMAIL_BACKEND = env("EMAIL_BACKEND")
+    EMAIL_HOST = env('EMAIL_HOST')
+    EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+    EMAIL_PORT = env('EMAIL_PORT')
+    EMAIL_USE_TLS = env("EMAIL_USE_TLS")
+    EMAIL_RECIPIENT = env("EMAIL_RECIPIENT")
+    DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
 
 # Database URL
 db_env = dj_database_url.config(conn_max_age=600)
@@ -221,7 +229,7 @@ def my_custom_upload_to_func():
     return upload_to
 
 
-SUMMERNOTE_THEME = 'bs5'
+SUMMERNOTE_THEME = 'bs4'
 SUMMERNOTE_CONFIG = {
     'attachment_upload_to': my_custom_upload_to_func(),
 }

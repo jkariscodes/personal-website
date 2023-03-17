@@ -7,6 +7,26 @@ from autoslug.fields import AutoSlugField
 User = get_user_model()
 
 
+class PostCategory(models.Model):
+    """
+    Blog post category model.
+    """
+
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Created at")
+    updated = models.DateTimeField(auto_now=True, verbose_name="Created at")
+    title = models.CharField(
+        max_length=100, verbose_name="Title", default="Other", unique=True
+    )
+
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
+        ordering = ["-title"]
+
+    def __str__(self):
+        return self.title
+
+
 class Post(models.Model):
     """Post model"""
     STATUS_CHOICES = (
@@ -20,7 +40,9 @@ class Post(models.Model):
     published = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
-    category = models.CharField(max_length=50, default='Uncategorized')
+    category = models.ForeignKey(
+        "PostCategory", verbose_name="Category", on_delete=models.CASCADE
+    )
     snippet = models.CharField(max_length=255, default='')
     status = models.CharField(
         max_length=10,
@@ -66,5 +88,3 @@ class EmailMessage(models.Model):
     email = models.EmailField(max_length=254)
     subject = models.CharField(max_length=50)
     message = models.TextField(max_length=300)
-
-
