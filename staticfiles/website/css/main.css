@@ -1,13 +1,11 @@
-body{
-	padding: 0;
-	margin: 0;
-	background:#f4f4f4;
-
+html, body {
+    margin: 0;
+    height: 100vh;
 }
 
-/*html,h1,h2,h3,h4,h5,h6,a{*/
-/*	font-family: "Raleway";*/
-/*}*/
+body{
+	background:#f4f4f4;
+}
 
 ::-webkit-scrollbar {
   width: 20px;
@@ -18,29 +16,31 @@ body{
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
+
 ::-webkit-scrollbar{width : 15px;  }
 /* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
 
-.navbar{
-}
 .nav-link , .navbar-brand{
 	color: #f4f4f4;
 	cursor: pointer;
 }
+
 .nav-link{
 	margin-right: 1em !important;
 }
+
 .nav-link:hover{
 	background: #f4f4f4;
 	color: #f97300;
-
 }
+
 .navbar-collapse{
  justify-content: flex-end;
 }
+
 .navbar-toggler{
   background:#fff !important;
 }
@@ -49,10 +49,10 @@ body{
 .header{
 	position: relative;
 	background-image: url('../img/headerback.jpg');
-
 	background-size: cover;
 	background-position: center;
 }
+
 .overlay{
 	position: absolute;
 	min-height: 100%;
