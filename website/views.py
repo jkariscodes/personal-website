@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.core.mail import send_mail
@@ -74,7 +75,7 @@ def post_share(request, post_slug):
             )
             subject = f"{cd['name']} would recommend reading f{post.title}"
             message = f"Read {post.title} at {post_url}\n\n {cd['name']}\'s comments: {cd['comments']}"
-            send_mail(subject, message, 'contact@mysite.com', [cd['to']])
+            send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [cd['to']])
             sent = True
     else:
         form = EmailPostForm()
@@ -125,6 +126,7 @@ class PortfolioPageView(TemplateView):
 class ContactFormView(FormView):
     template_name = 'website/contact.html'
     form_class = ContactForm
+    success_url = "/success/"
 
     def form_valid(self, form):
         email = form.cleaned_data['from_email']

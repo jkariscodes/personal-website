@@ -1,24 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Welcome - {{ block.super }} {% endblock %}
 
 {%  block content %}
-    <!-- header -->
-<header class="header ">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="description ">
+    <div class="container-fluid">
+{#    <img class="header-back" src="{% static 'website/img/headerback.jpg' %}" alt="Joseph Kariuki">#}
+        <div class="header-back"></div>
+        <div class="description">
             <h1>
-                Hello and welcome...
+                Hi and Welcome,
                 <p>
-                    Nairobi-based developer, geospatial engineer and content creator, Joseph Kariuki operates at the
-                    intersection of software engineering and geomatics. Revolving around this unique topic, his website
-                    features both his own personal work and the multidisciplinary career work that he’s contributed to.
+                    Joseph Kariuki here. A software developer from Nairobi, Kenya with background in geospatial engineering, Kariuki has been
+                    developing solutions using Python and JavaScript and contributed to various open-source projects. Revolving around geo-information
+                    systems and software development, this website features both personal work and his various contributions.
                 </p>
                 <a href="{% url 'website:about' %}" class="btn btn-secondary btn-lg">See more</a>
             </h1>
         </div>
+
     </div>
 
-</header>
+{#</header>#}
 {% endblock %}

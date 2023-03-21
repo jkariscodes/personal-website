@@ -156,6 +156,7 @@ if ENVIRONMENT == 'development':
     # User uploaded content
     MEDIA_URL = '/media/'
     MEDIA_ROOT = BASE_DIR / 'media'
+    DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
 
 # Serve files from their original directories
 WHITENOISE_USE_FINDERS = True

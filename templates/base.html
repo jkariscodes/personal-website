@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="{% static 'website/css/main.css' %}">
     <title>{% block title %}J.K{% endblock %}</title>
 </head>
-<body style="min-height: 100%;">
+<body>
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <a class="navbar-brand" href="{% url 'website:home' %}">J.K</a>
@@ -46,9 +46,6 @@
           <a class="nav-link" href="{% url 'website:contact' %}">Contact</a>
         </li>
         <li class="nav-item dropdown">
-{#          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">#}
-{#            Account#}
-{#          </a>#}
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               {% if user.is_authenticated %}
                   <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
@@ -65,14 +62,7 @@
               {% endif %}
           </ul>
       </li>
-{#        <li class="nav-item">#}
-{#          <a class="nav-link disabled">Disabled</a>#}
-{#        </li>#}
       </ul>
-      <form class="d-flex" method="get">
-        <input class="form-control me-2 disabled" type="search" placeholder="Search" aria-label="Search" disabled>
-        <button class="btn btn-outline-success" type="submit" disabled>Search</button>
-      </form>
     </div>
   </div>
 </nav>
@@ -89,7 +79,7 @@
     class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
     <!-- Left -->
     <div class="me-5 d-none d-lg-block">
-      <span>Get connected with us on social networks:</span>
+      <span>Reach out  to me through social networks:</span>
     </div>
     <!-- Left -->
 
@@ -97,9 +87,6 @@
     <div>
       <a href="https://twitter.com/JkariukiDev" target="_blank" class="me-4 text-reset">
         <i class="bi bi-twitter"></i>
-      </a>
-      <a href="https://www.instagram.com/jkariukidev/"  target="_blank" class="me-4 text-reset">
-        <i class="bi bi-instagram"></i>
       </a>
       <a href="https://www.linkedin.com/in/josephkariuki/" target="_blank" class="me-4 text-reset">
         <i class="bi bi-linkedin"></i>
@@ -176,8 +163,8 @@
   <!-- Section: Links  -->
 
   <!-- Copyright -->
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-    © 2022 Copyright:
+  <div class="text-center p-4">
+    © 2023 Copyright:
     <a class="text-reset fw-bold" href="https://josephkariuki.com/" target="_blank">Joseph Kariuki</a>
   </div>
   <!-- Copyright -->
