@@ -30,7 +30,7 @@ class PostsListView(ListView):
     model = Post
     template_name = 'website/blog.html'
     ordering = ['-published']
-    # paginate_by = 5
+    paginate_by = 4
 
 
 class PostArticleView(DetailView):
