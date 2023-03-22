@@ -88,3 +88,11 @@ class EmailMessage(models.Model):
     email = models.EmailField(max_length=254)
     subject = models.CharField(max_length=50)
     message = models.TextField(max_length=300)
+
+
+class PortfolioProjects(models.Model):
+    image = models.ImageField(upload_to='images/projects')
+    title = models.CharField(null=True, blank=True, max_length=100)
+    description = models.CharField(max_length=200, null=True, blank=True)
+    codebase = models.URLField(null=True, blank=True)
+    live_project = models.URLField(null=True, blank=True)

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 
-from .models import Post, PostComment, PostCategory
+from .models import Post, PostComment, PostCategory, PortfolioProjects
 
 
 @admin.register(Post)
@@ -39,3 +39,11 @@ class PostCommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'post', 'created', 'active')
     list_filter = ('active', 'created', 'updated')
     search_fields = ('name', 'email', 'body')
+
+
+@admin.register(PortfolioProjects)
+class PortfolioProjectsAdmin(admin.ModelAdmin):
+    list_display = ('title', 'codebase', 'live_project', 'image')
+    list_filter = ('title',)
+    search_fields = ('title', 'codebase', 'live_project')
+
