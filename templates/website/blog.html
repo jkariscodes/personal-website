@@ -12,10 +12,8 @@
                     <div class="card-header">
                         Featured
                     </div>
-{#                    <img class="card-img-top img-thumbnail" src="{{ post.header_image.url }}" alt="Card image cap" style="width: 50rem; height: 20rem;">#}
                     <div class="card-body">
                         <h5 class="card-title">{{ post.title }}</h5>
-{#                        <p class="card-text">{{ post.body|safe|truncatechars_html:50 }}</p>#}
                         <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read post</a>
                     </div>
                     <div class="card-footer text-muted">
@@ -49,9 +47,7 @@
                 Sorry, no blog posts to display.
             </p>
         {% endfor %}
-    {% if post_list.count > 6 %}
-        {% include "paginator.html" %}
-    {% endif %}
+        {% include "website/paginator.html" %}
     </div>
 
 {% endblock %}
