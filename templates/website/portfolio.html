@@ -1,108 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% load project_tags %}
+
 {% block title %}Portfolio - {{ block.super }} {% endblock %}
 
 {% block content %}
 <div>
     <div class="container">
+        <h1 style="text-align: center; margin: 10px">Projects</h1>
         <div class="row row-cols-1 row-cols-md-3 row-col-sm-1 g-4 portfolio">
-            <div class="col">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'website/img/personal_website.jpg' %}" alt="Personal Website" style="width: auto;">
-                     <div class="card-body">
-                        <h5 class="card-title">Personal Website</h5>
-                        <p class="card-text">My personal website and blog developed using Django and Bootstrap.</p>
-                        <a href="https://github.com/jkariukidev/personal-website" target="_blank" class="card-link" rel="nofollow noopener noreferrer">Codebase</a>
-                        <a href="https://jkariukidev.herokuapp.com" target="_blank" class="card-link" rel="nofollow noopener noreferrer">Live site</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'website/img/land_pages.jpg' %}" alt="Land Pages" style="width: auto;">
-                    <div class="card-body">
-                        <h5 class="card-title">LandPages</h5>
-                        <p class="card-text">Land and gender advocacy website and blog. Developed using LAMP stack.</p>
-                        <a href="https://landpages.co.ke" target="_blank" class="card-link" rel="nofollow noopener noreferrer">Live site</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'website/img/spike_remover.jpg' %}" alt="Land Pages" style="width: auto;">
-                    <div class="card-body">
-                        <h5 class="card-title">Polygon Spike Remover</h5>
-                        <p class="card-text">QGIS Desktop plugin for removing spikes in polygons. Developed using Python and QGIS API.</p>
-                        <a href="https://github.com/jkariukidev/polygon_spike_remover" target="_blank" class="card-link" rel="nofollow noopener noreferrer">Codebase</a>
-                        <a href="https://jkariukidev.github.io/polygon_spike_remover/" target="_blank" class="card-link" rel="nofollow noopener noreferrer">Documentation</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'website/img/travel_map.jpg' %}" alt="My Travel Map" style="width: auto;">
-                        <div class="card-body">
-                            <h5 class="card-title">My Travel Map</h5>
-                            <p class="card-text">WebGIS application for showing places travelled. Developed in JavaScript, CSS and HTML.</p>
-                            <a href="https://github.com/jkariukidev/my-travel-map" target="_blank" class="card-link" rel="nofollow noopener noreferrer">Codebase</a>
-                            <a href="https://jkariukidev.github.io/my-travel-map/" target="_blank" class="card-link" rel="nofollow noopener noreferrer">Live site</a>
-                        </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'website/img/under_construction.jpg' %}" alt="Mpesa Retailers" style="width: auto;">
-                    <div class="card-body">
-                        <h5 class="card-title">MPESA Shops Map</h5>
-                        <p class="card-text">WebGIS application showing location of MPESA retailers in Kenya. Developed using JavaScript, HTML and CSS.</p>
-                        <a href="#" class="card-link">Codebase</a>
-                        <a href="#" class="card-link">Live site</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'website/img/nairobi_busstops.jpg' %}" alt="Nairobi Bus Stops." style="width: auto;">
-                    <div class="card-body">
-                        <h5 class="card-title">Nairobi Bus Stops Map</h5>
-                        <p class="card-text">WebGIS application showing the locations of bus stops within the Nairobi CBD. Developed uisng Django, SQL, JavaScript, HTML and CSS</p>
-                        <a href="https://github.com/jkariukidev/onyeshamap/" target="_blank" class="card-link" rel="nofollow noopener noreferrer">Codebase</a>
-                        <a href="https://onyeshamap.herokuapp.com" target="_blank" class="card-link" rel="nofollow noopener noreferrer">Live site</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'website/img/metienne_inspirations.jpg' %}" alt="Metienne Inspirations" style="width: auto;">
-                    <div class="card-body">
-                        <h5 class="card-title">Metienne Blog</h5>
-                        <p class="card-text">Inspirational website and blog. Developed uisng LAMP stack.</p>
-                        <a href="https://metienneinspirations.com" target="_blank" class="card-link" rel="nofollow noopener noreferrer">Live site</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'website/img/to_do_app.jpg' %}" alt="Card image cap" style="width: auto;">
-                    <div class="card-body">
-                        <h5 class="card-title">To Do List</h5>
-                        <p class="card-text">Desktop to-do list to log tasks. Developed using Python and PyQt5 API.</p>
-                        <a href="https://github.com/jkariukidev/simple_to-do_list" target="_blank" class="card-link" rel="nofollow noopener noreferrer">Codebase</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card text-center">
-                    <img class="card-img-top" src="{% static 'website/img/under_construction.jpg' %}" alt="Card image cap" style="width: auto;">
-                    <div class="card-body">
-                        <h5 class="card-title">To Do List 2</h5>
-                        <p class="card-text">To do list web application.</p>
-                        <a href="#" class="card-link">Codebase</a>
-                        <a href="#" class="card-link">Live site</a>
-                    </div>
-                </div>
-            </div>
+            {% all_projects %}
         </div>
     </div>
 </div>
