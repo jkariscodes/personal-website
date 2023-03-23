@@ -244,5 +244,104 @@
       "updated": "2023-03-08 11:38:09.676229+00:00",
       "active": "True"
     }
+  },
+  {
+    "model": "website.portfolioprojects",
+    "pk": 1,
+    "fields": {
+      "image": "",
+      "title": "FullStack Website Template",
+      "description": "Tutorial project template for developing websites.",
+      "codebase": "https://github.com/jkariukidev/my-demo-website",
+      "live_project": "https://my-demo-website-production.up.railway.app/"
+    }
+  },
+  {
+    "model": "website.portfolioprojects",
+    "pk": 2,
+    "fields": {
+      "image": "",
+      "title": "Personal Website",
+      "description": "My personal website.",
+      "codebase": "https://github.com/jkariukidev/my-demo-website",
+      "live_project": "https://josephkariuki.com/"
+    }
+  },
+  {
+    "model": "website.portfolioprojects",
+    "pk": 3,
+    "fields": {
+      "image": "",
+      "title": "Metienne Blog",
+      "description": "Inspirational website and blog.",
+      "codebase": "https://github.com/WordPress",
+      "live_project": "https://metienneinspirations.com/"
+    }
+  },
+  {
+    "model": "website.portfolioprojects",
+    "pk": 4,
+    "fields": {
+      "image": "",
+      "title": "Kennemer Foods Geoportal",
+      "description": "GIS Content Management System.",
+      "codebase": "",
+      "live_project": "https://kennemer.tech/"
+    }
+  },
+  {
+    "model": "website.portfolioprojects",
+    "pk": 5,
+    "fields": {
+      "image": "",
+      "title": "Map for Future Geoportal",
+      "description": "GIS Content Management System.",
+      "codebase": "",
+      "live_project": "https://demo.mapforfuture.world/"
+    }
+  },
+  {
+    "model": "website.portfolioprojects",
+    "pk": 6,
+    "fields": {
+      "image": "",
+      "title": "Nairobi Bus Stops Map",
+      "description": "Web map application visualizing location points.",
+      "codebase": "https://github.com/jkariukidev/nairobi-busstops",
+      "live_project": ""
+    }
+  },
+  {
+    "model": "website.portfolioprojects",
+    "pk": 7,
+    "fields": {
+      "image": "",
+      "title": "To Do List",
+      "description": "A desktop to-do list app.",
+      "codebase": "https://github.com/jkariukidev/simple_to-do_list",
+      "live_project": "https://github.com/jkariukidev/simple_to-do_list"
+    }
+  },
+  {
+    "model": "website.portfolioprojects",
+    "pk": 8,
+    "fields": {
+      "image": "",
+      "title": "Polygon Spike Remover",
+      "description": "Polygon Spike Remover QGIS Plugin.",
+      "codebase": "https://github.com/jkariukidev/polygon_spike_remover",
+      "live_project": "https://jkariukidev.github.io/polygon_spike_remover/"
+    }
+  },
+  {
+    "model": "website.portfolioprojects",
+    "pk": 9,
+    "fields": {
+      "image": "",
+      "title": "MPESA Locations App",
+      "description": "MPESA retailer shops locations app.",
+      "codebase": "",
+      "live_project": ""
+    }
   }
 ]
