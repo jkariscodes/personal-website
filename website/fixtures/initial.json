@@ -1,16 +1,5 @@
 [
   {
-    "model": "accounts.customuser",
-    "pk": 1,
-    "fields": {
-      "username": "test",
-      "password": "pbkdf2_sha256$390000$9QwZsak7tf3MKeVP2wXL6w$9h9/eER0AYWksZrTBmOiD/qcZHNfUCoyC4Ok+SG7ouc=",
-      "email": "siteadmin@email.com",
-      "is_active": "True",
-      "is_superuser": "True"
-    }
-  },
-  {
     "model": "website.postcategory",
     "pk": 1,
     "fields": {
@@ -342,6 +331,33 @@
       "description": "MPESA retailer shops locations app.",
       "codebase": "",
       "live_project": ""
+    }
+  },
+   {
+    "model": "website.postcategory",
+    "pk": 1,
+    "fields": {
+      "title": "Other",
+      "created": "2023-03-08 11:38:09.676229+00:00",
+      "updated": "2023-03-08 11:38:09.676229+00:00"
+    }
+  },
+  {
+    "model": "website.postcategory",
+    "pk": 2,
+    "fields": {
+      "title": "Tech",
+      "created": "2023-03-08 11:38:09.676229+00:00",
+      "updated": "2023-03-08 11:38:09.676229+00:00"
+    }
+  },
+  {
+    "model": "website.postcategory",
+    "pk": 3,
+    "fields": {
+      "title": "Uncategorized",
+      "created": "2023-03-08 11:38:09.676229+00:00",
+      "updated": "2023-03-08 11:38:09.676229+00:00"
     }
   }
 ]
