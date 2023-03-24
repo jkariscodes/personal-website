@@ -7,6 +7,18 @@ body{
 	background:#f4f4f4;
 }
 
+div.ghfork {
+    position: sticky;
+    top: 0;
+}
+
+div.ghfork img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+}
+
 ::-webkit-scrollbar {
   width: 20px;
 }

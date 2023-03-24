@@ -7,18 +7,6 @@ body{
 	background:#f4f4f4;
 }
 
-div.ghfork {
-    position: sticky;
-    top: 0;
-}
-
-div.ghfork img {
-    position: absolute;
-    top: 0;
-    right: 0;
-    border: 0;
-}
-
 ::-webkit-scrollbar {
   width: 20px;
 }
@@ -58,7 +46,7 @@ div.ghfork img {
 }
 
 .header-back{
-	background-image: url("../img/headerback.jpg");
+	background-image: url("../img/headerback.506f284d6ed4.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
@@ -66,7 +54,6 @@ div.ghfork img {
 	width: 100%;
     height: 100vh;
 	opacity: 0.3;
-	position: relative;
 }
 
 .description{
@@ -271,6 +258,18 @@ div.ghfork img {
 
 .django-ckeditor-widget{
   width: 100%;
+}
+
+div.ghfork {
+    position: sticky;
+    top: 0;
+}
+
+div.ghfork img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
 }
 
 
