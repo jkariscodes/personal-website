@@ -12,4 +12,5 @@ urlpatterns = [
     path('profile/<int:pk>/', views.ShowProfileView.as_view(), name='user_profile'),
     path('edit_profile/<int:pk>/', views.EditProfilePageView.as_view(), name='edit_user_profile'),
     path('create_profile/', views.CreateProfilePageView.as_view(), name='create_user_profile'),
+    path('api/v1/', views. UsersAPIView.as_view()),
 ]

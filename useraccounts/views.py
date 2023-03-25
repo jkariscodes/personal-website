@@ -1,10 +1,14 @@
+from rest_framework import permissions
+from rest_framework.views import APIView
+from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from django.views import generic
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from . import forms
-from .models import Profile
+from .models import Profile, CustomUser
+from .serializers import UserSerializer
 
 
 class UserRegistrationView(generic.CreateView):
@@ -78,3 +82,18 @@ class UserEditSuccessView(generic.TemplateView):
 
 class UserRegisterSuccessView(generic.TemplateView):
     template_name = 'registration/register_done.html'
+
+
+class UsersAPIView(APIView):
+    permission_classes = [permissions.IsAuthenticated, permissions.IsAdminUser]
+    def get(self, request):
+        users = CustomUser.objects.all()
+        serializer = UserSerializer(users, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
