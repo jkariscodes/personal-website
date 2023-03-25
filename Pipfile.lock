@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "bcfa9078f6e28931626a82be42530125bec918711de209ddb619f5a3d6026c98"
+            "sha256": "3798232d3847d1aad13be7f1c47b42a05e32f6ba14f08b2bf84d3b8faf957bb8"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -206,6 +206,12 @@
             "markers": "python_full_version >= '3.7.0'",
             "version": "==3.1.0"
         },
+        "cloudinary": {
+            "hashes": [
+                "sha256:26d664a58347908defc1b65584dcdf6cedc0c761a66972e7fddf6183353dfa96"
+            ],
+            "version": "==1.32.0"
+        },
         "crispy-bootstrap5": {
             "hashes": [
                 "sha256:0745a67199619149b7feca87dab7a45664876ed50fb582b38fd2aeb3f8a8d869",
@@ -284,6 +290,14 @@
             ],
             "index": "pypi",
             "version": "==6.5.1"
+        },
+        "django-cloudinary-storage": {
+            "hashes": [
+                "sha256:95c855c7334141b2a485ea7eb5716de87bb6ce0d848e205debb3a3ab7bbbd49a",
+                "sha256:debd403a5f225c9d35c4af508ff4abc7fdc262129464134b60b2feeb2c44d3e1"
+            ],
+            "index": "pypi",
+            "version": "==0.3.0"
         },
         "django-cors-headers": {
             "hashes": [
