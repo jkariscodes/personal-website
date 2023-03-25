@@ -5,7 +5,7 @@
 
 {% block content %}
     <div class="container">
-    <h1>Login</h1>
+    <h1 class="page-heading">Login</h1>
     {% if form.errors %}
         <p>
             Your username and password didn't match.
@@ -21,8 +21,8 @@
             <input type="hidden" name="next" value="{{ next }}">
             <button class="btn btn-secondary">Login</button>
         </form>
-        <p><a href="{% url "password_reset" %}">Forgotten your password?</a></p>
-        <p><a href="{% url "accounts:register" %}">Create an account</a></p>
+        <p><a href="{% url "account_reset_password" %}">Forgotten your password?</a></p>
+        <p><a href="{% url "useraccounts:register" %}">Create an account</a></p>
     </div>
     </div>
 {% endblock %}
