@@ -22,9 +22,9 @@ urlpatterns = [
     path('blog/article/<slug:post_slug>/share/', views.post_share, name='post_share'),
     path('feed/', LatestPostsFeed(), name='post_feed'),
     # REST API
-    path('blog/api/', views.PostListAPIView.as_view(), name='blog_api'),
-    path('blog/api/<int:pk>/', views.PostDetailAPIView.as_view()),
-    path('blog/api/<int:pk>/comment/', views.CommentAPIView.as_view()),
+    path('blog/api/v1/', views.PostListAPIView.as_view(), name='blog_api'),
+    path('blog/api/v1/<int:pk>/', views.PostDetailAPIView.as_view()),
+    path('blog/api/v1/<int:pk>/comment/', views.CommentAPIView.as_view()),
 ]
 
 if settings.DEBUG:
