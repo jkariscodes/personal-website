@@ -172,7 +172,10 @@ class PostListAPIView(APIView):
         data = {
             'user': request.user.id,
             'title': request.data.get('title'),
-            'body': request.data.get('body')
+            'category': request.data.get('category'),
+            'body': request.data.get('body'),
+            'snippet': request.data.get('snippet'),
+            'status': request.data.get('status')
         }
         serializer = PostSerializer(data=data)
         if serializer.is_valid():
@@ -205,6 +208,8 @@ class PostDetailAPIView(APIView):
             'user': request.user.id,
             'title': request.data.get('title'),
             'body': request.data.get('body'),
+            'snippet': request.data.get('snippet'),
+            'status': request.data.get('status')
         }
         serializer = PostSerializer(post, data = data, partial = True)
         if serializer.is_valid():
@@ -245,8 +250,8 @@ class CommentAPIView(APIView):
         if post is None:
             return Response({'error': 'Post not found'}, status=status.HTTP_404_NOT_FOUND)
         data = {
-            'user': request.user.id,
-            'post': post.id,
+            'name': request.data.get('name'),
+            'email': request.data.get('email'),
             'body': request.data.get('body')
         }
         serializer = PostCommentSerializer(data=data)
