@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="container">
-    <h1>Blog</h1><hr>
+    <h1 class="page-heading">Blog</h1><hr>
         {% for post in object_list %}
             {% if post.status == 'published' %}
                 <br>
