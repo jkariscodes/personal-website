@@ -66,7 +66,6 @@ div.ghfork img {
 	width: 100%;
     height: 100vh;
 	opacity: 0.3;
-	position: relative;
 }
 
 .description{
@@ -92,6 +91,11 @@ div.ghfork img {
 }
 .description button{
 	border:1px;
+}
+
+.page-heading {
+	text-align: center;
+	margin: 10px 0 10px 0;
 }
 
 /*Portfolio*/
@@ -126,37 +130,35 @@ div.ghfork img {
 
 /*About*/
 .about {
- 	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	flex-direction: column;
-	align-items: center;
-	width: 90vw;
-	height: 65vh;
-}
-
-.about h1 {
 	text-align: center;
+	position: relative;
+	z-index: -1;
 }
 
-.about img {
-	width: 400px;
-  	height: 400px;
+.about-image{
+	height: 350px;
+	width: 350px;
 	border-radius: 50%;
-	align-self: flex-start;
-	margin: 40px;
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
 }
 
-.desc {
-	align-self: flex-end;
-	margin: 40px;
-	top: 50%;
-  	left: 50%;
+.about h3 {
+	text-align: center;
+	margin: 5px 0 5px 0;
+	color: #10828C;
 }
 
-.desc p {
-	line-height:2;
-	color:#888;
+.about .socials {
+	text-align: center;
+	margin: 5px 0 5px 0;
+}
+
+.about .ab-text {
+	color: #5d5d5d;
+	text-align: justify;
+	overflow: hidden;
 }
 
 .card-text {
@@ -164,29 +166,20 @@ div.ghfork img {
 	color:#888;
 }
 
-.desc h3{
-	color: #10828C;
-}
-
-
-
 @media only screen and (max-width: 768px){
-	.team .item img{
-		width: 100%;
-	}
 	.description {
 		position: absolute;
   		top: 35%;
   		left: 50%;
   		transform: translate(-50%, -50%);
-  		font-size: 10px;
 	}
 
 	.description p {
-		color:#666;
-		font-size: 15px;
+		color: #b94500;
+		font-size: 17px;
 		width: 100%;
 		line-height: 1.5;
+		text-align: justify;
 	}
 
 	.description h1 {
@@ -198,9 +191,14 @@ div.ghfork img {
 	}
 
 	.about{
-		position: relative;
-		height: 130vh;
 	}
+
+	.about img {
+		height: 300px;
+		width: 300px;
+		border-radius: 50%;
+	}
+
 	footer {
 		position: relative;
 	}
@@ -213,40 +211,7 @@ div.ghfork img {
 .blog .card-body{
 	padding: 1em;
 }
-.team{
-	margin: 4em 0;
-	position: relative;
 
-}
-.team h1{
-	color:#F97300;
-	margin: 2em;
-}
-.team .item{
-	position: relative;
-	overflow: hidden;
-}
-.team .des{
-	background: #F97300;
-	color: #fff;
-	text-align: center;
-	border-top-right-radius: 93%;
-	transition:.3s ease-in-out;
-	position: absolute;
-	width: 88%;
-	bottom: 24px;
-
-
-}
-.team .item:hover .des{
-	height: 100%;
-	background:#f973007d;
-    position: absolute;
-	width: 89%;
-	padding: 5em;
-	top: 0;
-	border-top-right-radius: 0;
-}
 .contact-form{
 	margin: 6em 0;
 	position: relative;
@@ -256,14 +221,17 @@ div.ghfork img {
 	padding:2em 1px;
 	color: #F97300;
 }
+
 .contact-form .right{
 	max-width: 600px;
 }
+
 .contact-form .right .btn-secondary{
 	background:  #F97300;
 	color: #fff;
 	border:0;
 }
+
 .contact-form .right .form-control::placeholder{
 	color: #888;
 	font-size: 16px;
