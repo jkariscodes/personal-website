@@ -1,0 +1,48 @@
+[
+  {
+    "model": "useraccounts.customuser",
+    "pk": 1,
+    "fields": {
+      "username": "testadmin",
+      "password": "pbkdf2_sha256$390000$Q2ACVHdRdUQHn0teZSkXkS$Is2trcWqLFsWPErYVTVGiJWDpUL1PlJesXBrNrcmWBM=",
+      "email": "testadmin@email.com",
+      "first_name": "Test",
+      "last_name": "Admin",
+      "is_active": "True",
+      "is_staff": "True",
+      "is_superuser": "True"
+    }
+  },
+  {
+    "model": "useraccounts.customuser",
+    "pk": 2,
+    "fields": {
+      "username": "testuser",
+      "password": "pbkdf2_sha256$390000$VbhB8LPhQsVi3Bm3k2JSrN$uG29UDTcXeZhSB2lrbdTDgC5Mk5wF+c1h/F/QOTzVpI=",
+      "email": "testuser@email.com",
+      "first_name": "Test",
+      "last_name": "User",
+      "is_active": "True",
+      "is_staff": "False",
+      "is_superuser": "False"
+    }
+  },
+  {
+    "model": "useraccounts.profile",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "bio": "Welcome to this website. I am your site administrator.",
+      "date_of_birth": "1999-09-09"
+    }
+  },
+   {
+    "model": "useraccounts.profile",
+    "pk": 2,
+    "fields": {
+      "user": 2,
+      "bio": "Hello and welcome. I a member of this website.",
+      "date_of_birth": "2000-09-09"
+    }
+  }
+]
