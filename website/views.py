@@ -1,4 +1,9 @@
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework import permissions
 from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.core.mail import send_mail
@@ -14,6 +19,7 @@ from django.views.generic import (
 from django.views.generic import FormView
 from .models import Post, PostComment, EmailMessage
 from .forms import PostForm, EmailPostForm, CommentForm, ContactForm
+from .serializers import PostSerializer, PostCommentSerializer
 
 
 class HomePageView(TemplateView):
@@ -126,18 +132,16 @@ class PortfolioPageView(TemplateView):
 class ContactFormView(FormView):
     template_name = 'website/contact.html'
     form_class = ContactForm
-    success_url = "/success/"
+    success_url = reverse_lazy('website:success')
 
     def form_valid(self, form):
         email = form.cleaned_data['from_email']
         subject = form.cleaned_data['subject']
         message = form.cleaned_data['message']
-
-        message = EmailMessage(email=email, subject=subject, message=message)
-        message.save()
+        msg = EmailMessage(email=email, subject=subject, message=message)
+        msg.save()
+        send_mail(subject, message, email, [settings.EMAIL_RECIPIENT])
         return super().form_valid(form)
-
-    success_url = reverse_lazy('website:success')
 
 
 class EmailSuccess(TemplateView):
@@ -156,5 +160,98 @@ def category_view(request, cats):
          'category_posts': category_posts}
     )
 
+class PostListAPIView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
 
+    def get(self, request, *args, **kwargs):
+        posts = Post.objects.all()
+        serializer = PostSerializer(posts, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request, *args, **kwargs):
+        data = {
+            'user': request.user.id,
+            'title': request.data.get('title'),
+            'body': request.data.get('body')
+        }
+        serializer = PostSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class PostDetailAPIView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_object(self, pk):
+        try:
+            return Post.objects.get(pk=pk)
+        except Post.DoesNotExist:
+            return None
+
+    def get(self, request, pk, *args, **kwargs):
+        post = self.get_object(pk)
+        if post is None:
+            return Response({'error': 'Post not found'}, status=status.HTTP_404_NOT_FOUND)
+        serializer = PostSerializer(post)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def put(self, request, pk, *args, **kwargs):
+        post = self.get_object(pk)
+        if post is None:
+            return Response({'error': 'Post not found'}, status=status.HTTP_404_NOT_FOUND)
+        data = {
+            'user': request.user.id,
+            'title': request.data.get('title'),
+            'body': request.data.get('body'),
+        }
+        serializer = PostSerializer(post, data = data, partial = True)
+        if serializer.is_valid():
+            if post.user.id == request.user.id:
+                serializer.save()
+                return Response(serializer.data, status = status.HTTP_200_OK)
+            return Response({"error": "You are not authorized to edit this post"}, status = status.HTTP_401_UNAUTHORIZED)
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, *args, **kwargs):
+        post = self.get_object(pk)
+        if post is None:
+            return Response({'error': 'Post not found'}, status = status.HTTP_404_NOT_FOUND)
+        if post.user.id == request.user.id:
+            post.delete()
+            return Response({"res": "Object deleted!"}, status = status.HTTP_200_OK)
+        return Response({"error": "You are not authorized to delete this post"}, status = status.HTTP_401_UNAUTHORIZED)
+
+class CommentAPIView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_object(self, pk):
+        try:
+            return Post.objects.get(pk=pk)
+        except Post.DoesNotExist:
+            return None
+
+    def get(self, request, pk, *args, **kwargs):
+        post = self.get_object(pk)
+        if post is None:
+            return Response({'error': 'Post not found'}, status=status.HTTP_404_NOT_FOUND)
+        comments = PostComment.objects.filter(post=post)
+        serializer = PostCommentSerializer(comments, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request, pk, *args, **kwargs):
+        post = self.get_object(pk)
+        if post is None:
+            return Response({'error': 'Post not found'}, status=status.HTTP_404_NOT_FOUND)
+        data = {
+            'user': request.user.id,
+            'post': post.id,
+            'body': request.data.get('body')
+        }
+        serializer = PostCommentSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 

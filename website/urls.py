@@ -21,6 +21,10 @@ urlpatterns = [
     path('blog/article/<slug:slug>/delete/', views.DeletePostView.as_view(), name='delete_post'),
     path('blog/article/<slug:post_slug>/share/', views.post_share, name='post_share'),
     path('feed/', LatestPostsFeed(), name='post_feed'),
+    # REST API
+    path('blog/api/', views.PostListAPIView.as_view(), name='blog_api'),
+    path('blog/api/<int:pk>/', views.PostDetailAPIView.as_view()),
+    path('blog/api/<int:pk>/comment/', views.CommentAPIView.as_view()),
 ]
 
 if settings.DEBUG:
