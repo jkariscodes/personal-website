@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from rest_framework_simplejwt.views import TokenRefreshView
 
 app_name = 'useraccounts'
 
@@ -13,4 +14,6 @@ urlpatterns = [
     path('edit_profile/<int:pk>/', views.EditProfilePageView.as_view(), name='edit_user_profile'),
     path('create_profile/', views.CreateProfilePageView.as_view(), name='create_user_profile'),
     path('api/v1/', views. UsersAPIView.as_view()),
+    path('api/v1/login/', views.MyTokenObtainPairView.as_view()),
+    path('api/v1/token/refresh/', TokenRefreshView.as_view()),
 ]
