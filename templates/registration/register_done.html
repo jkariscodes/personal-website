@@ -4,7 +4,7 @@
 
 {% block content %}
     <div class="container" style="padding-top: 50px; height: 50vh;">
-        <h1>Registration Successful!</h1>
-        <p>Your account has been successfully created. Now you can <a href="{% url "account:login" %}">log in</a>.</p>
+        <h1 class="page-heading">Registration Successful!</h1>
+        <p>Your account has been successfully created. Now you can visit the <a href="{% url "useraccounts:dashboard" %}">dashboard</a>.</p>
     </div>
 {% endblock %}

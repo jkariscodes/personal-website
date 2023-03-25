@@ -1,14 +1,15 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block title %}Edit your account - {{ block.super }}{% endblock %}
 
 {% block content %}
     <div class="container">
-    <h1>Edit your account</h1>
+    <h1 class="page-heading">Edit your account</h1>
     <p>You can edit your account using the following form:</p>
     <div class="form-group" enctype="multipart/form-data">
         <form method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ form|crispy }}
             <button class="btn btn-secondary">Save changes</button>
         </form>
     </div>
