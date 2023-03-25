@@ -13,6 +13,9 @@ env = environ.Env(
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Take environment variables from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
+
 ENVIRONMENT = env('ENVIRONMENT')
 
 # Quick-start development settings - unsuitable for production
@@ -37,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
+    'cloudinary',
     'django.contrib.sites',
     'django.contrib.sitemaps',
 
@@ -55,6 +60,12 @@ INSTALLED_APPS = [
     'useraccounts.apps.UseraccountsConfig',
     'website.apps.WebsiteConfig',
 ]
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': env('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': env('CLOUDINARY_API_KEY'),
+    'API_SECRET': env('CLOUDINARY_API_SECRET')
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -226,17 +237,22 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 if ENVIRONMENT == 'production':
     # Static file management using AWS (Feel free to use other)
-    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-    AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN')
-    AWS_LOCATION = os.environ.get('AWS_S3_CUSTOM_DOMAIN')
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-    DEFAULT_FILE_STORAGE = 'PersonalWebsite.storage_backends.MediaStorage'
-    STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-    STATICFILES_DIRS = [
-        os.path.join(BASE_DIR, 'static'),
-    ]
+    # AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    # AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    # AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+    # AWS_S3_CUSTOM_DOMAIN = os.environ.get('AWS_S3_CUSTOM_DOMAIN')
+    # AWS_LOCATION = os.environ.get('AWS_S3_CUSTOM_DOMAIN')
+    # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    # DEFAULT_FILE_STORAGE = 'PersonalWebsite.storage_backends.MediaStorage'
+    MEDIA_URL = env('MEDIA_URL')
+    DEFAULT_FILE_STORAGE = env('DEFAULT_FILE_STORAGE')
+    # STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+    STATIC_URL = env('STATIC_URL')
+    STATICFILES_STORAGE = env('STATICFILES_STORAGE')
+    CLOUDINARY_URL = env('CLOUDINARY_URL')
+    # STATICFILES_DIRS = [
+    #     os.path.join(BASE_DIR, 'static'),
+    # ]
     # SSL Settings
     SECURE_HSTS_SECONDS = 3600
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
