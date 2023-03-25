@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 
-from .models import Post, PostComment, PostCategory, PortfolioProjects
+from .models import Post, PostComment, PostCategory, PortfolioProjects, EmailMessage
 
 
 @admin.register(Post)
@@ -46,4 +46,10 @@ class PortfolioProjectsAdmin(admin.ModelAdmin):
     list_display = ('title', 'codebase', 'live_project', 'image')
     list_filter = ('title',)
     search_fields = ('title', 'codebase', 'live_project')
+
+
+@admin.register(EmailMessage)
+class EmailMessageAdmin(admin.ModelAdmin):
+    list_display = ('email', 'subject')
+
 
