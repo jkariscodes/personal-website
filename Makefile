@@ -9,7 +9,7 @@ GRAY ?= \033[0;37m
 WHITE ?= \033[1;37m
 COFF ?= \033[0m
 
-.PHONY: all help shell shell-dev build build-dev runserver runserver-dev collectstatic collectstatic-dev makemigrations makemigrations-dev migrate migrate-dev load-initial-data load-many-posts superuser superuser-dev shutdown shutdown-dev shutdown-volumes shutdown-volumes-dev logs logs-dev logs-interactive logs-interactive-dev coverage-django lint lint-fix test-project test-website test-users docker
+.PHONY: all help shell shell-dev build build-dev runserver runserver-dev collectstatic collectstatic-dev makemigrations makemigrations-dev migrate migrate-dev load-user-data load-website-data load-many-posts superuser superuser-dev shutdown shutdown-dev shutdown-volumes shutdown-volumes-dev logs logs-dev logs-interactive logs-interactive-dev coverage-django lint lint-fix test-project test-website test-users docker
 
 all: help
 
@@ -27,7 +27,8 @@ help:
 	@echo -e "$(CYAN)make makemigrations-dev$(COFF) - Runs django's makemigrations command in the development container"
 	@echo -e "$(CYAN)make migrate$(COFF)          - Runs django's migrate command in the production container"
 	@echo -e "$(CYAN)make migrate-dev$(COFF)      - Runs django's migrate command in the development container"
-	@echo -e "$(CYAN)make load-initial-data$(COFF)  - Loads initial data from Django fixtures"
+	@echo -e "$(CYAN)make load-user-data$(COFF)   - Loads initial data from Django user accounts app's fixtures"
+	@echo -e "$(CYAN)make load-website-data$(COFF)  - Loads initial data from Django website app's fixtures"
 	@echo -e "$(CYAN)make load-many-posts$(COFF)  - Loads many blog posts"
 	@echo -e "$(CYAN)make superuser$(COFF)        - Runs django's createsuperuser command in the production container"
 	@echo -e "$(CYAN)make superuser-dev$(COFF)    - Runs django's createsuperuser command in the development container"
@@ -97,7 +98,11 @@ migrate-dev:
 	@echo -e "$(CYAN)Running django migrations in development:$(COFF)"
 	@docker-compose -f docker-compose-dev.yml run --rm web python ./manage.py migrate $(cmd)
 
-load-initial-data:
+load-user-data:
+	@echo -e "$(CYAN)Populating initial data from Django fixtures:$(COFF)"
+	@docker-compose -f docker-compose-dev.yml run --rm web python ./manage.py loaddata useraccounts/fixtures/initial.json
+
+load-website-data:
 	@echo -e "$(CYAN)Populating initial data from Django fixtures:$(COFF)"
 	@docker-compose -f docker-compose-dev.yml run --rm web python ./manage.py loaddata website/fixtures/initial.json
 
