@@ -2,22 +2,19 @@
    <img width=75px height=75px src="static/website/img/favicon.ico" alt="Project logo">
 </div>
 
-<h1>Personal Portfolio Website</h1>
- <p style="text-align: center">
- 	<!-- Add your tagline or very short intro of your project -->
-    A personal portfolio website and blog project.
-    <br />
-	Demonstration of web development using Django
+# <center> Personal Portfolio Website </center>
+ <div style="text-align: center">
+	Demonstrating web development using Django and JavaScript and containerized deployment
     <br />
 	<!-- Add your project live demo link here -->
-    <a href="https://jkariukidev.herokuapp.com">View Demo</a>
+    <a href="#>View Demo</a>
     ·
 	<!-- Add you issue link here -->
     <a href="https://github.com/jkariukidev/personal-website/issues">Report Bug</a>
     ·
 	<!-- Add you issue/discussion link here too -->
     <a href="https://github.com/jkariukidev/personal-website/labels/enhancement">Request Feature</a>
-  </p>
+  </div>
 
 <div style="text-align: center">
 
@@ -39,207 +36,237 @@
 
 </div>
 <hr />
-<p style="text-align: center">
-   Personal portfolio website is a simple and interactive website and blog that has been developed using Django and Bootstrap. It took me a few weeks to 'complete' and deploy it.
-</p>
 
-## About
+## Table of Contents
+  - [Description](#description)
+  - [Features](#features)
+  - [Software](#software)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Tests](#tests)
+  - [Deployment](#deployment)
+  - [Licenses](#license)
+  - [Contributing](#contributing)
+  - [Authors](#authors)
+  - [Resources](#resources)
+  - [Acknowledgement](#acknowledgement)
 
-Personal portfolio website is aimed at demonstrating the capabilities of Django, a Python web framework which has been 
-used for the backend and Bootstrap which has been used to design the front-end and JQuery.
+## Description
+This is a simple website that demonstrates full-stack web development using Django and Vanilla JavaScript, CSS and HTML and one that can be forked to your preference.
 
 ## Features
 
-Features and functionalities demonstrated in this project:
+Features present in this project include:
 
-1. Responsive pages and controls (forms, buttons, navigation etc.)
-2. User account management - Login, Logout, registration etc.
-3. Management of static files (Images, JS and Cascading Style Sheets)
-4. HTML styling of blog posts and attaching media content.
+1. Responsive and mobile-friendly user interface.
+2. User profile management.
+3. Static files and user upload management.
+4. Local and development deployment.
+5. Unit testing.
 
-## ⛏️Built with
+## ⛏️Software
 
-- Python & Django
-- Bootstrap & JQuery
-- PostgreSQL
-- Docker & Docker Compose
+### Software and Tools
 
-## Getting Started
+Software used in the development of this project include:
+  - **[Python](https://www.python.org/downloads/release/python-3810/)** - Core programming language used in the development of this project. Specific version is referenced in the [development](Dockerfile-dev) and [production](Dockerfile) build configurations.
+  - **[Django](https://docs.djangoproject.com/en/4.0/topics/install/)** - Python web development framework that is the main framework used in this project.
+  - **[Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)** - Used for version control in development of this project.
+  - **[Docker Desktop Windows](https://docs.docker.com/desktop/windows/install/)** - Software for handling development operations (DevOps) using graphical user interface (GUI) in Windows. Installs Docker Command Line Interface, Docker Compose etc.
+  - **[Docker Desktop Linux](https://docs.docker.com/desktop/linux/install/)** - Software for handling development operations (DevOps) using graphical user interface (GUI) in Linux.
+  - **[Postgres](https://hub.docker.com/_/postgres?tab=tags)** - Object Relational Database Management System used to store and support DB operations in this project. Specific version is referenced in [development](docker-compose-dev.yml) and [production](docker-compose-dev.yml) configurations.
 
-This project requires Python (version 3.10 or higher), Git, and Docker. See [deployment](#Deployment) for 
-notes on how to deploy the project on production.
+### Dependencies
 
-### Prerequisites
+This project's initial dependencies are listed in the [Pipfile](Pipfile) include: 
+* [__Django__](https://docs.djangoproject.com/) as the base framework
+* [__django-environ__](https://django-environ.readthedocs.org/) for management of environment variables
+* [__psycopg2-binary__](https://www.psycopg.org/docs/) database adapter to facilitate database connectivity and other operations.
+* [__crispy-bootstrap5__](https://github.com/django-crispy-forms/crispy-bootstrap5) Bootstrap5 template pack for django-crispy-forms.
+* [__django-allauth__](https://django-allauth.readthedocs.io/en/latest/) reusable Django app that allows for both local and social authentication
+* [__django-ckeditor__](https://github.com/django-ckeditor/django-ckeditor) providing editor support in the project.
+* [__whitenoise__](https://github.com/evansd/whitenoise) for managing static and user uploads in developement and production
+* [__pillow__](https://python-pillow.org/) for supporting image processing and capabilities. 
+* [__gunicorn__](https://gunicorn.org/) HTTP server for supporting serving of this project over the web
+* [__dj-database-url__](https://github.com/jazzband/dj-database-url) support for database URL environment variable
+* [__boto3__](https://github.com/boto/boto3) supporting Amazon's S3 capabilities
+* [__django-storages__](https://github.com/jschneier/django-storages) support for Amazon's S3 storage backend. Can be used with other storage backends e.g. Digital Ocean, DropBox, Google Cloud etc. 
+* [__django-cloudinary-storage__](https://github.com/klis87/django-cloudinary-storage) Package that facilitates integration with Cloudinary using [Django File Storage API](https://docs.djangoproject.com/en/4.1/ref/files/storage/)on management of media and static files.
+* [__django-summernote__](http://github.com/summernote/django-summernote) Facilitates integration of [Summernote editor](https://github.com/summernote/summernote) with Django back-end and aids in blog posts creation and editing.
+* [__djangorestframework__](https://www.django-rest-framework.org) for provision of WebAPI and REST capabilities.
+* [__django-cors-headers__](https://github.com/adamchainz/django-cors-headers) Applied in handling the server headers required for Cross-Origin Resource Sharing (CORS).
+* [__djangorestframework-simplejwt__](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/) Provides a JSON Web Token authentication backend for the Django REST Framework.
+* [__black__](https://github.com/psf/black) for linting and automatically formatting the code during development
+* [__pytest__](https://docs.pytest.org/en/latest/) for writing tests
+* [__Django Debug Toolbar__](https://django-debug-toolbar.readthedocs.io/) to help with debugging during development
+* [__Faker__](https://faker.readthedocs.io) for generating fake data for use/test in this project (TODO)
+* [__coverage__](https://coverage.readthedocs.io/) for measuring code coverage
+* [__pytest-django__](https://pytest-django.readthedocs.io/) for testing django specific functionalities during development (TODO)
 
-- Python 3.10
-- PostgreSQL
--  For production, PaaS supporting Web Server Gateway Interface (WSGI) and container deployments e.g. Heroku, DigitalOcean etc.
 
 ### Installation
+The minimum requirements required to deploy this project is [Docker Engine](). Docker Engine contains docker, [docker compose]() and if on a Desktop environment and prefer a graphical user interface, once can make use of [Docker Desktop]().
 
-#### Local or Development environment
+[Make](https://www.gnu.org/software/make/manual/make.html) is used in this project to execute docker commands present in the [Makefile](Makefile) for the purpose of saving time that is used during executing long docker commands. This is optional but __recommended__ and can be installed using the following guides
+- [Installation on Linux](https://linuxhandbook.com/using-make/)
+- Installing make on Windows requires a bit of setup since make is not natively available on the platform. Here are the steps to follow:
 
-Step by step methods to guide the reader how to set up local dev environment:
+   -  Download and install the [Windows Subsystem for Linux](https://learn.microsoft.com/en-us/windows/wsl/install) (WSL) from the Microsoft Store. This will allow you to run a Linux environment on your Windows machine.
 
-1. Clone this repo `git clone https://github.com/jkariukidev/personal-website.git`
-2. Copy the provided [environment variable file](.env_dev.sample) and be sure to refer to [Docker practices](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) with respect to
-variable name and value assignment. 
+    - Once WSL is installed, open the Microsoft Store and search for a Linux distribution that includes make, such as [Ubuntu](https://apps.microsoft.com/store/detail/ubuntu-on-windows/9NBLGGH4MSV6). Download and install the distribution.
+
+    - Open the Linux distribution from the Start menu or by typing the name of the distribution in the search bar.
+
+    - In the Linux terminal, type sudo apt-get update to update the package list.
+
+    - Next, type `sudo apt-get install build-essential` to install the necessary tools for building software, including make.
+
+    - Once the installation is complete, you should be able to use make in the Linux terminal.
+
+Note that you will need to be familiar with using a __Linux command-line interface__ to use make on Windows.
+
+#### Installation on Local / Development 
+These are steps that one should take towards deploying this project successfully in a local or development environment which could be in a local machine or similar. 
+
+1. Clone the repository to your local machine.
    ```shell
-   mv .env_dev.sample .env_dev
+   git clone  https://github.com/jkariukidev/personal-website.git
    ```
-3. Update the [Django's cryptographic key](https://docs.djangoproject.com/en/4.1/topics/signing/) named SECRET_KEY. Three ways in generating this key include:
-   * Drop into a Python shell and leverage on [Python secrets](https://docs.python.org/3/library/secrets.html) module.
+2. Rename the [.env_dev.sample](.env_dev.sample) file to `.env` to be used by docker.
+3. Add the values for the environment variables. One of the reasons for environment variables is to avoid hard coding passwords and sensitive information on the code. The environment variables include:
+   * ``COMPOSE_PROJECT_NAME`` - The project environment state.
+   * ``ENVIRONMENT`` - The project environment state. This has been set to `development` for your local machine.
+   * ``SECRET_KEY`` - Django cryptography key described in detail [here](https://docs.djangoproject.com/en/4.0/ref/settings/#secret-key).
+   * ``DEBUG`` - Variable used in local/development to enable debugging (hence set to ``True`` in development). Read more details [here](https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/#debug).
+   * ``ALLOWED_HOSTS`` - List of host/domain names that this Django site can serve. Has been set to `localhost`.
+   * ``ENGINE`` - Database backend to use. This project uses PostgreSQL backend by default but can be changed in the environment variables.
+   * ``POSTGRES_USER`` - Specifies a user with superuser privileges and a database with the same name. Postgres uses the default user when this is empty.
+   * ``POSTGRES_PASSWORD`` - Postgres requires a password to function properly, which is the purpose of this mandatory variable.
+   * ``POSTGRES_PORT`` - Network port used by the database also defined in the docker-compose files.
+   * ``APP_DB_USER`` - Specifies a database user to be used in this project separate from the database superuser above. This user has been referenced in the [project settings](PersonalWebsite/settings.py) file.
+   * ``APP_DB_PASSWORD`` - App user's database password.
+   * ``APP_DB_NAME`` - Refers to the database name of this project's database.
+   * ``EMAIL_BACKEND`` - The backend to use for sending emails set to `console` in development. Details are well illustrated [here](https://docs.djangoproject.com/en/4.1/topics/email/).
+   * ``DEFAULT_FROM_EMAIL`` - The default email to use from this site's manager. Not mandatory in development but can be used for testing purposes.
+   * ``EMAIL_HOST`` - Dependent on whether `EMAIL_BACKEND` has been set to anything else besides `django.core.mail.backends.console.EmailBackend`. This is the host to use for sending email.
+   * ``EMAIL_HOST_PASSWORD`` - The password for the user for sending service / SMTP defined in the ``EMAIL_HOST``.
+   * ``EMAIL_HOST_USER`` - The username for the sending service / SMTP defined in the ``EMAIL_HOST``.
+   * ``EMAIL_PORT`` - The port to use for the email sending service.
+   * ``EMAIL_USE_TLS`` - This tells the project whether to use secure protocol (port 587) when communicating with email sending service.
+   * ``EMAIL_RECIPIENT`` - List of email recipients who will receive emails sent.
+4. Build the required docker images for this project using the command.
    ```shell
-   import secrets
-   
-   print(secrets.token_urlsafe())
+   make build-dev
    ```
-   OR
+5. Run the development server on http://127.0.0.1:80  by running.
    ```shell
-   import secrets 
-   
-   length = 50
-   chars = 'abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)'
-   secret_key = ''.join(secrets.choice(chars) for i in range(length))
-   print(secret_key)
+   make runserver-dev
    ```
-   * If in Python Django environment (virtualenv), drop into the Django shell and run the following.
+6.  Apply migrations to synchronize the database state with the current set of models and migration using.
    ```shell
-   from django.core.management.utils import get_random_secret_key
-   
-   print(get_random_secret_key())
+   make migrate-dev
    ```
-4. The other variables include:
-   * ENVIRONMENT - Specifies the environment which you are working on. The two recommendations are `development` and `production`
-   * DEBUG - Django's debug feature enabling you to see display of error pages. In development, one can keep this set to `True`. Detailed reference [here](https://docs.djangoproject.com/en/4.1/ref/settings/#debug).
-   * POSTGRES_DB - Optional variable that sets the PostgreSQL's default Database name. [Details here](https://github.com/docker-library/docs/blob/master/postgres/README.md#postgres_db).
-   * POSTGRES_USER - Optional variable that is used together with POSTGRES_PASSWORD and sets the PostgreSQL's default Database user. [Details here](https://github.com/docker-library/docs/blob/master/postgres/README.md#postgres_user).
-   * POSTGRES_PASSWORD - Optional variable that sets the PostgreSQL's default Database name. [Details here](https://github.com/docker-library/docs/blob/master/postgres/README.md#postgres_password).
-   * POSTGRES_PORT - PostgreSQL database networking port well known as the TCP port. By default, it runs on port 5432 but can be altered. [Details here](https://www.postgresql.org/docs/14/runtime-config-connection.html).
-   * POSTGRES_HOST - Variable corresponding to the IP address or host name through which database server is running on. In this case, it is same as [database service in compose file](docker-compose-dev.yml).
-5. Pull and build images using docker compose. Note that if you are running in development use [docker-compose-dev.yml](docker-compose-dev.yml).
+   in the event [website's models](website/models.py) or [accounts' models](useraccounts/models.py) are altered, one can update migrations which generates the SQL commands for preinstalled apps by running
    ```shell
-   docker compose -f docker-compose-dev.yml up -d
+   make makemigrations-dev
    ```
-   the `up` command starts up the container while the `-d` instructs docker to run the containers in a [detached](https://docs.docker.com/engine/reference/run/#detached-vs-foreground) mode. 
-6. Apply the current migrations in [migrations directory](website/migrations/) to the database via the command.
+7. __Optional__: Load initial data making use of [django fixtures](https://docs.djangoproject.com/en/4.1/howto/initial-data/). 
+   * User accounts - This creates a default superuser (testadmin) and a standard user (testuser). The superuser can log into the Django admin panel and change settings etc.
+      ```shell
+      make load-user-data
+      ```
+   * Blog posts and portfolio projects - This populated the database with sample blog posts, post categories, post comments and portfolio projects. One is at liberty to add their own. NOTE that this should be only run after creating user accounts above. 
+      ```shell
+      make load-website-data
+      ```
+8. If skipped the previous step, create your own additional superuser by running.
    ```shell
-   docker compose -f docker-compose-dev.yml exec web python manage.py migrate
+   make superuser-dev
    ```
-7. Create a superuser to access the Django admin site. 
-   ```shell
-   docker compose -f docker-compose-dev.yml exec web python manage.py createsuperuser
-   ```
-8. Navigate to http://localhost:8000 in your favorite browser. The homepage will load.
+9. If populated the database using step 7 above, one can try logging in using the following:
+   * Navigate to the admin login URL at http://127.0.0.1:8000/mkubwa/
+   * Log in using `testadmin` as user and `UserAdmin123` as password. (NOTE: this is the superuser with full privileges on this app)
+   * Or navigate to the user login URL at http://127.0.0.1:8000/useraccounts/login/
+   * Log in using `testuser@email.com` as user email and `UsualUser123` as password. (NOTE: this user cannot log into admin panel)
+10. Logs can be monitored by running.
+    * `make logs-dev` - Prints log output
+    * `make logs-interactive-dev` - Show logs interactively
+11. On shutting down the development server, run the following.
+    * `make shutdown-dev` which stops the running containers (web and database)
+    * `make shutdown-volumes-dev` which stops the running containers and deletes volumes which contain persisted data.
 
+#### Installation on Production
+These are steps that one should take towards deploying this project successfully in a production environment which could be in a cloud virtual machine (VM) making the project accessible through the internet.
 
-#### Production environment
-TBD
+1. Clone this project using `git clone ` command.
+      ```shell
+     git clone https://github.com/jkariukidev/my-demo-website.git
+     ```
+  2. Navigate into the cloned project folder and using a terminal/shell or otherwise, rename the [env_prod.sample](.env_prod.sample) to `.env` in production to be recognized by docker.
+  3. Edit the environment variables as required and ensure you do not share passwords and secure keys with the public. The additional environment variables for production include:
+     * ``ENVIRONMENT`` - The project environment state. Set this to `production` in your in public server host.
+     * ``DEBUG`` - Must be set to `False` to avoid leaking sensitive project and server information displayed during development.
+     * ``ALLOWED_HOSTS`` - List of host/domain names that this Django site can serve. Has been set to your domain otherwise the website may not be accessed.
+     * ``EMAIL_BACKEND`` - This is the backend to use for email. Django supports various  [email backends](https://docs.djangoproject.com/en/4.1/topics/email/#topic-email-backends).
+     * ``DEFAULT_FROM_EMAIL`` - The default email to use from this site's manager. 
+     * ``EMAIL_HOST`` - This is the host to use for sending email.
+     * ``EMAIL_HOST_USER`` - The username for the sending service / SMTP defined in the ``EMAIL_HOST``
+     * ``EMAIL_HOST_PASSWORD`` - The password for the user for sending service / SMTP defined in the ``EMAIL_HOST``
+     * ``EMAIL_PORT`` - The port to use for the email sending service.
+     * ``EMAIL_USE_TLS`` - This tells the project whether to use secure protocol (port 587) when communicating with email sending service.
+     * ``CLOUDINARY_CLOUD_NAME`` - Mandatory variable pointing to the name of the cloud provided by [cloudinary](https:://cloudinary.com)
+     * ``CLOUDINARY_API_KEY`` - Mandatory API key associated with a given cloudinary account.
+     * ``CLOUDINARY_API_SECRET`` - Secret key associated with the `CLOUDINARY_API_KEY`
+     * ``CLOUDINARY_URL`` - Combination of the `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` and `CLOUDINARY_CLOUD_NAME` which constitutes of the Cloudinary URL.
+     * ``MEDIA_URL`` - URL that handles the media files served
+     * ``DEFAULT_FILE_STORAGE`` - Default file storage class to be used for any file-related operations
+     * ``STATIC_URL`` - URL to use when referring to static files located
+     * ``STATICFILES_STORAGE`` - The file storage engine to use when collecting static files with the collectstatic management command.
+     
+  4. Run the docker services for this project using compose in production environment.
+     ```
+     make runserver
+     ```
+  5. Propagate models into your database schema using the [migrate command](https://docs.djangoproject.com/en/4.0/ref/django-admin/#migrate). Note
+     that this command is being run inside the docker web container. Refer for more on [exec docker command](https://docs.docker.com/engine/reference/commandline/compose_exec/).
+     ```
+     make migrate
+     ```
+  6. Check logs using `make logs` or to view the logs interactively use `make logs-interactive`
 
-##### Docker
-TBD
-##### Heroku
-Below are summarized steps in deploying the project to [Heroku](https://www.heroku.com/). The project has already been
-configured for deployment on heroku.
-1. Create an account on Heroku. [Here is the guide](https://signup.heroku.com/).
-2. Download and install [Heroku Command Line Interface](https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli) (CLI). 
-3. Navigate in the project directory and ensure python virtual environment is active and log into Heroku using the CLI 
-with the command below. It should ask you for your login credentials.
-   ```shell
-    heroku login
-   ```
-4. Create a new app on Heroku via the CLI. You can optionally name your app using a unique name that hasn't been used on Heroku. If left empty
-heroku will assign it a name. For more on app creation refer [here](https://devcenter.heroku.com/articles/creating-apps).
-   ```shell
-    heroku create
-   ```
-5. Disable the collection of static files by heroku by setting the below variable. We may not want Heroku running collectstatic for you. Details 
-[here](https://devcenter.heroku.com/articles/django-assets#disabling-collectstatic).
-   ```shell
-    heroku config:set DEBUG_COLLECTSTATIC=1
-   ```
-6. Export the SECRET_KEY environment variable. Refer [here](https://devcenter.heroku.com/articles/config-vars#managing-config-vars) for more detail on Heroku system variables. The XXX
-represents the Django SECRET_KEY explained in previous steps.
-   ```shell
-    heroku config:set SECRET_KEY='XXXX'
-   ```
-7. Export the Django setting variable to point to the production configuration which has been set to be applied in a 
-   production environment.
-   ```shell
-    heroku config:set DJANGO_SETTINGS_MODULE=PersonalWebsite.settings.pro
-   ```
-8. Push any pending commits to GitHub.
-   ```shell
-   git add -A 
-   git commit -m '<message>'
-   git push 
-   ```
-9. Push the code to heroku.
-   ```shell
-   git push heroku main
-   ```
-10. Set Heroku to use the free tier processes for our web app.
-    ```shell
-    heroku ps:scale web=1
-    ```
-11. Visit the URL shown in the command line log after deployment process. In my case, it is https://jkariukidev.herokuapp.com
-
-### PythonAnywhere
-
-PythonAnywhere supports deployment of Python applications including Django. For more detail on deploying this or any
-other Django project on PythonAnywhere, refer to their [documentation](https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/).
-
-### DigitalOcean
-
-This [Digital Ocean tutorial](https://docs.digitalocean.com/tutorials/app-deploy-django-app/) illustrates on the steps
-for deploying Django-based applications on their platform.
-
-## Testing
-
-## TBD
-
-List of enhancements to be effected on this project. For more, add recommendation on the issues section and label them as enhancements. 
-
-- Social authentication
-- Post tagging functionality
-- Full-text search functionality
-- Post likes (Redis incorporation)
-- CI/CD
-
-## Future Plans
-
-List of future plans with this project.
-
-- Spread the gospel of web development using Django.
-- Help interested persons start up with a personal portfolio website.
-- A pre-amble to future Django-based projects
+For several other commands, view them in the [Makefile](Makefile)
 
 ## Usage
 
-One can take the advantage of this project to create their own portfolio website with the following illustrations:
-- Blog functionality
-- Post authoring
-- User registration
-- Sharing content
+  - Customizing and deploying personal website.
+  - Blogging and blog posts management
+  - User account and profile management
+  - Email SMTP service 
+  - Email authentication
+  - REST API - Token authentication, managing blog posts via GET, POST and PUT.
+  - Static files assets management using services; Cloudinary, AWS S3 etc.
 
-## ✍️Authors
+## Tests
+TBD
 
-<!-- Add links to all the authors profile here OPTIONAL: You can mention what they did as well -->
-
-- [@Joseph Kariuki](https://www.github.com/jkariukidev) - Idea & Initial Work
-- [@DeeshanSharma](https://www.github.com/DeeshanSharma) - Markdown documentation
-
-## 📢Contributors
-
-<!-- Add links to all the contributors profile here -->
-
-- [@Joseph Kariuki](https://www.github.com/jkariukidev)
+## Deployment
+TBD
 
 ## 💳License
 
 <!-- Mention your project licence here and also link to that file -->
 
-Distributed under the MIT License. See [`LICENSE`](LICENCE) for more information.
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
+
+## Contributing
+  If you want to contribute to a project and make it better, your help is welcome. Contributing is also a great 
+  way to learn more about social coding on GitHub, new technologies and their ecosystems and how to make constructive, 
+  helpful bug reports, feature requests and the noblest of all contributions: a good, clean pull request.
+
+
+## ✍️Authors
+
+- [@Joseph Kariuki](https://www.github.com/jkariukidev) - Idea & Initial Work
 
 ## 🧬Resources
 
@@ -247,15 +274,14 @@ List all the articles, videos or docs you referred while building this project f
 
 <!-- Add links to all the resources you followed or referred to -->
 
-- [Django Docs](https://docs.djangoproject.com/en/4.0/)
-- [GetBootstrap](https://getbootstrap.com/docs/4.1/getting-started/introduction/)
+- [Django Docs](https://docs.djangoproject.com/en/4.1/)
+- [Learn Django](https://learndjango.com/)
+- [GetBootstrap](https://getbootstrap.com)
 - [JQuery](https://jquery.com/)
-- [Django for Beginners](https://www.amazon.com/Django-Beginners-Learn-web-development/dp/1980377898)
+- [Docker Documentation](https://docs.docker.com/)
+- [ChatGPT](https://chat.openai.com)
 
 ## 🎉Acknowledgement
 
-Acknowledge all whose code you used, or took inspiration from or mention any websites you used in the development for eg:
-
-- [John Elder](https://github.com/flatplanet) 
-- [Shields](https://shields.io)
-- [Choose License for your Project](https://choosealicense.com)
+- [William Vincent](https://github.com/wsvincent) 
+- [John Elder](https://github.com/flatplanet)
