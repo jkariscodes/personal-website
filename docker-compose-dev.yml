@@ -6,10 +6,10 @@ services:
     image: postgres:13.10-alpine
     container_name: db4${COMPOSE_PROJECT_NAME}
     environment:
-      - POSTGRES_PASSWORD=postgres
-      - APP_DB_NAME=personalwebsite
-      - APP_DB_USER=websiteuser
-      - APP_DB_PASSWORD=websitePassword123
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - APP_DB_NAME=${APP_DB_NAME}
+      - APP_DB_USER=${APP_DB_USER}
+      - APP_DB_PASSWORD=${APP_DB_PASSWORD}
     healthcheck:
       test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "$POSTGRES_USER" ]
       timeout: 40s
