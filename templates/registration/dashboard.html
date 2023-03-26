@@ -4,17 +4,16 @@
 
 {% block content %}
     <div class="container" style="padding: 100px; height: 75vh;">
-    <h1>Welcome {{ user.first_name }} {{ user.last_name }}</h1>
+    <h1 class="page-heading">Welcome {{ user.first_name }} {{ user.last_name }}</h1>
     <p>Welcome to my website and blog. You have logged-in successfully in your profile. In this website, you can:
         <ol>
             {% if user.profile %}
-                <li><a href="{% url 'accounts:edit_user_profile' user.pk %}">Edit your profile</a>.</li>
+                <li><a href="{% url 'useraccounts:edit_user_profile' user.pk %}">Edit your profile</a>.</li>
             {% else %}
-                <li><a href="{% url 'accounts:create_user_profile' %}">Create your profile</a>.</li>
+                <li><a href="{% url 'useraccounts:create_user_profile' %}">Create your profile</a>.</li>
             {% endif %}
             <li><a href="{% url 'website:post-new' %}">Write blog posts</a>.</li>
             <li><a href="{% url 'website:blog' %}">Read and edit blog posts</a>.</li>
-            <li><a href="#">Share blog posts</a>.</li>
         </ol>
     </p>
     </div>

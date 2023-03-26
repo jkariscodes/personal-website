@@ -1,0 +1,40 @@
+{% load static %}
+{% if all_projects.count > 0 %}
+    {% for project in all_projects %}
+        <div class="col">
+            <div class="card text-center">
+                {% if project.image %}
+                    <img class="card-img-top" src="{{ project.image.url }}" alt="{{ project.title }}">
+                {% else %}
+                    <img class="card-img-top" src="{% static 'website/img/under_construction.jpg' %}" alt={{ project.title }}>
+                {% endif %}
+                <div class="card-body">
+                    {% if project.title %}
+                        <h5 class="card-title">{{ project.title }}</h5>
+                    {% else %}
+                        <h5 class="card-title">Coming Soon</h5>
+                    {% endif %}
+                    {% if project.description %}
+                        <p class="card-text">{{ project.description }}</p>
+                    {% else %}
+                        <p class="card-text">Sample Project</p>
+                    {% endif %}
+                    {% if project.codebase %}
+                        <a href="{{ project.codebase }}" target="_blank" class="card-link" rel="nofollow noopener noreferrer">Codebase</a>
+                    {% else %}
+                        <a href="/" target="_blank" class="card-link" rel="nofollow noopener noreferrer" aria-disabled="true">Codebase</a>
+                    {% endif %}
+                    {% if project.live_project %}
+                        <a href="{{ project.live_project }}" target="_blank" class="card-link" rel="nofollow noopener noreferrer">Live Project</a>
+                    {% else  %}
+                        <a href="/" target="_blank" class="card-link" rel="nofollow noopener noreferrer" aria-disabled="true">Live Project</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <p style="height: 50vh;">
+        Sorry, no projects to display.
+    </p>
+{% endif %}

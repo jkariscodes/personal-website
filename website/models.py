@@ -29,13 +29,14 @@ class PostCategory(models.Model):
 
 class Post(models.Model):
     """Post model"""
+
     STATUS_CHOICES = (
-        ('draft', 'Draft'),
-        ('published', 'Published'),
+        ("draft", "Draft"),
+        ("published", "Published"),
     )
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
-    slug = AutoSlugField(populate_from='title', unique=True, editable=True)
+    slug = AutoSlugField(populate_from="title", unique=True, editable=True)
     body = models.TextField()
     published = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
@@ -43,33 +44,28 @@ class Post(models.Model):
     category = models.ForeignKey(
         "PostCategory", verbose_name="Category", on_delete=models.CASCADE
     )
-    snippet = models.CharField(max_length=255, default='')
-    status = models.CharField(
-        max_length=10,
-        choices=STATUS_CHOICES,
-        default='draft'
-    )
+    snippet = models.CharField(max_length=255, default="")
+    status = models.CharField(max_length=10, choices=STATUS_CHOICES, default="draft")
 
     def get_absolute_url(self):
         """
         Return the canonical URL of the post.
         """
-        return reverse('website:article-detail', args=[self.slug])
+        return reverse("website:article-detail", args=[self.slug])
 
     class Meta:
-        ordering = ('-published',)
+        ordering = ("-published",)
 
     def __str__(self):
-        return self.title + ' | ' + str(self.author)
+        return self.title + " | " + str(self.author)
 
 
 class PostComment(models.Model):
     """
     Comment for blog posts.
     """
-    post = models.ForeignKey(
-        Post, on_delete=models.CASCADE, related_name='comments'
-    )
+
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
     name = models.CharField(max_length=80)
     email = models.EmailField()
     body = models.TextField()
@@ -78,13 +74,28 @@ class PostComment(models.Model):
     active = models.BooleanField(default=True)
 
     class Meta:
-        ordering = ('created',)
+        ordering = ("created",)
 
     def __str__(self):
-        return f'Comment by {self.name} on {self.post}'
+        return f"Comment by {self.name} on {self.post}"
 
 
 class EmailMessage(models.Model):
     email = models.EmailField(max_length=254)
     subject = models.CharField(max_length=50)
     message = models.TextField(max_length=300)
+
+
+class PortfolioProjects(models.Model):
+    image = models.ImageField(upload_to="images/projects")
+    title = models.CharField(null=True, blank=True, max_length=100)
+    description = models.CharField(max_length=200, null=True, blank=True)
+    codebase = models.URLField(null=True, blank=True)
+    live_project = models.URLField(null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "PortfolioProject"
+        verbose_name_plural = "PortfolioProject"

@@ -20,6 +20,10 @@ django-allauth = "~=0.52.0"
 django-summernote = "~=0.8.20.0"
 bleach = "~=6.0.0"
 django-environ  = "~=0.10.0"
+djangorestframework = "~=3.14.0"
+django-cors-headers = "~=3.14.0"
+djangorestframework-simplejwt = "~=5.2.2"
+django-cloudinary-storage = "==0.3.0"
 
 [dev-packages]
 black = "~=23.1.0"

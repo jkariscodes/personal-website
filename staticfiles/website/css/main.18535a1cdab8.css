@@ -1,0 +1,247 @@
+html, body {
+    margin: 0;
+    height: 100vh;
+}
+
+body{
+	background:#f4f4f4;
+}
+
+div.ghfork {
+    position: sticky;
+    top: 0;
+}
+
+div.ghfork img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar{width : 15px;  }
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+.nav-link , .navbar-brand{
+	color: #f4f4f4;
+	cursor: pointer;
+}
+
+.nav-link{
+	margin-right: 1em !important;
+}
+
+.nav-link:hover{
+	background: #f4f4f4;
+	color: #f97300;
+}
+
+.navbar-collapse{
+ justify-content: flex-end;
+}
+
+.navbar-toggler{
+  background:#fff !important;
+}
+
+.header-back{
+	background-image: url("../img/headerback.506f284d6ed4.jpg");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center;
+	width: 100%;
+    height: 100vh;
+	opacity: 0.3;
+}
+
+.description{
+	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+  	font-size: 18px;
+}
+
+.description h {
+	color: #000000;
+	font-size: 20px;
+	width: 100%;
+	line-height: 1.5;
+}
+
+.description p{
+	color: #5d5d5d;
+	font-size: 20px;
+	width: 100%;
+	line-height: 1.5;
+}
+.description button{
+	border:1px;
+}
+
+.page-heading {
+	text-align: center;
+	margin: 10px 0 10px 0;
+}
+
+/*Portfolio*/
+.portfolio{
+    position: relative;
+}
+.portfolio h1{
+	margin: 2em;
+}
+.portfolio img{
+	 height: 15rem;
+	 width: 100%;
+}
+
+/*blog style*/
+
+.blog{
+	margin: 4em 0;
+	position: relative;
+}
+.blog h1{
+	color:#F97300;
+	margin: 2em;
+}
+.blog .card{
+	box-shadow: 0 0 20px #ccc;
+}
+.blog .card img{
+	width: 100%;
+	height: 12em;
+}
+
+/*About*/
+.about {
+	text-align: center;
+	position: relative;
+	z-index: -1;
+}
+
+.about-image{
+	height: 350px;
+	width: 350px;
+	border-radius: 50%;
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
+.about h3 {
+	text-align: center;
+	margin: 5px 0 5px 0;
+	color: #10828C;
+}
+
+.about .socials {
+	text-align: center;
+	margin: 5px 0 5px 0;
+}
+
+.about .ab-text {
+	color: #5d5d5d;
+	text-align: justify;
+	overflow: hidden;
+}
+
+.card-text {
+	line-height:2;
+	color:#888;
+}
+
+@media only screen and (max-width: 768px){
+	.description {
+		position: absolute;
+  		top: 35%;
+  		left: 50%;
+  		transform: translate(-50%, -50%);
+	}
+
+	.description p {
+		color: #b94500;
+		font-size: 17px;
+		width: 100%;
+		line-height: 1.5;
+		text-align: justify;
+	}
+
+	.description h1 {
+		font-size: 18px;
+	}
+
+	.description button{
+		border: 0;
+	}
+
+	.about{
+	}
+
+	.about img {
+		height: 300px;
+		width: 300px;
+		border-radius: 50%;
+	}
+
+	footer {
+		position: relative;
+	}
+}
+
+.blog .card-title{
+	color:#F97300;
+
+}
+.blog .card-body{
+	padding: 1em;
+}
+
+.contact-form{
+	margin: 6em 0;
+	position: relative;
+}
+
+.contact-form h1{
+	padding:2em 1px;
+	color: #F97300;
+}
+
+.contact-form .right{
+	max-width: 600px;
+}
+
+.contact-form .right .btn-secondary{
+	background:  #F97300;
+	color: #fff;
+	border:0;
+}
+
+.contact-form .right .form-control::placeholder{
+	color: #888;
+	font-size: 16px;
+}
+
+.django-ckeditor-widget{
+  width: 100%;
+}
+
+
+
+
+

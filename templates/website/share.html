@@ -6,7 +6,7 @@
 {% block content %}
     <div class="container">
     {% if sent %}
-        <h1>E-mail successfully sent</h1>
+        <h1 class="page-heading">E-mail successfully sent</h1>
         <p>
             "{{ post.title }}" was successfully sent to {{ form.cleaned_data.to }}.
         </p>

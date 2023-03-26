@@ -4,15 +4,14 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('website', '0002_remove_post_header_image'),
+        ("website", "0002_remove_post_header_image"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='post',
-            name='body',
+            model_name="post",
+            name="body",
             field=models.TextField(),
         ),
     ]

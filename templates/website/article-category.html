@@ -4,7 +4,7 @@
 {% block content %}
     <div class="container">
     {% if user.is_authenticated %}
-    <h1>Add Post Category...</h1>
+    <h1 class="page-heading">Add Post Category...</h1>
     <div class="form-group">
         <form method="POST">
             {% csrf_token %}
@@ -13,7 +13,7 @@
         </form>
     </div>
     {% else %}
-        <p>Please <a href="{% url 'accounts:login' %}">log in</a>  to create blog category.</p>
+        <p>Please <a href="{% url 'useraccounts:login' %}">log in</a>  to create blog category.</p>
     {% endif %}
     </div>
 {% endblock %}

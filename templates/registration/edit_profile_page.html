@@ -3,7 +3,7 @@
 
 {% block content %}
     <div class="container">
-        <h1>Edit Profile</h1>
+        <h1 class="page-heading">Edit Profile</h1>
         {% if user.is_authenticated %}
             {% if user.id == profile.user.id %}
                 <form method="POST" enctype="multipart/form-data">
@@ -15,7 +15,7 @@
                 <p>You are not allowed to access this page.</p>
             {% endif %}
         {% else %}
-            <p>Please <a href="{% url 'accounts:login' %}">log in</a> to access this page.</p>
+            <p>Please <a href="{% url 'account_login' %}">log in</a> to access this page.</p>
         {% endif %}
     </div>
 {%  endblock %}

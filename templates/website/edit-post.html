@@ -5,9 +5,9 @@
 
 {% block content %}
 <div class="container">
+<h1 class="page-heading">Edit Post...</h1>
 {% if user.is_authenticated %}
     {% if user.id == post.author.id %}
-        <h1>Edit Post...</h1>
         <form method="POST">
             {% csrf_token %}
             {{ form|crispy|safe }}
@@ -15,7 +15,7 @@
         </form>
     {% endif %}
 {% else %}
-    <p>Please <a href="{% url 'accounts:login' %}">log in</a> to edit this blog post.</p>
+    <p>Please <a href="{% url 'useraccounts:login' %}">log in</a> to edit this blog post.</p>
 {% endif %}
 </div>
 {% endblock %}

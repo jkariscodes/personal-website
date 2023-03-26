@@ -4,9 +4,9 @@
 
 {% block content %}
     <div class="container">
+    <h1 class="page-heading">Delete Post...</h1>
     {% if user.is_authenticated %}
         {% if user.id == post.author.id %}
-            <h1>Delete Post...</h1>
             <div class="form-group">
             <form method="POST">
                 {% csrf_token %}
@@ -16,7 +16,7 @@
             </div>
         {% endif %}
     {% else %}
-        <p>Please <a href="{% url 'accounts:login' %}">log in</a> to remove this blog post.</p>
+        <p>Please <a href="{% url 'useraccounts:login' %}">log in</a> to remove this blog post.</p>
     {% endif %}
     </div>
 {% endblock %}

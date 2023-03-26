@@ -5,12 +5,12 @@ from .models import Post
 
 
 class LatestPostsFeed(Feed):
-    title = 'My Site'
-    link = reverse_lazy('website:blog')
-    description = 'New posts of my blog'
+    title = "My Site"
+    link = reverse_lazy("website:blog")
+    description = "New posts of my blog"
 
     def items(self):
-        return Post.objects.all().filter(status='published')
+        return Post.objects.all().filter(status="published")
 
     def item_title(self, item):
         return item.title
