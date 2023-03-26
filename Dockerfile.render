@@ -24,6 +24,10 @@ COPY Pipfile Pipfile.lock $APP_HOME
 
 RUN pipenv install --system
 
+# Temporary fix for django_usummernote issue
+# Reference to issue https://github.com/summernote/django-summernote/issues/492
+RUN chmod -R 777 /usr/local/lib/python3.10/site-packages/django_summernote/migrations/
+
 # Copy project
 COPY . $APP_HOME
 
