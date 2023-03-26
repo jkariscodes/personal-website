@@ -84,7 +84,7 @@ makemigrations-dev:
 
 collectstatic:
 	@echo -e "$(CYAN)Running django collectstatic:$(COFF)"
-	@docker-compose -f docker-compose.yml run --rm web python ./manage.py collectstatic --no-input $(cmd)
+	@docker-compose -f docker-compose-prod.yml run --rm web python ./manage.py collectstatic --no-input $(cmd)
 
 collectstatic-dev:
 	@echo -e "$(CYAN)Running django collectstatic in develoment:$(COFF)"
@@ -120,7 +120,7 @@ superuser-dev:
 
 shutdown:
 	@echo -e "$(CYAN)Stopping services:$(COFF)"
-	@docker-compose -f docker-compose.yml down
+	@docker-compose -f docker-compose-prod.yml down
 
 shutdown-dev:
 	@echo -e "$(CYAN)Stopping services:$(COFF)"
@@ -128,7 +128,7 @@ shutdown-dev:
 
 shutdown-volumes:
 	@echo -e "$(CYAN)Stopping services and deleting volumes:$(COFF)"
-	@docker-compose -f docker-compose.yml down --volumes
+	@docker-compose -f docker-compose-prod.yml down --volumes
 
 shutdown-volumes-dev:
 	@echo -e "$(CYAN)Stopping services and deleting volumes:$(COFF)"
