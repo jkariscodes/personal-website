@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.sites",
     "django.contrib.sitemaps",
     # 3rd party
-    "storages",
+    # "storages",
     "crispy_forms",
     "crispy_bootstrap5",
     "django_summernote",
