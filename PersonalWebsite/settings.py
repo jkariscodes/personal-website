@@ -233,10 +233,10 @@ if ENVIRONMENT == "production":
     # DEFAULT_FILE_STORAGE = 'PersonalWebsite.storage_backends.MediaStorage'
     # STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
     MEDIA_URL = env("MEDIA_URL")
-    MEDIA_ROOT = env("MEDIA_ROOT")
+    # MEDIA_ROOT = env("MEDIA_ROOT")
     DEFAULT_FILE_STORAGE = env("DEFAULT_FILE_STORAGE")
     STATIC_URL = env("STATIC_URL")
-    STATIC_ROOT = env("STATIC_ROOT")
+    # STATIC_ROOT = env("STATIC_ROOT")
     STATICFILES_STORAGE = env("STATICFILES_STORAGE")
     CLOUDINARY_URL = env("CLOUDINARY_URL")
     CLOUDINARY_STORAGE = {
