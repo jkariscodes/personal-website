@@ -243,13 +243,6 @@ if ENVIRONMENT == "production":
         "CLOUD_NAME": env("CLOUDINARY_CLOUD_NAME"),
         "API_KEY": env("CLOUDINARY_API_KEY"),
         "API_SECRET": env("CLOUDINARY_API_SECRET"),
-        'SECURE': True,
-        'MEDIA_TAG': 'media',
-        'INVALID_VIDEO_ERROR_MESSAGE': 'Please upload a valid video file.',
-        'EXCLUDE_DELETE_ORPHANED_MEDIA_PATHS': (),
-        'STATIC_TAG': 'static',
-        'STATIC_IMAGES_EXTENSIONS': ['jpg', 'jpe', 'jpeg', 'jpc', 'jp2', 'j2k', 'wdp', 'jxr',
-                                     'hdp', 'png', 'gif', 'webp', 'bmp', 'tif', 'tiff', 'ico'],
     }
     # SSL Settings
     SECURE_HSTS_SECONDS = 3600
