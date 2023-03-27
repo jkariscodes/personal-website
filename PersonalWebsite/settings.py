@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    # "whitenoise.runserver_nostatic",
+    "whitenoise.runserver_nostatic",
     "cloudinary_storage",
     "django.contrib.staticfiles",
     "cloudinary",
@@ -59,28 +59,10 @@ INSTALLED_APPS = [
     "website.apps.WebsiteConfig",
 ]
 
-CLOUDINARY_STORAGE = {
-    "CLOUD_NAME": env("CLOUDINARY_CLOUD_NAME"),
-    "API_KEY": env("CLOUDINARY_API_KEY"),
-    "API_SECRET": env("CLOUDINARY_API_SECRET"),
-    'SECURE': True,
-    'MEDIA_TAG': 'media',
-    'INVALID_VIDEO_ERROR_MESSAGE': 'Please upload a valid video file.',
-    'EXCLUDE_DELETE_ORPHANED_MEDIA_PATHS': (),
-    'STATIC_TAG': 'static',
-    'STATICFILES_MANIFEST_ROOT': os.path.join(BASE_DIR, 'manifest'),
-    'STATIC_IMAGES_EXTENSIONS': ['jpg', 'jpe', 'jpeg', 'jpc', 'jp2', 'j2k', 'wdp', 'jxr',
-                                 'hdp', 'png', 'gif', 'webp', 'bmp', 'tif', 'tiff', 'ico'],
-    'STATIC_VIDEOS_EXTENSIONS': ['mp4', 'webm', 'flv', 'mov', 'ogv' ,'3gp' ,'3g2' ,'wmv' ,
-                                 'mpeg' ,'flv' ,'mkv' ,'avi'],
-    'MAGIC_FILE_PATH': 'magic',
-    'PREFIX': env("MEDIA_URL")
-}
-
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    # "whitenoise.middleware.WhiteNoiseMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -206,6 +188,8 @@ if ENVIRONMENT == "development":
     STATICFILES_DIRS = [BASE_DIR / "static"]
     STATIC_ROOT = BASE_DIR / "staticfiles"
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+    # Serve files from their original directories
+    WHITENOISE_USE_FINDERS = True
     # User uploaded content
     MEDIA_URL = "/media/"
     MEDIA_ROOT = BASE_DIR / "mediafiles"
@@ -213,8 +197,7 @@ if ENVIRONMENT == "development":
     EMAIL_RECIPIENT = env("EMAIL_RECIPIENT")
     EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-# Serve files from their original directories
-WHITENOISE_USE_FINDERS = True
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -248,15 +231,26 @@ if ENVIRONMENT == "production":
     # AWS_LOCATION = os.environ.get('AWS_S3_CUSTOM_DOMAIN')
     # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     # DEFAULT_FILE_STORAGE = 'PersonalWebsite.storage_backends.MediaStorage'
-    MEDIA_URL = env("MEDIA_URL")
-    DEFAULT_FILE_STORAGE = env("DEFAULT_FILE_STORAGE")
     # STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+    MEDIA_URL = env("MEDIA_URL")
+    MEDIA_ROOT = env("MEDIA_ROOT")
+    DEFAULT_FILE_STORAGE = env("DEFAULT_FILE_STORAGE")
     STATIC_URL = env("STATIC_URL")
+    STATIC_ROOT = env("STATIC_ROOT")
     STATICFILES_STORAGE = env("STATICFILES_STORAGE")
     CLOUDINARY_URL = env("CLOUDINARY_URL")
-    # STATICFILES_DIRS = [
-    #     os.path.join(BASE_DIR, 'static'),
-    # ]
+    CLOUDINARY_STORAGE = {
+        "CLOUD_NAME": env("CLOUDINARY_CLOUD_NAME"),
+        "API_KEY": env("CLOUDINARY_API_KEY"),
+        "API_SECRET": env("CLOUDINARY_API_SECRET"),
+        'SECURE': True,
+        'MEDIA_TAG': 'media',
+        'INVALID_VIDEO_ERROR_MESSAGE': 'Please upload a valid video file.',
+        'EXCLUDE_DELETE_ORPHANED_MEDIA_PATHS': (),
+        'STATIC_TAG': 'static',
+        'STATIC_IMAGES_EXTENSIONS': ['jpg', 'jpe', 'jpeg', 'jpc', 'jp2', 'j2k', 'wdp', 'jxr',
+                                     'hdp', 'png', 'gif', 'webp', 'bmp', 'tif', 'tiff', 'ico'],
+    }
     # SSL Settings
     SECURE_HSTS_SECONDS = 3600
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
