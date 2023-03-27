@@ -31,7 +31,8 @@
 <br />
 <div style="text-align: center">
 
-   ![image](https://user-images.githubusercontent.com/23359514/184578198-b766699f-636c-4ed8-bad8-649231882848.png)
+   ![me](https://user-images.githubusercontent.com/23359514/227893689-e846c0dc-403a-42ac-a462-4c9d566686f7.jpeg)
+
 
 
 </div>
