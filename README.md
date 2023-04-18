@@ -4,7 +4,7 @@
 
 # <center> Personal Portfolio Website </center>
  <div style="text-align: center">
-	Demonstrating web development using Django and JavaScript and containerized deployment
+	Web development using Django and JavaScript and containerized deployment
     <br />
 	<!-- Add your project live demo link here -->
     <a href="#>View Demo</a>
