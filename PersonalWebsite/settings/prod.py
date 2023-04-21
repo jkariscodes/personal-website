@@ -24,6 +24,18 @@ ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
 INSTALLED_APPS.insert(5, "cloudinary_storage")
 INSTALLED_APPS.insert(7, "cloudinary")
 
+# Database configuration
+DATABASES = {
+    "default": {
+        "ENGINE": env("ENGINE"),
+        "NAME": env("APP_DB_NAME"),
+        "USER": env("APP_DB_USER"),
+        "PASSWORD": env("APP_DB_PASSWORD"),
+        "HOST": env("POSTGRES_HOST"),
+        "PORT": env("POSTGRES_PORT"),
+    }
+}
+
 # Static file management using AWS (Feel free to use other)
 USE_S3 = env("USE_S3")
 if USE_S3:
