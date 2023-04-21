@@ -4,7 +4,7 @@ services:
 
   database:
     image: postgres:13.10-alpine
-    container_name: db4${COMPOSE_PROJECT_NAME}
+    container_name: db4${COMPOSE_PROJECT_NAME}_prod
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - APP_DB_NAME=${APP_DB_NAME}
@@ -26,10 +26,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: web4${COMPOSE_PROJECT_NAME}
-#    command: gunicorn PersonalWebsite.wsgi:application --bind 0.0.0.0:8000
-    command: > 
-      sh -c "python3 manage.py migrate --noinput && 
+    container_name: web4${COMPOSE_PROJECT_NAME}_prod
+    command: >
+      sh -c "python3 manage.py migrate --noinput &&
       python manage.py loaddata useraccounts/fixtures/initial.json &&
       python manage.py loaddata website/fixtures/initial.json &&
       gunicorn PersonalWebsite.wsgi:application --bind 0.0.0.0:8000"
@@ -38,7 +37,9 @@ services:
     ports:
       - "80:8000"
     env_file:
-      - .env
+      - .env_prod
+    environment:
+        - DJANGO_SETTINGS_MODULE=PersonalWebsite.settings.prod
     depends_on:
       database:
         condition: service_healthy

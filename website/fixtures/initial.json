@@ -241,7 +241,7 @@
       "image": "",
       "title": "FullStack Website Template",
       "description": "Tutorial project template for developing websites.",
-      "codebase": "https://github.com/jkariukidev/my-demo-website",
+      "codebase": "https://github.com/jkariscodes/my-demo-website",
       "live_project": "https://my-demo-website-production.up.railway.app/"
     }
   },
@@ -252,7 +252,7 @@
       "image": "",
       "title": "Personal Website",
       "description": "My personal website.",
-      "codebase": "https://github.com/jkariukidev/my-demo-website",
+      "codebase": "",
       "live_project": "https://josephkariuki.com/"
     }
   },
@@ -296,7 +296,7 @@
       "image": "",
       "title": "Nairobi Bus Stops Map",
       "description": "Web map application visualizing location points.",
-      "codebase": "https://github.com/jkariukidev/nairobi-busstops",
+      "codebase": "https://github.com/jkariscodes/nairobi-busstops",
       "live_project": ""
     }
   },
@@ -305,10 +305,10 @@
     "pk": 7,
     "fields": {
       "image": "",
-      "title": "To Do List",
-      "description": "A desktop to-do list app.",
-      "codebase": "https://github.com/jkariukidev/simple_to-do_list",
-      "live_project": "https://github.com/jkariukidev/simple_to-do_list"
+      "title": "GEO-AOS GeoPortal",
+      "description": "GEO AOS GeoPortal",
+      "codebase": "",
+      "live_project": "https://geoportailcilss.pariis.net/"
     }
   },
   {
@@ -318,8 +318,8 @@
       "image": "",
       "title": "Polygon Spike Remover",
       "description": "Polygon Spike Remover QGIS Plugin.",
-      "codebase": "https://github.com/jkariukidev/polygon_spike_remover",
-      "live_project": "https://jkariukidev.github.io/polygon_spike_remover/"
+      "codebase": "https://github.com/jkariscodes/polygon_spike_remover",
+      "live_project": "https://jkariscodes.github.io/polygon_spike_remover/"
     }
   },
   {
