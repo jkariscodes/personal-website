@@ -133,7 +133,7 @@ These are steps that one should take towards deploying this project successfully
    ```shell
    git clone  https://github.com/jkariukidev/personal-website.git
    ```
-2. Rename the [.env_dev.sample](.env_dev.sample) file to `.env` to be used by docker.
+2. Rename the [.env_dev.sample](.env_local.sample) file to `.env` to be used by docker.
 3. Add the values for the environment variables. One of the reasons for environment variables is to avoid hard coding passwords and sensitive information on the code. The environment variables include:
    * ``COMPOSE_PROJECT_NAME`` - The project environment state.
    * ``ENVIRONMENT`` - The project environment state. This has been set to `development` for your local machine.
