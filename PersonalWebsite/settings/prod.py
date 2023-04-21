@@ -64,7 +64,10 @@ if USE_CLOUDINARY:
     CLOUDINARY_URL = env("CLOUDINARY_URL")
     STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+    STATIC_URL = "static/"
     MEDIA_URL = "/media/"
+    STATIC_ROOT = BASE_DIR / "staticfiles"
+    MEDIA_ROOT = BASE_DIR / "mediafiles"
 
 # SSL Settings
 SECURE_HSTS_SECONDS = 3600
