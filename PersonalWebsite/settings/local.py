@@ -21,7 +21,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
 
-INSTALLED_APPS.insert(5, 'whitenoise.runserver_nostatic')
+INSTALLED_APPS.insert(5, "whitenoise.runserver_nostatic")
 MIDDLEWARE.insert(2, "whitenoise.middleware.WhiteNoiseMiddleware")
 
 # Database configuration
