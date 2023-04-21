@@ -34,7 +34,9 @@ services:
     ports:
       - "8000:8000"
     env_file:
-      - .env
+      - .env_local
+    environment:
+        - DJANGO_SETTINGS_MODULE=PersonalWebsite.settings.local
     depends_on:
       database:
         condition: service_healthy
