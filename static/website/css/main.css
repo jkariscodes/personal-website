@@ -59,7 +59,7 @@ div.ghfork img {
 }
 
 .header-back{
-	background-image: url("/static/img/headerback.jpg");
+	background-image: url('{% static "headerback.jpg" %}');
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
