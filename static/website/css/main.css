@@ -43,6 +43,7 @@ div.ghfork img {
 
 .nav-link{
 	margin-right: 1em !important;
+    color: #1a1d20;
 }
 
 .nav-link:hover{
@@ -59,7 +60,7 @@ div.ghfork img {
 }
 
 .header-back{
-	background-image: url("../img/headerback.jpg");
+	background-image: url("/static/website/img/headerback.jpg");
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
@@ -153,7 +154,7 @@ div.ghfork img {
 	color: #10828C;
 }
 
-.about .socials {
+.socials {
 	text-align: center;
 	margin: 5px 0 5px 0;
 }
