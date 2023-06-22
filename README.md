@@ -82,10 +82,9 @@ Software used in the development of this project include:
 This project's initial dependencies are listed in the [Pipfile](Pipfile) include: 
 * [__Django__](https://docs.djangoproject.com/) as the base framework
 * [__django-environ__](https://django-environ.readthedocs.org/) for management of environment variables
-* [__psycopg2-binary__](https://www.psycopg.org/docs/) database adapter to facilitate database connectivity and other operations.
+* [__psycopg-binary__](https://www.psycopg.org/docs/) database adapter to facilitate database connectivity and other operations.
 * [__crispy-bootstrap5__](https://github.com/django-crispy-forms/crispy-bootstrap5) Bootstrap5 template pack for django-crispy-forms.
 * [__django-allauth__](https://django-allauth.readthedocs.io/en/latest/) reusable Django app that allows for both local and social authentication
-* [__django-ckeditor__](https://github.com/django-ckeditor/django-ckeditor) providing editor support in the project.
 * [__whitenoise__](https://github.com/evansd/whitenoise) for managing static and user uploads in developement and production
 * [__pillow__](https://python-pillow.org/) for supporting image processing and capabilities. 
 * [__gunicorn__](https://gunicorn.org/) HTTP server for supporting serving of this project over the web
