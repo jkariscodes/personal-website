@@ -29,12 +29,13 @@ services:
     container_name: web4${COMPOSE_PROJECT_NAME}
     command: python /home/appuser/personalwebsite/manage.py runserver 0.0.0.0:8000
     volumes:
+      - ./:/home/appuser/personalwebsite
       - static_volume:/home/appuser/personalwebsite/staticfiles
       - media_volume:/home/appuser/personalwebsite/mediafiles
     ports:
       - "8000:8000"
     env_file:
-      - .env_local
+      - .env
     environment:
         - DJANGO_SETTINGS_MODULE=PersonalWebsite.settings.local
     depends_on:
