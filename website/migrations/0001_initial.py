@@ -8,7 +8,6 @@ import django.utils.timezone
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -17,80 +16,166 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='EmailMessage',
+            name="EmailMessage",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('email', models.EmailField(max_length=254)),
-                ('subject', models.CharField(max_length=50)),
-                ('message', models.TextField(max_length=300)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("email", models.EmailField(max_length=254)),
+                ("subject", models.CharField(max_length=50)),
+                ("message", models.TextField(max_length=300)),
             ],
         ),
         migrations.CreateModel(
-            name='PortfolioProjects',
+            name="PortfolioProjects",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(upload_to='images/projects')),
-                ('title', models.CharField(blank=True, max_length=100, null=True)),
-                ('description', models.CharField(blank=True, max_length=200, null=True)),
-                ('codebase', models.URLField(blank=True, null=True)),
-                ('live_project', models.URLField(blank=True, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("image", models.ImageField(upload_to="images/projects")),
+                ("title", models.CharField(blank=True, max_length=100, null=True)),
+                (
+                    "description",
+                    models.CharField(blank=True, max_length=200, null=True),
+                ),
+                ("codebase", models.URLField(blank=True, null=True)),
+                ("live_project", models.URLField(blank=True, null=True)),
             ],
             options={
-                'verbose_name': 'PortfolioProject',
-                'verbose_name_plural': 'PortfolioProject',
+                "verbose_name": "PortfolioProject",
+                "verbose_name_plural": "PortfolioProject",
             },
         ),
         migrations.CreateModel(
-            name='Post',
+            name="Post",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=50)),
-                ('slug', autoslug.fields.AutoSlugField(editable=True, populate_from='title', unique=True)),
-                ('body', models.TextField()),
-                ('published', models.DateTimeField(default=django.utils.timezone.now)),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('updated', models.DateTimeField(auto_now=True)),
-                ('snippet', models.CharField(default='', max_length=255)),
-                ('status', models.CharField(choices=[('draft', 'Draft'), ('published', 'Published')], default='draft', max_length=10)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=50)),
+                (
+                    "slug",
+                    autoslug.fields.AutoSlugField(
+                        editable=True, populate_from="title", unique=True
+                    ),
+                ),
+                ("body", models.TextField()),
+                ("published", models.DateTimeField(default=django.utils.timezone.now)),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("updated", models.DateTimeField(auto_now=True)),
+                ("snippet", models.CharField(default="", max_length=255)),
+                (
+                    "status",
+                    models.CharField(
+                        choices=[("draft", "Draft"), ("published", "Published")],
+                        default="draft",
+                        max_length=10,
+                    ),
+                ),
+                (
+                    "author",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'ordering': ('-published',),
+                "ordering": ("-published",),
             },
         ),
         migrations.CreateModel(
-            name='PostCategory',
+            name="PostCategory",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created', models.DateTimeField(auto_now_add=True, verbose_name='Created at')),
-                ('updated', models.DateTimeField(auto_now=True, verbose_name='Created at')),
-                ('title', models.CharField(default='Other', max_length=100, unique=True, verbose_name='Title')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "created",
+                    models.DateTimeField(auto_now_add=True, verbose_name="Created at"),
+                ),
+                (
+                    "updated",
+                    models.DateTimeField(auto_now=True, verbose_name="Created at"),
+                ),
+                (
+                    "title",
+                    models.CharField(
+                        default="Other",
+                        max_length=100,
+                        unique=True,
+                        verbose_name="Title",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Category',
-                'verbose_name_plural': 'Categories',
-                'ordering': ['-title'],
+                "verbose_name": "Category",
+                "verbose_name_plural": "Categories",
+                "ordering": ["-title"],
             },
         ),
         migrations.CreateModel(
-            name='PostComment',
+            name="PostComment",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=80)),
-                ('email', models.EmailField(max_length=254)),
-                ('body', models.TextField()),
-                ('created', models.DateTimeField(auto_now_add=True)),
-                ('updated', models.DateTimeField(auto_now=True)),
-                ('active', models.BooleanField(default=True)),
-                ('post', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='comments', to='website.post')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=80)),
+                ("email", models.EmailField(max_length=254)),
+                ("body", models.TextField()),
+                ("created", models.DateTimeField(auto_now_add=True)),
+                ("updated", models.DateTimeField(auto_now=True)),
+                ("active", models.BooleanField(default=True)),
+                (
+                    "post",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="comments",
+                        to="website.post",
+                    ),
+                ),
             ],
             options={
-                'ordering': ('created',),
+                "ordering": ("created",),
             },
         ),
         migrations.AddField(
-            model_name='post',
-            name='category',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='website.postcategory', verbose_name='Category'),
+            model_name="post",
+            name="category",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                to="website.postcategory",
+                verbose_name="Category",
+            ),
         ),
     ]
