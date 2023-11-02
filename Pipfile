@@ -21,7 +21,7 @@ djangorestframework-simplejwt = "~=5.3.0"
 django-cloudinary-storage = "==0.3.0"
 psycopg = "~=3.1.12"
 psycopg-binary = "~=3.1.12"
-django = "~=4.2.6"
+django = "~=4.2.7"
 
 [dev-packages]
 black = "~=23.10.0"
